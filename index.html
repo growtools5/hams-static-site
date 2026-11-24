@@ -1,0 +1,4449 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>HAMS همس — Quran Speaker Magnets</title>
+  <meta name="description" content="HAMS (همس) — Interactive 3D Quran Speaker Magnets. Preview real recitations, explore daily Quran presence for your home, and order with free shipping & Cash on Delivery across Morocco." />
+  <meta property="og:title" content="HAMS همس — Quran Speaker Magnets" />
+  <meta property="og:description" content="HAMS (همس) — Interactive 3D Quran Speaker Magnets with authentic recitations, Barakah Friday bundle savings, and Cash on Delivery." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Inter+Tight:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Noto+Naskh+Arabic:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    window.addEventListener('error', function (e) {
+      if (e && typeof e.filename === 'string' && /^(chrome|moz|safari-web)-extension:\/\//.test(e.filename)) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
+    }, true);
+  </script>
+  <style>
+    :root {
+      --paper: #ECE8E0;
+      --sheet: #F4F1EB;
+      --ink: #141414;
+      --muted: #6C6962;
+      --accent: #184D38;
+      --accent-dark: #102B20;
+      --accent-soft: rgba(24, 77, 56, .10);
+      --gold: #B08D44;
+      --gold-bright: #E5C16C;
+      --rule: rgba(20, 20, 20, .86);
+      --ease: cubic-bezier(.2, .8, .2, 1);
+      --promo-h: 30px;
+      --H: min(47vh, 33vw);
+      --cy: 42%;
+      --sans: "Inter Tight", "Noto Naskh Arabic", system-ui, sans-serif;
+      --serif: "Newsreader", "Amiri", Georgia, serif;
+      --arabic: "Amiri", "Noto Naskh Arabic", serif;
+      --callig: "Aref Ruqaa", "Amiri", serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      overflow: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 1.5px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    input, select, textarea {
+      font: inherit;
+      user-select: text;
+      -webkit-user-select: text;
+    }
+
+    /* Typography helpers */
+    .lbl {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 10.5px;
+      line-height: 1;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .ar {
+      font-family: var(--arabic);
+      direction: rtl;
+      unicode-bidi: isolate;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .rtl-block {
+      direction: rtl;
+      text-align: right;
+      font-family: "Noto Naskh Arabic", "Amiri", sans-serif;
+    }
+
+    /* Refined Cross Close Icon Button */
+    .close-x {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(20, 20, 20, .2);
+      background: rgba(244, 241, 235, .94);
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background-color .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease);
+    }
+
+    .close-x:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      transform: rotate(90deg);
+    }
+
+    .close-x svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+
+    /* Height probe */
+    .probe {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: var(--H);
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* Islamic Geometric Background Texture across entire site */
+    .islamic-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%22120%22%20viewBox%3D%220%200%20120%20120%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23184D38%22%20stroke-opacity%3D%220.08%22%20stroke-width%3D%221.2%22%3E%3Cpolygon%20points%3D%2260%2C6%2076%2C22%2098%2C22%2098%2C44%20114%2C60%2098%2C76%2098%2C98%2076%2C98%2060%2C114%2044%2C98%2022%2C98%2022%2C76%206%2C60%2022%2C44%2022%2C22%2044%2C22%22%2F%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2224%22%2F%3E%3Cpath%20d%3D%22M0%2C60%20L22%2C60%20M98%2C60%20L120%2C60%20M60%2C0%20L60%2C22%20M60%2C98%20L60%2C120%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+      background-repeat: repeat;
+      background-size: 320px auto;
+      mix-blend-mode: multiply;
+      opacity: .72;
+    }
+
+    /* Subtle paper grain overlay */
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+      opacity: .38;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 .45 0 0 0 0 .42 0 0 0 0 .38 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+      background-size: 220px 220px;
+      background-repeat: repeat;
+    }
+
+    /* Barakah Friday Top Promotional Ribbon */
+    .promo-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--promo-h);
+      background: var(--accent-dark);
+      color: #F4F1EB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      z-index: 35;
+      border-bottom: 1px solid rgba(229, 193, 108, .22);
+    }
+
+    .promo-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .promo-gold {
+      color: var(--gold-bright);
+    }
+
+    .promo-short { display: none; }
+
+    /* Top bar */
+    .top {
+      position: fixed;
+      top: var(--promo-h);
+      left: 0;
+      right: 0;
+      height: 62px;
+      padding: 0 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--accent);
+      z-index: 30;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+    }
+
+    .hams-logo-svg {
+      height: 30px;
+      width: auto;
+      display: block;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .brand-line {
+      display: block;
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+      flex-shrink: 0;
+      opacity: .55;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 6px 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 2px;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform .35s var(--ease);
+    }
+
+    .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .bag-count {
+      font-variant-numeric: tabular-nums;
+      color: var(--gold);
+    }
+
+    .burger {
+      width: 26px;
+      height: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .burger span {
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background: currentColor;
+      transition: transform .35s var(--ease);
+    }
+
+    .burger:hover span:first-child { transform: translateY(-1px); }
+    .burger:hover span:last-child { transform: translateY(1px); }
+
+    /* Halftone Dotted Backdrop: Left = القرآن, Right = Official HAMS همس Vector Logo */
+    .ht-bg {
+      position: fixed;
+      z-index: 1;
+      pointer-events: none;
+      overflow: visible;
+      opacity: .24;
+    }
+
+    .ht-left {
+      left: 2vw;
+      top: 13vh;
+      width: min(36vw, 440px);
+      height: auto;
+    }
+
+    .ht-right {
+      right: 2.2vw;
+      top: 15vh;
+      width: min(34vw, 420px);
+      height: auto;
+    }
+
+    /* Floor shadow */
+    .floor-shadow {
+      position: fixed;
+      left: 50%;
+      top: calc(var(--cy) + var(--H) * .48);
+      transform: translateX(-50%);
+      width: min(96vw, calc(var(--H) * 3.8));
+      height: calc(var(--H) * .24);
+      background: radial-gradient(50% 50% at 50% 40%, rgba(24, 22, 18, .30), rgba(24, 22, 18, .10) 55%, transparent 72%);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    /* Curved 3D Magnet Shelf */
+    .shelf {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: calc(var(--cy) - var(--H) / 2 - 48px);
+      height: calc(var(--H) + 96px);
+      perspective: 1400px;
+      perspective-origin: 50% 50%;
+      z-index: 10;
+      touch-action: pan-y;
+      cursor: grab;
+    }
+
+    .shelf.is-dragging {
+      cursor: grabbing;
+    }
+
+    .stage {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+      transform-style: preserve-3d;
+    }
+
+    .tape {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+      transform-style: preserve-3d;
+      will-change: transform;
+      cursor: pointer;
+    }
+
+    .face {
+      position: absolute;
+      top: calc(var(--H) * -.5);
+      height: var(--H);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      overflow: hidden;
+    }
+
+    .face::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #000;
+      opacity: var(--shade, 0);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    /* Slim, sleek hardware speaker spines — alternating Obsidian Black & Deep HAMS Emerald */
+    .sp {
+      width: var(--ws);
+      left: calc(var(--ws) * -.5);
+      transform: translateZ(calc(var(--d) * .5));
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, .10);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11% 0;
+      color: rgba(236, 232, 224, .92);
+      box-shadow: inset 1px 0 0 rgba(255, 255, 255, .07);
+    }
+
+    .sp.tone-black {
+      background: linear-gradient(90deg, #282A2E 0%, #17181A 22%, #131416 55%, #1E2023 88%, #0C0D0E 100%);
+    }
+
+    .sp.tone-green {
+      background: linear-gradient(90deg, #216349 0%, #184D38 24%, #123D2C 56%, #1C5840 88%, #0C2A1E 100%);
+      border-color: rgba(176, 141, 68, .24);
+    }
+
+    .sp-dots {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5px;
+      align-items: center;
+      opacity: .72;
+    }
+
+    .sp-dots i {
+      display: block;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, .68);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, .14);
+    }
+
+    .sp-label {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: clamp(7.5px, 1.05vh, 10px);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #EFE6D2;
+      max-height: 58%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .sp-usbc {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .sp-port {
+      width: 4.5px;
+      height: 12px;
+      border-radius: 2.5px;
+      background: rgba(0, 0, 0, .72);
+      border: 1px solid rgba(176, 141, 68, .5);
+    }
+
+    .sp-num {
+      font-size: 7.5px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      color: #D4B46A;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Square glossy acrylic magnet cover — tightly cropped (~2x black stroke) */
+    .cv {
+      width: var(--d);
+      left: calc(var(--d) * -.5);
+      transform: rotateY(90deg) translateZ(calc(var(--ws) * .5));
+      border-radius: 14px;
+      background-color: #FFFFFF;
+      background-size: 130.5% 130.5%;
+      background-position: 50% 49.5%;
+      background-repeat: no-repeat;
+      box-shadow:
+        0 36px 66px -26px rgba(18, 16, 12, .56),
+        0 0 0 1px rgba(20, 20, 20, .09);
+    }
+
+    .cv::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, .18) 0%, rgba(255, 255, 255, .03) 30%, transparent 55%, rgba(0, 0, 0, .08) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Compact Quick-Play Button tucked cleanly at bottom-right of active magnet */
+    .play-ring {
+      position: fixed;
+      width: 34px;
+      height: 34px;
+      margin: -17px 0 0 -17px;
+      border-radius: 50%;
+      border: 1.25px solid var(--accent);
+      background: rgba(244, 241, 235, .96);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      z-index: 24;
+      will-change: transform;
+      transform: scale(0);
+      box-shadow: 0 8px 20px -6px rgba(20, 20, 20, .34);
+      transition: background-color .25s var(--ease), color .25s var(--ease);
+    }
+
+    .play-ring:hover, .play-ring.is-playing {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .play-ring svg {
+      width: 11px;
+      height: 11px;
+      display: block;
+    }
+
+    /* Caption below shelf (clickable to open active product directly) */
+    .cap {
+      position: fixed;
+      left: 50%;
+      top: calc(var(--cy) + var(--H) / 2 + 2.8vh);
+      transform: translateX(-50%);
+      display: grid;
+      justify-items: center;
+      gap: 7px;
+      z-index: 20;
+      pointer-events: auto;
+      cursor: pointer;
+      text-align: center;
+      width: min(86vw, 660px);
+    }
+
+    .mask {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      display: grid;
+      place-items: center;
+    }
+
+    .mask > span {
+      grid-area: 1 / 1;
+      display: block;
+      width: 100%;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      will-change: transform;
+    }
+
+    .cap-title {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: clamp(24px, 3vw, 40px);
+      line-height: 1.1;
+      letter-spacing: -.018em;
+      color: var(--accent);
+    }
+
+    .cap-sub {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: .14em;
+      line-height: 1.35;
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .cap-sub .ar {
+      font-size: 14.5px;
+      font-weight: 700;
+    }
+
+    .cap-rule {
+      width: 22px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .cap-meta {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 10.5px;
+      line-height: 1.25;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    /* Quick Now Playing Mini Strip */
+    .mini-wrap {
+      position: fixed;
+      left: 50%;
+      bottom: 102px;
+      transform: translateX(-50%);
+      overflow: hidden;
+      z-index: 26;
+      pointer-events: none;
+      max-width: calc(100vw - 32px);
+    }
+
+    .mini-bar {
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 100%;
+      background: var(--accent-dark);
+      color: var(--paper);
+      padding: 8px 13px;
+      border-radius: 3px;
+      transform: translateY(125%);
+      transition: transform .42s var(--ease);
+    }
+
+    .mini-bar.active {
+      transform: translateY(0%);
+    }
+
+    .mini-eq {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 11px;
+      width: 14px;
+      flex-shrink: 0;
+    }
+
+    .mini-eq i {
+      display: block;
+      width: 2px;
+      height: 4px;
+      background: var(--gold-bright);
+      transform-origin: bottom;
+    }
+
+    .mini-label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+      flex: 1;
+      letter-spacing: .09em;
+    }
+
+    .mini-btn {
+      color: var(--gold-bright);
+      padding: 2px 4px;
+      flex-shrink: 0;
+    }
+
+    /* Arrows */
+    .arr {
+      position: fixed;
+      top: calc(var(--cy) + var(--H) / 2 + 2.8vh + clamp(24px, 3vw, 40px) * .55);
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      z-index: 25;
+      transition: transform .3s var(--ease);
+    }
+
+    .arr-l { left: calc(50% - min(24vw, 310px)); }
+    .arr-r { left: calc(50% + min(24vw, 310px)); }
+    .arr-l:hover { transform: translate(calc(-50% - 3px), -50%); }
+    .arr-r:hover { transform: translate(calc(-50% + 3px), -50%); }
+    .arr svg { width: 24px; height: 12px; display: block; overflow: visible; }
+
+    /* Edition Ruler (01–12) */
+    .tl {
+      position: fixed;
+      left: 36px;
+      right: 36px;
+      bottom: 56px;
+      height: 40px;
+      z-index: 20;
+    }
+
+    .tl-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 12px;
+      height: 1px;
+      background: var(--accent);
+      opacity: .65;
+      pointer-events: none;
+    }
+
+    .tl-tick {
+      position: absolute;
+      width: 1px;
+      background: var(--accent);
+      transform: translateX(-.5px);
+      pointer-events: none;
+    }
+
+    .tl-tick.major { top: 6px; height: 13px; opacity: .75; }
+    .tl-tick.minor { top: 9px; height: 7px; opacity: .35; }
+
+    .tl-yr {
+      position: absolute;
+      top: 25px;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 9.5px;
+      line-height: 1;
+      letter-spacing: .06em;
+      font-variant-numeric: tabular-nums;
+      color: var(--accent);
+      transform: translateX(-50%);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .tl-yr.first { transform: none; }
+    .tl-yr.last { transform: translateX(-100%); }
+
+    .tl-dot {
+      position: absolute;
+      top: 12px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--paper);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      will-change: left;
+    }
+
+    .tl-hit {
+      position: absolute;
+      inset: -8px 0 -4px 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    .foot {
+      position: fixed;
+      left: 36px;
+      right: 36px;
+      bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--accent);
+      z-index: 20;
+    }
+
+    .foot-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    /* ── Shared Sheet Surface (Detail / Panels / Checkout) ── */
+    .detail, .panel {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      max-width: 100vw;
+      background-color: var(--sheet);
+      display: none;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      will-change: clip-path;
+    }
+
+    .detail { z-index: 60; }
+    .panel { z-index: 70; }
+
+    .detail::before, .panel::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22120%22%20height%3D%22120%22%20viewBox%3D%220%200%20120%20120%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23184D38%22%20stroke-opacity%3D%220.08%22%20stroke-width%3D%221.2%22%3E%3Cpolygon%20points%3D%2260%2C6%2076%2C22%2098%2C22%2098%2C44%20114%2C60%2098%2C76%2098%2C98%2076%2C98%2060%2C114%2044%2C98%2022%2C98%2022%2C76%206%2C60%2022%2C44%2022%2C22%2044%2C22%22%2F%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2224%22%2F%3E%3Cpath%20d%3D%22M0%2C60%20L22%2C60%20M98%2C60%20L120%2C60%20M60%2C0%20L60%2C22%20M60%2C98%20L60%2C120%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+      background-repeat: repeat;
+      background-size: 320px auto;
+      mix-blend-mode: multiply;
+      opacity: .55;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sheet-head {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 36px;
+      background: rgba(244, 241, 235, .93);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(20, 20, 20, .08);
+      z-index: 10;
+    }
+
+    /* Detail Layout */
+    .detail-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(0, .94fr);
+      gap: 5vw;
+      padding: 24px 6vw 64px 7vw;
+      min-height: calc(100% - 77px);
+      width: 100%;
+      max-width: 100%;
+      align-items: center;
+    }
+
+    .detail-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 560px;
+      min-width: 0;
+      gap: 15px;
+    }
+
+    .d-mask {
+      overflow: hidden;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .d-line {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      will-change: transform;
+    }
+
+    .d-sub {
+      color: var(--accent);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: .14em;
+      white-space: normal;
+      line-height: 1.4;
+    }
+
+    .d-sub .ar {
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .d-title {
+      margin: 0;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: clamp(30px, 3.8vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -.028em;
+      color: var(--ink);
+      overflow-wrap: break-word;
+    }
+
+    .d-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 12px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      white-space: normal;
+    }
+
+    .d-price {
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: .01em;
+    }
+
+    .d-compare {
+      text-decoration: line-through;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .d-syn {
+      margin: 0;
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.55;
+      max-width: 48ch;
+      color: var(--ink);
+    }
+
+    /* Reciter & Track Switchers */
+    .selector-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .selector-label {
+      color: var(--muted);
+      font-size: 9.5px;
+    }
+
+    .selector-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .seg-btn {
+      padding: 8px 13px;
+      border: 1px solid rgba(20, 20, 20, .22);
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 12px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, .58);
+      transition: background-color .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
+    }
+
+    .seg-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .seg-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* Live Audio Listening Deck */
+    .player-deck {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      border: 1px solid rgba(24, 77, 56, .28);
+      background: rgba(255, 255, 255, .72);
+      padding: 14px 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .player-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .play-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 38px;
+      padding: 0 16px;
+      background: var(--accent);
+      color: #fff;
+      flex-shrink: 0;
+      transition: background-color .25s var(--ease);
+    }
+
+    .play-main:hover { background: #123B2B; }
+    .play-main svg { width: 12px; height: 12px; display: block; }
+
+    .player-info {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .player-track-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .player-reciter-name {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .player-tc {
+      font-variant-numeric: tabular-nums;
+      color: var(--accent);
+      flex-shrink: 0;
+      font-size: 10px;
+    }
+
+    .viz-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .viz-canvas {
+      width: 100%;
+      max-width: 100%;
+      height: 38px;
+      display: block;
+    }
+
+    .scrub-bar {
+      position: relative;
+      width: 100%;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .scrub-rail {
+      width: 100%;
+      height: 2px;
+      background: rgba(20, 20, 20, .16);
+      position: relative;
+    }
+
+    .scrub-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0%;
+      background: var(--accent);
+    }
+
+    .scrub-thumb {
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      transform: translate(-50%, -50%);
+    }
+
+    /* Action Buttons (BUY NOW + ADD TO BAG) */
+    .d-actions {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .d-buy {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 48px;
+      padding: 0 20px;
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent);
+      transition: background-color .25s var(--ease);
+    }
+
+    .d-buy:hover {
+      background: var(--accent-dark);
+    }
+
+    .d-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 0 18px;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--ink);
+      transition: background-color .25s var(--ease), color .25s var(--ease);
+    }
+
+    .d-cta:hover {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    /* Barakah Friday Offer Card + Trust Grid inside Detail */
+    .bf-box {
+      width: 100%;
+      background: var(--accent-dark);
+      color: #F4F1EB;
+      padding: 13px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .bf-box strong {
+      color: var(--gold-bright);
+      font-weight: 600;
+    }
+
+    .trust-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 14px;
+      padding: 14px 16px;
+      background: rgba(24, 77, 56, .06);
+      border: 1px solid rgba(24, 77, 56, .14);
+      border-radius: 6px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 12px;
+      line-height: 1.35;
+      color: var(--accent-dark);
+      font-weight: 500;
+    }
+
+    .trust-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Right Poster SVG with Tight Crop & Ink-Blot Mask */
+    .detail-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .poster-frame {
+      position: relative;
+      width: min(100%, 490px);
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      box-shadow: 0 36px 68px -28px rgba(18, 16, 12, .42), 0 0 0 1px rgba(20, 20, 20, .08);
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+
+    .poster-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .hardware-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px 14px;
+      color: var(--muted);
+      white-space: normal;
+      text-align: center;
+    }
+
+    /* ── Panel Body & Editorial Grids ── */
+    .panel-body {
+      position: relative;
+      z-index: 2;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 36px 36px 84px;
+    }
+
+    .panel-h1 {
+      margin: 0 0 26px;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: clamp(30px, 4vw, 52px);
+      letter-spacing: -.025em;
+      line-height: 1.06;
+      color: var(--accent);
+    }
+
+    /* 3-col Collection Grid */
+    .col-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .col-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(20, 20, 20, .12);
+    }
+
+    .col-thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #FFFFFF;
+      border: 1px solid rgba(20, 20, 20, .08);
+    }
+
+    .col-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.305);
+      transform-origin: 50% 49.5%;
+      transition: transform .5s var(--ease);
+    }
+
+    .col-card:hover .col-thumb img {
+      transform: scale(1.35);
+    }
+
+    .col-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .col-name {
+      font-weight: 600;
+      font-size: 16.5px;
+      color: var(--ink);
+      letter-spacing: -.01em;
+    }
+
+    .col-price {
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+    }
+
+    .col-sub {
+      color: var(--muted);
+      font-size: 12.5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    /* Custom HAMS Built-In Features Blueprint & Lifestyle Gallery */
+    .blueprint-card {
+      background: rgba(255, 255, 255, .64);
+      border: 1px solid rgba(24, 77, 56, .22);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 44px;
+    }
+
+    .blueprint-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(24, 77, 56, .14);
+      padding-bottom: 18px;
+    }
+
+    .blueprint-title {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: -.02em;
+    }
+
+    .blueprint-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      overflow: visible;
+    }
+
+    .bp-picker {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(24, 77, 56, .12);
+    }
+
+    .bp-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 10px 5px 5px;
+      border: 1px solid rgba(20, 20, 20, .18);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, .68);
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--ink);
+      transition: border-color .22s var(--ease), background-color .22s var(--ease), color .22s var(--ease);
+    }
+
+    .bp-chip.active {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .bp-chip-img {
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      overflow: hidden;
+      background: #fff;
+      flex-shrink: 0;
+    }
+
+    .bp-chip-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.305);
+      display: block;
+    }
+
+    .lifestyle-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      margin-top: 24px;
+    }
+
+    .life-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .life-img {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(20, 20, 20, .1);
+      background: #DCD6CA;
+    }
+
+    .life-img > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .55s var(--ease);
+    }
+
+    .life-card:hover .life-img > img {
+      transform: scale(1.03);
+    }
+
+    /* Real HAMS Catalog Card Featured on Each Space Showcase */
+    .life-magnet-inset {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      width: 34%;
+      max-width: 152px;
+      aspect-ratio: 1 / 1;
+      border-radius: 11px;
+      overflow: hidden;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(255, 255, 255, .95);
+      box-shadow: 0 18px 34px -10px rgba(10, 22, 16, .62), 0 0 0 1px rgba(20, 20, 20, .16);
+      transition: transform .4s var(--ease);
+    }
+
+    .life-card:hover .life-magnet-inset {
+      transform: translateY(-4px) scale(1.04);
+    }
+
+    .life-magnet-inset img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.305);
+      transform-origin: 50% 49.5%;
+      display: block;
+    }
+
+    .life-tag {
+      position: absolute;
+      left: 12px;
+      bottom: 14px;
+      background: rgba(16, 43, 32, .88);
+      color: #F4F1EB;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      backdrop-filter: blur(4px);
+    }
+
+    .life-title {
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--ink);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .life-desc {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    /* ── Checkout (BUY NOW / الدفع عند الاستلام) & FAQ Accordion ── */
+    .co-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+      gap: 44px;
+      align-items: start;
+    }
+
+    .co-card {
+      background: rgba(255, 255, 255, .74);
+      border: 1px solid rgba(24, 77, 56, .22);
+      border-radius: 10px;
+      padding: 26px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .bundle-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .bundle-opt {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border: 1px solid rgba(20, 20, 20, .18);
+      border-radius: 6px;
+      background: rgba(244, 241, 235, .65);
+      text-align: left;
+      transition: border-color .25s var(--ease), background-color .25s var(--ease);
+    }
+
+    .bundle-opt.active {
+      border-color: var(--accent);
+      background: rgba(24, 77, 56, .09);
+      box-shadow: inset 0 0 0 1px var(--accent);
+    }
+
+    .bundle-tag {
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .field input, .field select, .field textarea {
+      width: 100%;
+      height: 44px;
+      padding: 0 14px;
+      border: 1px solid rgba(20, 20, 20, .24);
+      border-radius: 4px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 14.5px;
+    }
+
+    .field textarea {
+      height: 76px;
+      padding: 10px 14px;
+      resize: vertical;
+    }
+
+    .co-summary-box {
+      border-top: 1px solid rgba(20, 20, 20, .14);
+      padding-top: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .co-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      font-size: 13.5px;
+    }
+
+    .co-total {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .co-submit {
+      width: 100%;
+      height: 52px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background-color .25s var(--ease);
+    }
+
+    .co-submit:hover {
+      background: var(--accent-dark);
+    }
+
+    .co-confirm {
+      padding: 28px 24px;
+      background: rgba(24, 77, 56, .08);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      display: grid;
+      gap: 14px;
+    }
+
+    /* Accordions (Policies & FAQs from hamss.ma) */
+    .acc-list {
+      border-top: 1px solid rgba(20, 20, 20, .15);
+    }
+
+    .acc-item {
+      border-bottom: 1px solid rgba(20, 20, 20, .15);
+    }
+
+    .acc-btn {
+      width: 100%;
+      padding: 16px 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      text-align: right;
+      direction: rtl;
+      font-family: "Noto Naskh Arabic", "Amiri", sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--ink);
+    }
+
+    .acc-btn svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent);
+      flex-shrink: 0;
+      transition: transform .3s var(--ease);
+    }
+
+    .acc-item.open .acc-btn svg {
+      transform: rotate(180deg);
+    }
+
+    .acc-body {
+      display: none;
+      padding: 0 4px 18px;
+      direction: rtl;
+      text-align: right;
+      font-family: "Noto Naskh Arabic", "Amiri", sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      color: #3A3834;
+    }
+
+    .acc-item.open .acc-body {
+      display: block;
+    }
+
+    .ma-pillars {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .ma-pillar {
+      padding: 16px;
+      background: rgba(255, 255, 255, .64);
+      border: 1px solid rgba(24, 77, 56, .16);
+      border-radius: 6px;
+      direction: rtl;
+      text-align: right;
+      font-family: "Noto Naskh Arabic", "Amiri", sans-serif;
+    }
+
+    .ma-pillar strong {
+      display: block;
+      color: var(--accent);
+      font-size: 14.5px;
+      margin-bottom: 5px;
+    }
+
+    .ma-pillar span {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    /* Bag Layout */
+    .bag-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, .85fr);
+      gap: 44px;
+      align-items: start;
+    }
+
+    .bag-item {
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(20, 20, 20, .12);
+    }
+
+    .bag-thumb {
+      width: 74px;
+      height: 74px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid rgba(20, 20, 20, .08);
+    }
+
+    .bag-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.305);
+      transform-origin: 50% 49.5%;
+      display: block;
+    }
+
+    .qty-ctrl {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(20, 20, 20, .24);
+      height: 30px;
+    }
+
+    .qty-ctrl button {
+      width: 28px;
+      height: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qty-ctrl span {
+      min-width: 26px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .bag-summary {
+      border: 1px solid rgba(24, 77, 56, .28);
+      padding: 22px;
+      display: grid;
+      gap: 14px;
+      background: rgba(255, 255, 255, .66);
+      border-radius: 8px;
+    }
+
+    .tier-note {
+      padding: 12px 14px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      line-height: 1.45;
+      border-radius: 4px;
+    }
+
+    /* Toast */
+    .toast-wrap {
+      position: fixed;
+      right: 24px;
+      bottom: 48px;
+      overflow: hidden;
+      z-index: 95;
+      pointer-events: none;
+    }
+
+    .toast {
+      background: var(--accent);
+      color: #fff;
+      padding: 9px 14px;
+      transform: translateY(115%);
+    }
+
+    .foot-long { display: inline; }
+    .foot-short { display: none; }
+
+    /* ── Phones (<= 767px) ── */
+    @media (max-width: 767px) {
+      :root {
+        --promo-h: 28px;
+        --H: min(62vw, 35svh);
+        --cy: 42%;
+      }
+
+      .promo-full { display: none; }
+      .promo-short { display: inline; }
+
+      .promo-btn {
+        font-size: 9px;
+        letter-spacing: .09em;
+      }
+
+      .top {
+        height: 50px;
+        padding: 0 16px;
+      }
+
+      .hams-logo-svg { height: 24px; }
+      .brand-line, .brand-sub { display: none; }
+      .nav { gap: 16px; }
+      .nav-hide-sm { display: none; }
+
+      .ht-bg { opacity: .18; }
+      .ht-left { left: 2vw; top: 12vh; width: 42vw; }
+      .ht-right { right: 2vw; top: 13.5vh; width: 38vw; }
+
+      .play-ring {
+        width: 32px;
+        height: 32px;
+        margin: -16px 0 0 -16px;
+      }
+
+      .cap {
+        width: calc(100vw - 32px);
+        top: calc(var(--cy) + var(--H) / 2 + 2.4vh);
+        gap: 6px;
+      }
+
+      .cap-title { font-size: 22px; }
+      .cap-sub { font-size: 9.5px; letter-spacing: .08em; }
+      .cap-sub .ar { font-size: 13px; }
+      .cap-meta { font-size: 9.5px; }
+
+      .arr {
+        top: auto;
+        bottom: 94px;
+        transform: none;
+        width: 40px;
+        height: 40px;
+      }
+
+      .arr-l { left: 10px; }
+      .arr-r { left: auto; right: 10px; }
+      .arr-l:hover, .arr-r:hover { transform: none; }
+
+      .mini-wrap {
+        bottom: 96px;
+        max-width: calc(100vw - 108px);
+      }
+
+      .mini-bar {
+        padding: 7px 10px;
+        gap: 8px;
+      }
+
+      .mini-label { font-size: 9px; }
+
+      .tl {
+        left: 16px;
+        right: 16px;
+        bottom: 44px;
+      }
+
+      .tl-yr.hide-sm { display: none; }
+
+      .foot {
+        left: 16px;
+        right: 16px;
+        bottom: 13px;
+      }
+
+      .foot .lbl { font-size: 9.5px; letter-spacing: .1em; }
+      .foot-long { display: none; }
+      .foot-short { display: inline; }
+
+      .sheet-head { padding: 12px 16px; }
+      .sheet-head .brand-line, .sheet-head .brand-sub { display: none; }
+
+      .detail-grid {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 14px 16px 48px;
+        gap: 20px;
+        min-height: auto;
+      }
+
+      .detail-right { order: -1; gap: 10px; }
+
+      .poster-frame {
+        width: min(76vw, 300px);
+        border-radius: 16px;
+      }
+
+      .hardware-strip {
+        font-size: 9px;
+        letter-spacing: .09em;
+        gap: 6px 10px;
+      }
+
+      .detail-left { max-width: 100%; gap: 13px; }
+      .d-title { font-size: 27px; }
+      .d-syn { font-size: 15px; }
+
+      .player-deck { padding: 12px 13px; }
+      .player-top { flex-wrap: wrap; gap: 8px; }
+      .play-main { height: 36px; padding: 0 14px; }
+      .player-tc { width: 100%; text-align: right; margin-top: -2px; }
+
+      .d-actions { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr; gap: 8px; }
+
+      .panel-body { padding: 18px 16px 60px; }
+      .col-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .col-name { font-size: 14px; }
+      .col-sub { flex-direction: column; align-items: flex-start; gap: 2px; font-size: 11px; }
+
+      .blueprint-card { padding: 18px 14px; }
+      .lifestyle-grid, .co-grid, .bag-layout, .ma-pillars {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+      }
+
+      .co-card { padding: 18px 16px; }
+
+      .toast-wrap {
+        right: 16px;
+        left: 16px;
+        bottom: 44px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  </style>
+
+  <!-- GitHub Pages mode keeps the ZIP's original layout but disables motion. -->
+  <style id="hams-static-mode">
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  </style>
+
+  <script>
+    window.HAMS_LIGHTFUNNELS_CONFIG = {
+      currency: 'MAD',
+      defaultCheckoutUrl: 'https://growai.myecomsite.net/hams-magnets',
+      productUrls: {},
+      assets: {
+        fridge: 'https://cdn.shopify.com/s/files/1/0688/0080/6965/files/surah-al-baqarah-quran-speaker-fridge-magnet-alafasy.png?v=1787244370',
+        bedroom: 'https://cdn.shopify.com/s/files/1/0688/0080/6965/files/ayatul-kursi-4-quls-quran-speaker-magnet-omar-hisham.png?v=1787244370',
+        desk: 'https://cdn.shopify.com/s/files/1/0688/0080/6965/files/lofi-quran-speaker-fridge-magnet-omar-hisham-al-arabi.png?v=1787244389',
+        garden: 'https://cdn.shopify.com/s/files/1/0688/0080/6965/files/surah-al-kahf-quran-speaker-fridge-magnet-alafasy.png?v=1787244370'
+      }
+    };
+  </script>
+</head>
+<body>
+  <div class="probe" id="probe" aria-hidden="true"></div>
+  <div class="islamic-bg" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Shared SVG Vector Definitions: Official HAMS همس Logo + Halftone Dot Pattern -->
+  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <defs>
+      <symbol id="hams-logo-sym" viewBox="0 0 668 311">
+        <path fill="currentColor" fill-rule="evenodd" d="M662.9 18.1 Q664.9 20.1 665.9 30.1 Q667 40 665.9 47.9 Q664.9 55.9 658.4 74.4 Q652 93 652.7 96.8 Q653.4 100.6 658.6 115.9 Q663.9 131.1 664.9 138.1 Q666 145 665.4 154.9 Q664.9 164.9 662.2 174.2 Q659.6 183.6 657.1 189.1 Q654.6 194.6 648.9 202.9 Q643.2 211.2 638.5 215.3 Q633.8 219.5 625 205.1 Q616.2 190.8 612 185.5 Q607.7 180.3 604.6 177.8 Q601.4 175.4 593.8 182.8 Q586.2 190.2 576.9 195.4 Q567.6 200.6 558.2 203.2 Q548.9 205.9 542.9 206.4 Q537 207 533 206.5 Q529 206 527.3 206.8 Q525.5 207.5 520.6 223.6 Q515.6 239.6 511.7 248.7 Q507.7 257.7 505.6 260.6 Q503.6 263.6 500.5 263.6 Q497.4 263.6 492.1 259.9 Q486.8 256.2 482.8 252.2 Q478.8 248.2 474.9 242.6 Q471 237 467.2 228.8 Q463.4 220.6 461.2 211.8 Q459 203 459 192 Q459 181 460.4 175.5 Q461.8 169.9 461.4 169.1 Q461 168.3 443.6 183.3 Q426.2 198.2 409.6 208.6 Q393 219 376.3 226.3 Q359.6 233.6 339.2 239.2 Q318.9 244.9 307.9 246.4 Q297 248 286.5 248.5 Q276 249 255.6 247.9 Q235.1 246.9 221.6 244.4 Q208.1 241.9 198.8 239.2 Q189.4 236.6 173.3 230.6 Q157.3 224.5 149.1 242.3 Q141 260 134.1 270.1 Q127.2 280.2 121.7 285.7 Q116.2 291.2 110.9 294.9 Q105.6 298.6 101.1 301.1 Q96.6 303.6 90.2 305.7 Q83.9 307.9 76.4 308.9 Q69 310 58.7 307.8 Q48.4 305.6 40.1 300.9 Q31.8 296.2 23.1 286.9 Q14.4 277.6 11 271.5 Q7.7 265.3 5.4 259.1 Q3.1 252.9 2.1 247.9 Q1 243 0.5 234 Q0 225 2.2 212.2 Q4.4 199.4 6.9 191.9 Q9.4 184.4 14.4 173.9 Q19.4 163.4 30.6 147.6 Q41.8 131.8 52.3 120.8 Q62.8 109.8 81.1 96.1 Q99.4 82.4 120.4 71.4 Q141.4 60.4 163.8 52.8 Q186.1 45.1 205.1 41.1 Q224.1 37.1 242.6 35.1 Q261 33 287.5 32.5 Q314 32 346 34 Q378 36 409.4 40.6 Q440.9 45.1 465.9 51.1 Q490.9 57.1 509.4 63.6 Q528 70 535.5 73 Q543 76 549.3 79.7 Q555.5 83.5 556.5 85.5 Q557.4 87.5 553.7 87.7 Q550 88 534.6 84.9 Q519.1 81.9 488.5 73 Q457.9 64.1 438.4 60.6 Q418.9 57.1 377.9 53.6 Q337 50 309 50 Q281 50 267.5 51 Q254 52 233.6 55.1 Q213.1 58.1 200.6 61.1 Q188.1 64.1 173.8 68.8 Q159.4 73.4 137.9 83.4 Q116.4 93.4 105.4 100.4 Q94.4 107.4 84.6 115.1 Q74.8 122.8 60.8 137.3 Q46.8 151.8 40.1 161.6 Q33.4 171.4 29.4 179.9 Q25.4 188.4 23.3 195.8 Q21.1 203.1 20.6 211.1 Q20 219 22.1 228.4 Q24.1 237.9 27.2 243.8 Q30.4 249.6 35.1 254.9 Q39.8 260.2 46.1 263.9 Q52.4 267.6 59.3 269.7 Q66.1 271.9 75.6 271.9 Q85 272 94.5 269 Q104 266 113.6 259.6 Q123.2 253.2 127.9 247.4 Q132.6 241.6 136.1 235.1 Q139.6 228.6 141.3 221.3 Q143 214 141.9 208.1 Q140.9 202.1 137.2 194.8 Q133.6 187.4 129.8 182.7 Q126 178 125 175 Q124 172 124.6 168.1 Q125.1 164.1 127.3 158.3 Q129.4 152.4 131.4 148.4 Q133.4 144.4 135.2 142.8 Q137 141.3 138.8 142.8 Q140.6 144.4 150.7 159.8 Q160.8 175.2 166.3 180.7 Q171.8 186.2 176.9 189.6 Q182 193 189.2 196.3 Q196.4 199.6 206.8 202.7 Q217.1 205.9 241.1 208.9 Q265 212 283.5 212 Q302 212 311.9 210.9 Q321.9 209.9 338.4 206.4 Q354.9 202.9 370.2 197.7 Q385.6 192.6 401.8 184.8 Q418 177 429.8 169.3 Q441.6 161.6 451.9 153.4 Q462.2 145.2 474 134 Q485.8 122.8 490.4 120 Q495.1 117.2 496.4 117.8 Q497.6 118.4 498.9 125.6 Q500.1 132.9 502.8 139.2 Q505.4 145.6 509.1 150.9 Q512.8 156.2 517.1 159.9 Q521.4 163.6 525.9 166.1 Q530.4 168.6 538.7 170.8 Q547 173 551.9 172.9 Q556.9 172.9 565.2 170.7 Q573.6 168.6 578.7 165.7 Q583.7 162.7 585.5 161 Q587.2 159.2 588 157.1 Q588.8 154.9 586 145.4 Q583.1 135.9 583.1 127.9 Q583 120 585.1 111.6 Q587.1 103.1 592 91 Q596.9 78.9 594.5 66.4 Q592.1 53.9 592.1 48.9 Q592 44 593.2 37.7 Q594.4 31.4 597.9 22.9 Q601.4 14.4 606.3 7.8 Q611.3 1.3 612.8 0.8 Q614.3 0.4 612.7 13.7 Q611 27 613.1 35.9 Q615.1 44.9 617.1 46.9 Q619 48.9 637.7 33.1 Q656.4 17.4 658.6 16.8 Q660.9 16.2 662.9 18.1 Z M639.8 80.9 Q641.8 82.5 642.8 80.2 Q643.9 77.9 644.4 74.4 Q644.9 70.9 644.9 64 Q644.9 57.1 643.4 55.2 Q642 53.2 639.1 55.2 Q636.2 57.2 633.3 60.8 Q630.3 64.3 629.9 66 Q629.4 67.7 633.6 73.5 Q637.8 79.2 639.8 80.9 Z M607.3 96.6 Q606.3 96.4 604.3 99.4 Q602.3 102.3 601.7 104.7 Q601.1 107.1 601.6 111 Q602.1 114.9 604.2 119.8 Q606.3 124.7 609.4 129.1 Q612.4 133.6 613.6 134 Q614.8 134.5 616 133.4 Q617.2 132.2 620 129 Q622.7 125.7 623.8 122.4 Q624.9 119.1 618.6 109.9 Q612.2 100.8 610.2 98.8 Q608.2 96.8 607.3 96.6 Z M643.2 182.2 Q644 182.8 644.9 180.8 Q645.9 178.9 645.9 171.9 Q646 165 644.8 159.2 Q643.7 153.3 639.9 145.1 Q636.2 136.8 634.8 136.6 Q633.4 136.4 631.8 137.8 Q630.2 139.2 627.8 142.8 Q625.4 146.4 625.4 149.5 Q625.3 152.7 633.8 167.2 Q642.3 181.7 643.2 182.2 Z M485.1 167.2 Q482.2 160.5 481.6 162.2 Q481 164 481.5 174 Q482 184 484.2 192.3 Q486.3 200.7 488.8 206.2 Q491.3 211.7 494.1 215.4 Q496.8 219.2 499.8 222.2 Q502.8 225.2 504.2 225.4 Q505.5 225.5 506.2 224.2 Q506.9 222.9 506.9 219.5 Q507 216 505.3 209.2 Q503.7 202.3 495.8 188.2 Q488 174 485.1 167.2 Z" />
+      </symbol>
+      <pattern id="ht-dots" width="9" height="9" patternUnits="userSpaceOnUse">
+        <circle cx="4.5" cy="4.5" r="2.75" fill="#184D38" />
+      </pattern>
+      <pattern id="ht-dots-lg" width="12" height="12" patternUnits="userSpaceOnUse">
+        <circle cx="6" cy="6" r="3.6" fill="#184D38" />
+      </pattern>
+    </defs>
+  </svg>
+
+  <!-- Barakah Friday Promo Ribbon -->
+  <div class="promo-bar">
+    <button type="button" class="promo-btn" data-panel="collection" id="promoBtn">
+      <span class="promo-full"><span class="promo-gold">BARAKAH FRIDAY</span> · BUY 3 GET 30% OFF &nbsp;|&nbsp; BUY 6 GET 50% OFF · FREE SHIPPING ON EVERY ORDER</span>
+      <span class="promo-short"><span class="promo-gold">BARAKAH FRIDAY</span> · 30% OFF (3) · 50% OFF (6) · FREE SHIPPING</span>
+    </button>
+  </div>
+
+  <!-- Top Bar -->
+  <header class="top">
+    <div class="brand">
+      <a href="#archive" class="brand-mark" id="brandHome" aria-label="HAMS Home">
+        <svg class="hams-logo-svg" viewBox="0 0 668 311" role="img" aria-label="HAMS همس">
+          <use href="#hams-logo-sym" />
+        </svg>
+      </a>
+      <span class="brand-line" aria-hidden="true"></span>
+      <span class="lbl brand-sub">QURAN SPEAKER MAGNETS</span>
+    </div>
+    <nav class="nav" aria-label="Primary">
+      <button type="button" class="lbl nav-link nav-hide-sm" data-panel="collection">COLLECTION</button>
+      <button type="button" class="lbl nav-link nav-hide-sm" data-panel="features">FEATURES</button>
+      <button type="button" class="lbl nav-link nav-hide-sm" data-panel="faq">FAQ</button>
+      <button type="button" class="lbl nav-link" data-panel="bag">BAG <span class="bag-count" id="navBagCount">(0)</span></button>
+      <button type="button" class="burger" id="burgerBtn" aria-label="Open HAMS menu" data-panel="collection">
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Halftone Dotted Backdrop: Left = القرآن, Right = Official HAMS Logo -->
+  <svg class="ht-bg ht-left" viewBox="0 0 560 280" aria-hidden="true">
+    <text x="280" y="195" text-anchor="middle" direction="rtl" fill="url(#ht-dots)" font-family="Amiri, Noto Naskh Arabic, serif" font-weight="700" font-size="195">القرآن</text>
+  </svg>
+  <svg class="ht-bg ht-right" viewBox="0 0 668 311" aria-hidden="true">
+    <use href="#hams-logo-sym" style="color:transparent" />
+    <path fill="url(#ht-dots-lg)" fill-rule="evenodd" d="M662.9 18.1 Q664.9 20.1 665.9 30.1 Q667 40 665.9 47.9 Q664.9 55.9 658.4 74.4 Q652 93 652.7 96.8 Q653.4 100.6 658.6 115.9 Q663.9 131.1 664.9 138.1 Q666 145 665.4 154.9 Q664.9 164.9 662.2 174.2 Q659.6 183.6 657.1 189.1 Q654.6 194.6 648.9 202.9 Q643.2 211.2 638.5 215.3 Q633.8 219.5 625 205.1 Q616.2 190.8 612 185.5 Q607.7 180.3 604.6 177.8 Q601.4 175.4 593.8 182.8 Q586.2 190.2 576.9 195.4 Q567.6 200.6 558.2 203.2 Q548.9 205.9 542.9 206.4 Q537 207 533 206.5 Q529 206 527.3 206.8 Q525.5 207.5 520.6 223.6 Q515.6 239.6 511.7 248.7 Q507.7 257.7 505.6 260.6 Q503.6 263.6 500.5 263.6 Q497.4 263.6 492.1 259.9 Q486.8 256.2 482.8 252.2 Q478.8 248.2 474.9 242.6 Q471 237 467.2 228.8 Q463.4 220.6 461.2 211.8 Q459 203 459 192 Q459 181 460.4 175.5 Q461.8 169.9 461.4 169.1 Q461 168.3 443.6 183.3 Q426.2 198.2 409.6 208.6 Q393 219 376.3 226.3 Q359.6 233.6 339.2 239.2 Q318.9 244.9 307.9 246.4 Q297 248 286.5 248.5 Q276 249 255.6 247.9 Q235.1 246.9 221.6 244.4 Q208.1 241.9 198.8 239.2 Q189.4 236.6 173.3 230.6 Q157.3 224.5 149.1 242.3 Q141 260 134.1 270.1 Q127.2 280.2 121.7 285.7 Q116.2 291.2 110.9 294.9 Q105.6 298.6 101.1 301.1 Q96.6 303.6 90.2 305.7 Q83.9 307.9 76.4 308.9 Q69 310 58.7 307.8 Q48.4 305.6 40.1 300.9 Q31.8 296.2 23.1 286.9 Q14.4 277.6 11 271.5 Q7.7 265.3 5.4 259.1 Q3.1 252.9 2.1 247.9 Q1 243 0.5 234 Q0 225 2.2 212.2 Q4.4 199.4 6.9 191.9 Q9.4 184.4 14.4 173.9 Q19.4 163.4 30.6 147.6 Q41.8 131.8 52.3 120.8 Q62.8 109.8 81.1 96.1 Q99.4 82.4 120.4 71.4 Q141.4 60.4 163.8 52.8 Q186.1 45.1 205.1 41.1 Q224.1 37.1 242.6 35.1 Q261 33 287.5 32.5 Q314 32 346 34 Q378 36 409.4 40.6 Q440.9 45.1 465.9 51.1 Q490.9 57.1 509.4 63.6 Q528 70 535.5 73 Q543 76 549.3 79.7 Q555.5 83.5 556.5 85.5 Q557.4 87.5 553.7 87.7 Q550 88 534.6 84.9 Q519.1 81.9 488.5 73 Q457.9 64.1 438.4 60.6 Q418.9 57.1 377.9 53.6 Q337 50 309 50 Q281 50 267.5 51 Q254 52 233.6 55.1 Q213.1 58.1 200.6 61.1 Q188.1 64.1 173.8 68.8 Q159.4 73.4 137.9 83.4 Q116.4 93.4 105.4 100.4 Q94.4 107.4 84.6 115.1 Q74.8 122.8 60.8 137.3 Q46.8 151.8 40.1 161.6 Q33.4 171.4 29.4 179.9 Q25.4 188.4 23.3 195.8 Q21.1 203.1 20.6 211.1 Q20 219 22.1 228.4 Q24.1 237.9 27.2 243.8 Q30.4 249.6 35.1 254.9 Q39.8 260.2 46.1 263.9 Q52.4 267.6 59.3 269.7 Q66.1 271.9 75.6 271.9 Q85 272 94.5 269 Q104 266 113.6 259.6 Q123.2 253.2 127.9 247.4 Q132.6 241.6 136.1 235.1 Q139.6 228.6 141.3 221.3 Q143 214 141.9 208.1 Q140.9 202.1 137.2 194.8 Q133.6 187.4 129.8 182.7 Q126 178 125 175 Q124 172 124.6 168.1 Q125.1 164.1 127.3 158.3 Q129.4 152.4 131.4 148.4 Q133.4 144.4 135.2 142.8 Q137 141.3 138.8 142.8 Q140.6 144.4 150.7 159.8 Q160.8 175.2 166.3 180.7 Q171.8 186.2 176.9 189.6 Q182 193 189.2 196.3 Q196.4 199.6 206.8 202.7 Q217.1 205.9 241.1 208.9 Q265 212 283.5 212 Q302 212 311.9 210.9 Q321.9 209.9 338.4 206.4 Q354.9 202.9 370.2 197.7 Q385.6 192.6 401.8 184.8 Q418 177 429.8 169.3 Q441.6 161.6 451.9 153.4 Q462.2 145.2 474 134 Q485.8 122.8 490.4 120 Q495.1 117.2 496.4 117.8 Q497.6 118.4 498.9 125.6 Q500.1 132.9 502.8 139.2 Q505.4 145.6 509.1 150.9 Q512.8 156.2 517.1 159.9 Q521.4 163.6 525.9 166.1 Q530.4 168.6 538.7 170.8 Q547 173 551.9 172.9 Q556.9 172.9 565.2 170.7 Q573.6 168.6 578.7 165.7 Q583.7 162.7 585.5 161 Q587.2 159.2 588 157.1 Q588.8 154.9 586 145.4 Q583.1 135.9 583.1 127.9 Q583 120 585.1 111.6 Q587.1 103.1 592 91 Q596.9 78.9 594.5 66.4 Q592.1 53.9 592.1 48.9 Q592 44 593.2 37.7 Q594.4 31.4 597.9 22.9 Q601.4 14.4 606.3 7.8 Q611.3 1.3 612.8 0.8 Q614.3 0.4 612.7 13.7 Q611 27 613.1 35.9 Q615.1 44.9 617.1 46.9 Q619 48.9 637.7 33.1 Q656.4 17.4 658.6 16.8 Q660.9 16.2 662.9 18.1 Z M639.8 80.9 Q641.8 82.5 642.8 80.2 Q643.9 77.9 644.4 74.4 Q644.9 70.9 644.9 64 Q644.9 57.1 643.4 55.2 Q642 53.2 639.1 55.2 Q636.2 57.2 633.3 60.8 Q630.3 64.3 629.9 66 Q629.4 67.7 633.6 73.5 Q637.8 79.2 639.8 80.9 Z M607.3 96.6 Q606.3 96.4 604.3 99.4 Q602.3 102.3 601.7 104.7 Q601.1 107.1 601.6 111 Q602.1 114.9 604.2 119.8 Q606.3 124.7 609.4 129.1 Q612.4 133.6 613.6 134 Q614.8 134.5 616 133.4 Q617.2 132.2 620 129 Q622.7 125.7 623.8 122.4 Q624.9 119.1 618.6 109.9 Q612.2 100.8 610.2 98.8 Q608.2 96.8 607.3 96.6 Z M643.2 182.2 Q644 182.8 644.9 180.8 Q645.9 178.9 645.9 171.9 Q646 165 644.8 159.2 Q643.7 153.3 639.9 145.1 Q636.2 136.8 634.8 136.6 Q633.4 136.4 631.8 137.8 Q630.2 139.2 627.8 142.8 Q625.4 146.4 625.4 149.5 Q625.3 152.7 633.8 167.2 Q642.3 181.7 643.2 182.2 Z M485.1 167.2 Q482.2 160.5 481.6 162.2 Q481 164 481.5 174 Q482 184 484.2 192.3 Q486.3 200.7 488.8 206.2 Q491.3 211.7 494.1 215.4 Q496.8 219.2 499.8 222.2 Q502.8 225.2 504.2 225.4 Q505.5 225.5 506.2 224.2 Q506.9 222.9 506.9 219.5 Q507 216 505.3 209.2 Q503.7 202.3 495.8 188.2 Q488 174 485.1 167.2 Z" />
+  </svg>
+
+  <!-- Soft Floor Shadow -->
+  <div class="floor-shadow" aria-hidden="true"></div>
+
+  <!-- Curved 3D Magnet Shelf -->
+  <main class="shelf" id="shelf" aria-label="HAMS 3D Quran Speaker Magnet Shelf">
+    <div class="stage" id="stage"></div>
+  </main>
+
+  <!-- Floating Quick Play / Pause Ring on Active Magnet -->
+  <button type="button" class="play-ring" id="playRing" aria-label="Play or pause recitation preview">
+    <svg id="playRingIcon" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+      <polygon points="2.5,1 11,6 2.5,11" />
+    </svg>
+  </button>
+
+  <!-- Active Magnet Caption -->
+  <section class="cap" aria-live="polite">
+    <div class="mask" id="capTitle"></div>
+    <div class="mask" id="capSub"></div>
+    <div class="cap-rule" aria-hidden="true"></div>
+    <div class="mask" id="capMeta"></div>
+  </section>
+
+  <!-- Compact Now-Playing Bar when listening on Shelf -->
+  <div class="mini-wrap" aria-live="polite">
+    <div class="mini-bar" id="miniBar">
+      <span class="mini-eq" id="miniEq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="lbl mini-label" id="miniLabel">PLAYING</span>
+      <button type="button" class="lbl mini-btn" id="miniOpen">OPEN</button>
+      <button type="button" class="lbl mini-btn" id="miniStop">STOP</button>
+    </div>
+  </div>
+
+  <!-- Shelf Arrows -->
+  <button type="button" class="arr arr-l" id="prevBtn" aria-label="Previous magnet">
+    <svg viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
+      <path d="M6 1L1 6l5 5M1 6h23" />
+    </svg>
+  </button>
+  <button type="button" class="arr arr-r" id="nextBtn" aria-label="Next magnet">
+    <svg viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
+      <path d="M18 1l5 5-5 5M23 6H0" />
+    </svg>
+  </button>
+
+  <!-- Edition Catalogue Ruler (01–12) -->
+  <div class="tl" id="timeline" role="slider" aria-label="Magnet edition selector 1 to 12" aria-valuemin="1" aria-valuemax="12" aria-valuenow="6" tabindex="0">
+    <div class="tl-line" aria-hidden="true"></div>
+    <div class="tl-dot" id="tlDot" aria-hidden="true"></div>
+    <div class="tl-hit" id="tlHit"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="foot">
+    <span class="lbl">
+      <span class="foot-long">© HAMS همس · HAMSS.MA · FREE SHIPPING &amp; COD IN MOROCCO</span>
+      <span class="foot-short">© HAMS همس · HAMSS.MA</span>
+    </span>
+    <span class="lbl foot-links">
+      <button type="button" class="lbl" data-panel="features">FEATURES</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" class="lbl" data-panel="faq">FAQ</button>
+    </span>
+  </footer>
+
+  <!-- Full-Screen Detail & Audio Player Sheet -->
+  <aside class="detail" id="detail" aria-modal="true" role="dialog" aria-labelledby="dTitle">
+    <div class="sheet-head">
+      <div class="brand" style="color:var(--accent)">
+        <svg class="hams-logo-svg" viewBox="0 0 668 311" role="img" aria-label="HAMS همس">
+          <use href="#hams-logo-sym" />
+        </svg>
+        <span class="brand-line" aria-hidden="true"></span>
+        <span class="lbl brand-sub">AUDIO EDITION</span>
+      </div>
+      <button type="button" class="close-x" id="detailClose" aria-label="Close product view">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <path d="M4 4l10 10M14 4L4 14" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="detail-grid">
+      <div class="detail-left">
+        <div class="d-mask">
+          <span class="d-line lbl d-sub" id="dSub"></span>
+        </div>
+        <div class="d-mask">
+          <h1 class="d-line d-title" id="dTitle"></h1>
+        </div>
+        <div class="d-mask">
+          <div class="d-line d-meta" id="dMeta"></div>
+        </div>
+        <div class="d-mask">
+          <p class="d-line d-syn" id="dSyn"></p>
+        </div>
+
+        <!-- Reciter Selector -->
+        <div class="d-mask" id="reciterWrap">
+          <div class="d-line selector-group">
+            <span class="lbl selector-label">RECITER / القارئ</span>
+            <div class="selector-row" id="reciterRow"></div>
+          </div>
+        </div>
+
+        <!-- Track Selector -->
+        <div class="d-mask" id="trackWrap">
+          <div class="d-line selector-group">
+            <span class="lbl selector-label">TRACKS ON MAGNET / المقاطع الصوتية</span>
+            <div class="selector-row" id="trackRow"></div>
+          </div>
+        </div>
+
+        <!-- Live Audio Listening Deck -->
+        <div class="d-mask">
+          <div class="d-line player-deck">
+            <div class="player-top">
+              <button type="button" class="lbl play-main" id="detailPlayBtn">
+                <svg id="detailPlayIcon" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+                  <polygon points="2.5,1 11,6 2.5,11" />
+                </svg>
+                <span id="detailPlayText">PLAY</span>
+              </button>
+              <div class="player-info">
+                <span class="player-track-name" id="playerTrackName">—</span>
+                <span class="player-reciter-name" id="playerReciterName">—</span>
+              </div>
+              <span class="lbl player-tc" id="playerTc">00:00 / READY</span>
+            </div>
+            <div class="viz-wrap">
+              <canvas class="viz-canvas" id="vizCanvas" width="480" height="38"></canvas>
+            </div>
+            <div class="scrub-bar" id="scrubBar" role="slider" aria-label="Audio progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0">
+              <div class="scrub-rail">
+                <div class="scrub-fill" id="scrubFill"></div>
+                <div class="scrub-thumb" id="scrubThumb"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BUY NOW + ADD TO BAG -->
+        <div class="d-mask">
+          <div class="d-line d-actions">
+            <button type="button" class="lbl d-buy" id="buyNowBtn">BUY NOW · اشتري الآن</button>
+            <button type="button" class="lbl d-cta" id="addToBagBtn">ADD TO BAG</button>
+          </div>
+        </div>
+
+        <!-- Barakah Friday Offer + 4 Trust Guarantees -->
+        <div class="d-mask">
+          <div class="d-line" style="display:grid;gap:10px">
+            <div class="bf-box">
+              <strong>Barakah Friday</strong> · 30% off any 3 magnets · 50% off any 6 · Free shipping on every order
+            </div>
+            <div class="trust-grid">
+              <div class="trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                <span>Free shipping on every order</span>
+              </div>
+              <div class="trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>Cash on Delivery · الدفع عند الاستلام</span>
+              </div>
+              <div class="trust-item">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+                <span>Rated 4.91/5 by 337+ customers</span>
+              </div>
+              <div class="trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="18" height="10" rx="2"/><path d="M22 11v2M6 11h6"/></svg>
+                <span>Rechargeable · 4–5 hrs per charge</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Poster SVG with Tight Crop (~2x black border) & Ink-Blot Mask -->
+      <div class="detail-right">
+        <div class="poster-frame">
+          <svg class="poster-svg" viewBox="0 0 600 600" role="img" aria-label="HAMS Quran Speaker Magnet cover artwork">
+            <defs>
+              <clipPath id="posterClip">
+                <rect x="0" y="0" width="600" height="600" rx="22" />
+              </clipPath>
+              <filter id="inkFilter" filterUnits="userSpaceOnUse" x="-160" y="-160" width="920" height="920">
+                <feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="3" seed="7" result="noise" />
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="110" xChannelSelector="R" yChannelSelector="G" />
+              </filter>
+              <mask id="inkMask" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="600">
+                <g id="inkGroup" filter="url(#inkFilter)">
+                  <circle cx="170" cy="210" r="0" fill="#fff" />
+                  <circle cx="430" cy="390" r="0" fill="#fff" />
+                  <circle cx="310" cy="110" r="0" fill="#fff" />
+                  <circle cx="130" cy="480" r="0" fill="#fff" />
+                  <circle cx="480" cy="170" r="0" fill="#fff" />
+                  <circle cx="320" cy="530" r="0" fill="#fff" />
+                  <circle cx="290" cy="300" r="0" fill="#fff" />
+                </g>
+              </mask>
+            </defs>
+            <g clip-path="url(#posterClip)" mask="url(#inkMask)">
+              <image id="posterImg" x="-91.5" y="-90.6" width="783" height="783" preserveAspectRatio="xMidYMid slice" />
+            </g>
+          </svg>
+        </div>
+        <div class="lbl hardware-strip">
+          <span>MAGNETIC BACK</span>
+          <span aria-hidden="true">·</span>
+          <span>USB-C RECHARGEABLE</span>
+          <span aria-hidden="true">·</span>
+          <span>ONE-PRESS PLAY</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Secondary Panels (COLLECTION / FEATURES / FAQ / BAG / CHECKOUT) -->
+  <aside class="panel" id="panel" aria-modal="true" role="dialog" aria-labelledby="panelHeading">
+    <div class="sheet-head">
+      <div class="brand" style="color:var(--accent)">
+        <svg class="hams-logo-svg" viewBox="0 0 668 311" role="img" aria-label="HAMS همس">
+          <use href="#hams-logo-sym" />
+        </svg>
+        <span class="brand-line" aria-hidden="true"></span>
+        <span class="lbl brand-sub" id="panelSubLabel">HAMSS.MA</span>
+      </div>
+      <button type="button" class="close-x" id="panelClose" aria-label="Close panel">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <path d="M4 4l10 10M14 4L4 14" />
+        </svg>
+      </button>
+    </div>
+    <div class="panel-body" id="panelBody"></div>
+  </aside>
+
+  <!-- Toast Notification (Mask Slide) -->
+  <div class="toast-wrap" aria-live="polite">
+    <div class="lbl toast" id="toast">ADDED TO BAG</div>
+  </div>
+
+  <!-- Real HTML5 Audio Element -->
+  <audio id="audioEl" preload="metadata" crossorigin="anonymous"></audio>
+
+  <script>
+    (() => {
+      'use strict';
+
+      const CDN = 'https://cdn.shopify.com/s/files/1/0688/0080/6965/files/';
+      const EXTERNAL_CFG = window.HAMS_THEME_CONFIG || {};
+      const CURRENCY = EXTERNAL_CFG.currency || 'MAD';
+      const ASSETS = Object.assign({
+        fridge: '/src/assets/images/hams_fridge_kitchen_1795387530777.jpg',
+        bedroom: '/src/assets/images/hams_bedroom_nightstand_1795387529814.jpg',
+        desk: '/src/assets/images/hams_metal_desk_board_1795387531137.jpg',
+        garden: '/src/assets/images/hams_patio_garden_1795387530568.jpg'
+      }, EXTERNAL_CFG.assets || {});
+
+      /* ── HAMS (همس) Official Policies & FAQs from hamss.ma/hams ── */
+      const HAMS_POLICIES = [
+        {
+          q: 'سياسة الدفع عند الاستلام',
+          a: 'الدفع عند الاستلام مدعوم لهذا المنتج، ستحتاج للإدلاء بعنوانك ومعلومات الاتصال بك لتأكيد الطلب، ثم سيتم ربط الاتصال بك عبر مكالمة هاتفية لتأكيد طلبك، وبعد التأكد من الطلب سيتم الشحن في غضون 1 إلى 3 أيام عمل.'
+        },
+        {
+          q: 'الشحن والتوصيل',
+          a: 'الشحن مجاني تماماً على جميع الطلبات والدفع عند الاستلام. يتم التوصيل عادةً في غضون 1 إلى 3 أيام عمل إلى جميع مدن المغرب.'
+        },
+        {
+          q: 'سياسة الاسترجاع',
+          a: 'عند استلام المنتج، يمكنك إعادته أو استبداله خلال 7 أيام بكل سهولة. إذا كانت لديك أي أسئلة بعد استلام المنتج، يرجى التواصل معنا عبر خدمة العملاء أو البريد الإلكتروني support@hamss.ma.'
+        },
+        {
+          q: 'خدمة العملاء',
+          a: 'دعم ممتاز لعملائنا من الاثنين إلى الجمعة. إذا كانت لديك أي استفسارات بشأن المنتج أو تحتاج إلى مساعدة في التثبيت أو الاستخدام، فإن فريق همس HAMS دائماً على استعداد لمساعدتك.'
+        }
+      ];
+
+      const HAMS_FAQS = [
+        {
+          q: 'كيف يعمل مغناطيس همس HAMS؟',
+          a: 'بكل بساطة، ثبّته على الثلاجة أو أي سطح معدني واضغط على الزر للاستماع مباشرة إلى المحتوى الصوتي الموجود بداخله، دون الحاجة إلى الهاتف أو تطبيق.'
+        },
+        {
+          q: 'هل يحتاج إلى الإنترنت أو البلوتوث؟',
+          a: 'لا، المحتوى الصوتي محفوظ داخل الجهاز ويعمل بشكل مستقل تماماً دون الحاجة إلى الإنترنت أو البلوتوث.'
+        },
+        {
+          q: 'هل يمكن إعادة شحنه؟',
+          a: 'نعم، همس HAMS مزود ببطارية قابلة لإعادة الشحن عبر منفذ USB Type-C تدوم من 4 إلى 5 ساعات لكل شحنة، لذلك يمكنك استعماله مراراً دون الحاجة إلى تغيير البطاريات.'
+        },
+        {
+          q: 'ما الفرق بين النسخ المتوفرة؟',
+          a: 'كل نسخة تتميز بتصميمها الفني الإسلامي ومحتواها الصوتي الخاص (سورة البقرة، الكهف، آية الكرسي، أذكار الصباح والمساء وغيرها). يمكنك معاينة الصوت مباشرة من الصفحة واختيار النسخة والقارئ الذي يناسبك.'
+        },
+        {
+          q: 'هل يثبت جيداً على الثلاجة أو أي سطح معدني؟',
+          a: 'نعم، يتميز همس HAMS بظهر مغناطيسي قوي يساعده على الالتصاق بالثلاجة ومختلف الأسطح المعدنية بسهولة، كما يمكنك وضعه في غرفة النوم أو المكتب أو الحديقة.'
+        },
+        {
+          q: 'هل يصلح كهدية؟',
+          a: 'بالتأكيد. يجمع HAMS بين التصميم الأنيق والمحتوى القرآني النافع، مما يجعله هدية راقية ومميزة للوالدين، الزوج أو الزوجة، الأصدقاء والأحباب.'
+        }
+      ];
+
+      /* ── 12 HAMS Quran Speaker Magnets (Prices in MAD + Real Official MP3s) ── */
+      const MAGNETS = [
+        {
+          id: 'al-baqarah',
+          num: '01',
+          title: 'Surah Al-Baqarah',
+          arabic: 'سورة البقرة',
+          category: 'Complete Surah · 286 Verses',
+          duration: '~2 Hours Continuous',
+          price: 269,
+          compare: 349,
+          reviews: 412,
+          synopsis: 'Holds the longest surah in the Qur’an — all 286 verses, around two hours of continuous recitation — ready at a single button press on your fridge or wall.',
+          reciters: [
+            {
+              name: 'Mishary Rashid Alafasy',
+              img: CDN + 'surah-al-baqarah-quran-speaker-fridge-magnet-alafasy.png?v=1787244370',
+              tracks: [{ label: 'Surah Al-Baqarah (Complete)', audio: CDN + 'al-baqarah-al-baqarah-mishary-rashid-alafasy.mp3?v=1790868566' }]
+            },
+            {
+              name: 'Abdul Rahman Al-Sudais',
+              img: CDN + 'surah-al-baqarah-quran-speaker-magnet-sudais.png?v=1787244370',
+              tracks: [{ label: 'Surah Al-Baqarah (Complete)', audio: CDN + 'al-baqarah-al-baqarah-abdul-rahman-al-sudais.mp3?v=1790868575' }]
+            },
+            {
+              name: 'Yasir al-Dawsari',
+              img: CDN + 'surah-al-baqarah-quran-speaker-magnet-yasir-al-dawsari.png?v=1787244370',
+              tracks: [{ label: 'Surah Al-Baqarah (Complete)', audio: CDN + 'al-baqarah-al-baqarah-yassir-al-dawsari.mp3?v=1790868582' }]
+            },
+            {
+              name: 'Ahmad Al-Shalabi',
+              img: CDN + 'surah-al-baqarah-quran-speaker-magnet-ahmad-al-shalabi.png?v=1787244389',
+              tracks: [{ label: 'Surah Al-Baqarah (Complete)', audio: CDN + 'al-baqarah-al-baqarah-ahmad-al-shalabi.mp3?v=1790868598' }]
+            },
+            {
+              name: 'Saud Al-Shuraim',
+              img: CDN + 'Version_2_covers_13.png?v=1788241294',
+              tracks: [{ label: 'Surah Al-Baqarah (Complete)', audio: CDN + 'al-baqarah-saud-al-shurraim.mp3?v=1790868606' }]
+            }
+          ]
+        },
+        {
+          id: 'al-kahf',
+          num: '02',
+          title: 'Surah Al-Kahf',
+          arabic: 'سورة الكهف',
+          category: 'Friday Sunnah · Chapter 18',
+          duration: 'Complete Recitation',
+          price: 269,
+          compare: 349,
+          reviews: 289,
+          synopsis: 'Built for the Friday habit. Leave it on the fridge and the complete Surah Al-Kahf is one press away every Jumu’ah without unlocking a phone.',
+          reciters: [
+            {
+              name: 'Mishary Rashid Alafasy',
+              img: CDN + 'surah-al-kahf-quran-speaker-fridge-magnet-alafasy.png?v=1787244370',
+              tracks: [{ label: 'Surah Al-Kahf (Ch. 18)', audio: CDN + 'al-kahf-al-kahf-by-mishary-rashid-alafasy.mp3?v=1790868480' }]
+            },
+            {
+              name: 'Maher Al-Muaiqly',
+              img: CDN + 'surah-al-kahf-quran-speaker-magnet-maher-al-muaiqly.png?v=1787244370',
+              tracks: [{ label: 'Surah Al-Kahf (Ch. 18)', audio: CDN + 'al-kahf-al-kahf-by-maher-al-muaiqly.mp3?v=1790868488' }]
+            },
+            {
+              name: 'Muhammad Siddiq Al Minshawi',
+              img: CDN + 'Copy_of_Ayahly_Magnet_Covers.png?v=1794234017',
+              tracks: [{ label: 'Surah Al-Kahf (Ch. 18)', audio: CDN + 'al-kahf-al-kahf-by-muhammad-siddiq-al-minshawi.mp3?v=1795180228' }]
+            }
+          ]
+        },
+        {
+          id: 'yasin',
+          num: '03',
+          title: 'Surah Yaseen',
+          arabic: 'سورة يس',
+          category: 'Heart of the Qur’an · Ch. 36',
+          duration: 'Continuous Track',
+          price: 269,
+          compare: 349,
+          reviews: 245,
+          synopsis: 'Plays the complete Surah Yaseen at the press of a single button — no phone, no app, no setup. Ready for the whole household every morning.',
+          reciters: [
+            {
+              name: 'Mishary Rashid Alafasy',
+              img: CDN + 'surah-yaseen-quran-speaker-fridge-magnet-alafasy.png?v=1787244370',
+              tracks: [{ label: 'Surah Yaseen (Ch. 36)', audio: CDN + 'yasin-yaseen-by-mishary-rashid-alafasy.mp3?v=1790868447' }]
+            },
+            {
+              name: 'Yasir al-Dawsari',
+              img: CDN + 'surah-yaseen-quran-speaker-magnet-yasir-al-dawsari.png?v=1787244370',
+              tracks: [{ label: 'Surah Yaseen (Ch. 36)', audio: CDN + 'yasin-yaseen-by-yasir-al-dawsari.mp3?v=1790868472' }]
+            }
+          ]
+        },
+        {
+          id: 'al-mulk',
+          num: '04',
+          title: 'Al-Mulk, Ar-Rahman & Al-Waqia',
+          arabic: 'الملك والرحمن والواقعة',
+          category: '3-Track Edition · Ch. 67 / 55 / 56',
+          duration: '3 Switchable Surahs',
+          price: 269,
+          compare: 349,
+          reviews: 318,
+          synopsis: 'Three complete evening surahs on a single speaker magnet. Hold either volume button on the side to switch cleanly between Al-Mulk, Ar-Rahman, and Al-Waqia.',
+          reciters: [
+            {
+              name: 'Mishary Rashid Alafasy',
+              img: CDN + 'al-mulk-ar-rahman-al-waqia-quran-speaker-fridge-magnet.png?v=1787244370',
+              tracks: [
+                { label: '01 · Surah Al-Mulk', audio: CDN + 'al-mulk-al-rahman-al-waqia-al-mulk-by-mishary-rashid-alafasy.mp3?v=1790868497' },
+                { label: '02 · Surah Ar-Rahman', audio: CDN + 'al-mulk-al-rahman-al-waqia-al-rahman-by-mishary-rashid-alafasy.mp3?v=1790868505' },
+                { label: '03 · Surah Al-Waqia', audio: CDN + 'al-mulk-al-rahman-al-waqia-al-waqia-by-mishary-rashid-alafasy.mp3?v=1790868516' }
+              ]
+            },
+            {
+              name: 'Abdul Rahman Al-Sudais',
+              img: CDN + 'al-mulk-ar-rahman-al-waqia-speaker-magnet-sudais.png?v=1787244370',
+              tracks: [
+                { label: '01 · Surah Al-Mulk', audio: CDN + 'al-mulk-al-rahman-al-waqia-al-mulk-by-abdul-rahman-al-sudais.mp3?v=1790868524' },
+                { label: '02 · Surah Ar-Rahman', audio: CDN + 'al-mulk-al-rahman-al-waqia-al-rahman-by-abdul-rahman-al-sudais.mp3?v=1790868532' },
+                { label: '03 · Surah Al-Waqia', audio: CDN + 'al-mulk-al-rahman-al-waqia-al-waqia-by-abdul-rahman-al-sudais.mp3?v=1790868540' }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'maryam',
+          num: '05',
+          title: 'Surah Maryam',
+          arabic: 'سورة مريم',
+          category: 'Chapter 19 · Gift Edition',
+          duration: 'Complete Recitation',
+          price: 269,
+          compare: 349,
+          reviews: 174,
+          synopsis: 'Plays the complete Surah Maryam recited by Mishary Rashid Alafasy from a single button press — cherished as a calm daily companion and a gift for expectant mothers.',
+          reciters: [
+            {
+              name: 'Mishary Rashid Alafasy',
+              img: CDN + 'surah-maryam-quran-speaker-fridge-magnet-alafasy.png?v=1787244389',
+              tracks: [{ label: 'Surah Maryam (Ch. 19)', audio: CDN + 'maryam-speaker-magnet-surah-maryam-by-mishary-rashid-alafasy.mp3?v=1790868647' }]
+            }
+          ]
+        },
+        {
+          id: 'ayatul-kursi',
+          num: '06',
+          title: 'Ayatul Kursi & 4 Quls',
+          arabic: 'آية الكرسي وأربع قل',
+          category: 'Daily Protection · 3× Sequence',
+          duration: 'Repeated 3× per Press',
+          price: 269,
+          compare: 349,
+          reviews: 337,
+          synopsis: 'Plays Ayatul Kursi followed by Al-Kafirun, Al-Ikhlas, Al-Falaq, and An-Nas, repeating the sequence three times per press — daily protection without touching a phone.',
+          reciters: [
+            {
+              name: 'Omar Hisham Al Arabi',
+              img: CDN + 'ayatul-kursi-4-quls-quran-speaker-magnet-omar-hisham.png?v=1787244370',
+              tracks: [{ label: 'Ayatul Kursi & 4 Quls (3×)', audio: CDN + 'ayatul-kursi-omar-hisham-al-arabi.mp3?v=1790868438' }]
+            },
+            {
+              name: 'Mishary Rashid Alafasy',
+              img: CDN + 'ayatul-kursi-4-quls-quran-speaker-fridge-magnet-alafasy.png?v=1787244370',
+              tracks: [{ label: 'Ayatul Kursi & 4 Quls (3×)', audio: CDN + 'ayatul-kursi-mishary-rashid-alafasy.mp3?v=1790868430' }]
+            }
+          ]
+        },
+        {
+          id: 'adhkar',
+          num: '07',
+          title: 'Morning & Evening Adhkar',
+          arabic: 'أذكار الصباح والمساء',
+          category: 'Daily Remembrance · 2 Tracks',
+          duration: 'Morning + Evening Sets',
+          price: 269,
+          compare: 349,
+          reviews: 263,
+          synopsis: 'Carries both daily adhkar sets on two switchable tracks. Press play with your morning coffee and again after Maghrib to build an effortless daily habit.',
+          reciters: [
+            {
+              name: 'Mufti Menk',
+              img: CDN + 'Morning_and_Evening_Adhkar_By_Mufti_Menk_bffdfeff-cd26-4d7c-9477-9ffc90f1ebf1.png?v=1791468187',
+              tracks: [{ label: 'Morning & Evening Adhkar', audio: CDN + 'morning-evening-adhkar-morning-adhkar.mp3?v=1790868615' }]
+            },
+            {
+              name: 'Mishary Rashid Alafasy',
+              img: CDN + 'Morning_and_Evening_Adhkar_By_Mishary_Quran_Speaker_Magnet_71cfcb99-d919-459e-9f55-682fe536993b.png?v=1791468206',
+              tracks: [{ label: 'Morning & Evening Adhkar', audio: CDN + 'morning-evening-adhkar-mishary-rashid-alafasy.mp3?v=1794234562' }]
+            }
+          ]
+        },
+        {
+          id: 'duas',
+          num: '08',
+          title: 'Duas from the Quran',
+          arabic: 'أدعية من القرآن',
+          category: '40 Rabbana Collection',
+          duration: '1 Hr 8 Min Supplication',
+          price: 269,
+          compare: 349,
+          reviews: 198,
+          synopsis: 'Holds the complete 40 Rabbana collection — every supplication in the Qur’an beginning with “Our Lord” — recited by Omar Hisham Al Arabi in one continuous hour.',
+          reciters: [
+            {
+              name: 'Omar Hisham Al Arabi',
+              img: CDN + 'duas-from-the-quran-40-rabbana-speaker-magnet-omar-hisham.png?v=1787244370',
+              tracks: [{ label: '40 Rabbana Duas (Complete)', audio: CDN + 'duas-from-the-quran-duas-from-the-quran.mp3?v=1790868558' }]
+            }
+          ]
+        },
+        {
+          id: 'adhan',
+          num: '09',
+          title: 'Adhan & 100 Names of Allah',
+          arabic: 'الأذان وأسماء الله الحسنى',
+          category: '2-Track Edition · Call to Prayer',
+          duration: 'Adhan + Asma ul-Husna',
+          price: 269,
+          compare: 349,
+          reviews: 221,
+          synopsis: 'Pairs the serene Adhan by Mishary Rashid Alafasy with the 100 Names of Allah performed by Maher Zain on two switchable tracks — a salah reminder and learning aid.',
+          reciters: [
+            {
+              name: 'Mishary Alafasy & Maher Zain',
+              img: CDN + 'adhan-100-names-of-allah-quran-speaker-fridge-magnet.png?v=1787244389',
+              tracks: [
+                { label: '01 · Adhan (Mishary Alafasy)', audio: CDN + 'adhan-100-names-of-allah-adhan.mp3?v=1790868623' },
+                { label: '02 · 100 Names of Allah (Maher Zain)', audio: CDN + 'adhan-100-names-of-allah-100-names-of-allah.mp3?v=1790868631' }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'kids',
+          num: '10',
+          title: 'Kids Mini Surahs',
+          arabic: 'سور قصيرة للأطفال',
+          category: 'Guided Memorisation · 10 Surahs',
+          duration: 'Each Repeated 4× Slowly',
+          price: 269,
+          compare: 349,
+          reviews: 276,
+          synopsis: 'Ten short surahs recited slowly in a child’s voice, each repeated four times. Designed for memorisation by repetition and screen-free Qur’an learning at home.',
+          reciters: [
+            {
+              name: 'Guided Child Recitation',
+              img: CDN + 'kids-mini-surahs-quran-speaker-fridge-magnet.png?v=1787244389',
+              tracks: [{ label: '10 Mini Surahs (4× Guided)', audio: CDN + 'kids-guided-surahs-kids-mini-surahs.mp3?v=1790868638' }]
+            }
+          ]
+        },
+        {
+          id: 'lofi',
+          num: '11',
+          title: 'Lofi Quran',
+          arabic: 'قرآن هادئ للدراسة',
+          category: 'Study & Calm · Ambient',
+          duration: '~1 Hour Atmospheric',
+          price: 269,
+          compare: 349,
+          reviews: 164,
+          synopsis: 'Nearly an hour of melodic recitation by Omar Hisham Al Arabi over soft ambient backing — crafted for deep study sessions, late-night focus, and tranquil rooms.',
+          reciters: [
+            {
+              name: 'Omar Hisham Al Arabi',
+              img: CDN + 'lofi-quran-speaker-fridge-magnet-omar-hisham-al-arabi.png?v=1787244389',
+              tracks: [{ label: 'Lofi Quran Ambient Session', audio: CDN + 'lofi-quran-speaker-magnet-lofi.mp3?v=1790868656' }]
+            }
+          ]
+        },
+        {
+          id: 'ahlulbayt',
+          num: '12',
+          title: 'Ahlulbayt Duas',
+          arabic: 'أدعية أهل البيت',
+          category: 'Devotional Collection · 3 Texts',
+          duration: 'Kumayl · Tawassul · Kisa',
+          price: 269,
+          compare: 349,
+          reviews: 129,
+          synopsis: 'Holds Dua Kumayl, Dua Tawassul, and Hadith al-Kisa on one speaker magnet, ready at the press of a button for Thursday nights and quiet moments of reflection.',
+          reciters: [
+            {
+              name: 'Ali Fani',
+              img: CDN + 'Version2covers_21.png?v=1788244987',
+              tracks: [
+                { label: 'Ahlulbayt Duas Recitation', audio: CDN + 'ahlulbayt-duas-quran-speaker-magnet-ali-fani.mp3?v=1790868673' },
+                { label: 'Ziyarat Ashura (Bonus Preview)', audio: CDN + 'ziyarat-ashura-ziyrat-ashura.mp3?v=1790868665' }
+              ]
+            }
+          ]
+        }
+      ];
+
+      MAGNETS.forEach((m) => {
+        const img = new Image();
+        img.decoding = 'async';
+        img.src = m.reciters[0].img;
+      });
+
+      const N = MAGNETS.length;
+      const COPIES = 3;
+      const TOTAL = N * COPIES;
+      const P = 1400;
+      const INK_CIRCLES = [
+        { cx: 170, cy: 210, delay: 0 },
+        { cx: 430, cy: 390, delay: 110 },
+        { cx: 310, cy: 110, delay: 200 },
+        { cx: 130, cy: 480, delay: 280 },
+        { cx: 480, cy: 170, delay: 340 },
+        { cx: 320, cy: 530, delay: 400 },
+        { cx: 290, cy: 300, delay: 160 }
+      ];
+
+      /* ── DOM References ── */
+      const probe = document.getElementById('probe');
+      const shelf = document.getElementById('shelf');
+      const stage = document.getElementById('stage');
+      const playRing = document.getElementById('playRing');
+      const playRingIcon = document.getElementById('playRingIcon');
+      const capSection = document.querySelector('.cap');
+      const capTitle = document.getElementById('capTitle');
+      const capSub = document.getElementById('capSub');
+      const capMeta = document.getElementById('capMeta');
+      const miniBar = document.getElementById('miniBar');
+      const miniEq = document.getElementById('miniEq');
+      const miniLabel = document.getElementById('miniLabel');
+      const miniOpen = document.getElementById('miniOpen');
+      const miniStop = document.getElementById('miniStop');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const timeline = document.getElementById('timeline');
+      const tlDot = document.getElementById('tlDot');
+      const tlHit = document.getElementById('tlHit');
+      const brandHome = document.getElementById('brandHome');
+      const navBagCount = document.getElementById('navBagCount');
+
+      const detail = document.getElementById('detail');
+      const detailClose = document.getElementById('detailClose');
+      const dSub = document.getElementById('dSub');
+      const dTitle = document.getElementById('dTitle');
+      const dMeta = document.getElementById('dMeta');
+      const dSyn = document.getElementById('dSyn');
+      const reciterRow = document.getElementById('reciterRow');
+      const trackWrap = document.getElementById('trackWrap');
+      const trackRow = document.getElementById('trackRow');
+      const detailPlayBtn = document.getElementById('detailPlayBtn');
+      const detailPlayIcon = document.getElementById('detailPlayIcon');
+      const detailPlayText = document.getElementById('detailPlayText');
+      const playerTrackName = document.getElementById('playerTrackName');
+      const playerReciterName = document.getElementById('playerReciterName');
+      const playerTc = document.getElementById('playerTc');
+      const vizCanvas = document.getElementById('vizCanvas');
+      const scrubBar = document.getElementById('scrubBar');
+      const scrubFill = document.getElementById('scrubFill');
+      const scrubThumb = document.getElementById('scrubThumb');
+      const buyNowBtn = document.getElementById('buyNowBtn');
+      const addToBagBtn = document.getElementById('addToBagBtn');
+      const posterImg = document.getElementById('posterImg');
+      const inkCircleEls = Array.from(document.querySelectorAll('#inkGroup circle'));
+      const dLineEls = Array.from(detail.querySelectorAll('.d-line'));
+
+      const panel = document.getElementById('panel');
+      const panelClose = document.getElementById('panelClose');
+      const panelBody = document.getElementById('panelBody');
+      const panelSubLabel = document.getElementById('panelSubLabel');
+      const toast = document.getElementById('toast');
+      const audioEl = document.getElementById('audioEl');
+
+      /* ── State ── */
+      const rmQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let reducedMotion = rmQuery.matches;
+      rmQuery.addEventListener('change', (e) => { reducedMotion = e.matches; });
+
+      let W = window.innerWidth;
+      let VH = window.innerHeight;
+      let H = 370;
+      let ws = 50;
+      let d = 370;
+      let gap = 14;
+      let U = 540;
+      let shelfCY = VH * 0.42;
+      let XS = new Float64Array(2);
+
+      /* Opens on index 5: Ayatul Kursi & 4 Quls */
+      let s = 5 + N;
+      let T = 5 + N;
+      let activeIdx = 5;
+      let dotPos = activeIdx;
+
+      const selectedReciter = MAGNETS.map(() => 0);
+      const selectedTrack = MAGNETS.map(() => 0);
+      const bag = [];
+
+      /* Checkout state */
+      let checkoutMode = 'single'; // 'single' | 'bag'
+      let checkoutMagnetIdx = 5;
+      let checkoutBundleQty = 1; // 1 | 3 | 6
+
+      /* Audio & Web Audio Visualizer */
+      let playingMagnetIdx = -1;
+      let playingReciterIdx = 0;
+      let playingTrackIdx = 0;
+      let isAudioPlaying = false;
+      let audioCtx = null;
+      let analyser = null;
+      let freqData = null;
+      let audioSourceReady = false;
+      const vizCtx = vizCanvas.getContext('2d');
+
+      let dragging = false;
+      let dragPointerId = null;
+      let dragStartX = 0;
+      let dragStartY = 0;
+      let dragStartTapeV = -1;
+      let dragT0 = 0;
+      let dragMoved = false;
+      let dragIsTouch = false;
+      let suppressClickUntil = 0;
+      let wheelTimer = null;
+      let featuresOpenCount = 0;
+      let bpFeaturedIdx = 5;
+
+      let mx = W / 2;
+      let my = VH / 2;
+      let pointerSeen = false;
+      let hoveredV = -1;
+      let tiltX = 0;
+      let tiltY = 0;
+
+      let detailOpen = false;
+      let detailAnimating = false;
+      let detailIdx = activeIdx;
+      let detailAnims = [];
+      let inkStart = 0;
+
+      let panelOpen = false;
+      let panelAnim = null;
+
+      /* ── Build 36 3D Speaker Magnets (Alternating Black & Emerald Spines) ── */
+      const tapes = [];
+      for (let v = 0; v < TOTAL; v++) {
+        const mIdx = v % N;
+        const m = MAGNETS[mIdx];
+        const el = document.createElement('div');
+        el.className = 'tape';
+        el.dataset.v = String(v);
+        el.setAttribute('role', 'button');
+        el.setAttribute('aria-label', `${m.title} — ${m.arabic}`);
+
+        const sp = document.createElement('div');
+        sp.className = 'face sp ' + (mIdx % 2 === 0 ? 'tone-black' : 'tone-green');
+        sp.innerHTML = `
+          <div class="sp-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <span class="sp-label">${m.title}</span>
+          <div class="sp-usbc" aria-hidden="true">
+            <span class="sp-port"></span>
+            <span class="sp-num">${m.num}</span>
+          </div>
+        `;
+
+        const cv = document.createElement('div');
+        cv.className = 'face cv';
+        cv.style.backgroundImage = `url("${m.reciters[0].img}")`;
+
+        el.appendChild(sp);
+        el.appendChild(cv);
+        stage.appendChild(el);
+
+        el.addEventListener('pointerenter', () => { hoveredV = v; });
+        el.addEventListener('pointerleave', () => { if (hoveredV === v) hoveredV = -1; });
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (performance.now() < suppressClickUntil || detailOpen || panelOpen) return;
+          const rNow = rel(v, s);
+          /* Direct single-tap opens product detail immediately on both mobile & desktop */
+          if (Math.abs(rNow) < 0.55) {
+            openDetail(mIdx);
+          } else {
+            T = Math.round(T + rel(v, T));
+          }
+        });
+
+        tapes.push({ v, mIdx, el, sp, cv, lift: 0 });
+      }
+
+      function syncMagnetCover(mIdx) {
+        const imgUrl = MAGNETS[mIdx].reciters[selectedReciter[mIdx]].img;
+        for (let i = 0; i < TOTAL; i++) {
+          if (tapes[i].mIdx === mIdx) {
+            tapes[i].cv.style.backgroundImage = `url("${imgUrl}")`;
+          }
+        }
+      }
+
+      /* ── Edition Ruler (01–12) ── */
+      const totalSubTicks = (N - 1) * 3;
+      for (let i = 0; i <= totalSubTicks; i++) {
+        const pct = (i / totalSubTicks) * 100;
+        const isMajor = i % 3 === 0;
+        const tick = document.createElement('span');
+        tick.className = 'tl-tick ' + (isMajor ? 'major' : 'minor');
+        tick.style.left = pct + '%';
+        tick.setAttribute('aria-hidden', 'true');
+        timeline.insertBefore(tick, tlDot);
+
+        if (isMajor) {
+          const mIndex = i / 3;
+          const lbl = document.createElement('span');
+          lbl.className = 'tl-yr';
+          if (mIndex === 0) lbl.classList.add('first');
+          if (mIndex === N - 1) lbl.classList.add('last');
+          if (mIndex % 2 === 1 && mIndex !== N - 1) lbl.classList.add('hide-sm');
+          lbl.style.left = pct + '%';
+          lbl.textContent = MAGNETS[mIndex].num;
+          lbl.setAttribute('aria-hidden', 'true');
+          timeline.insertBefore(lbl, tlDot);
+        }
+      }
+
+      /* ── Measure Arc Dimensions ── */
+      function measure() {
+        W = window.innerWidth;
+        VH = window.innerHeight;
+        H = probe.getBoundingClientRect().height || Math.min(VH * 0.47, W * 0.33);
+        ws = H * 0.135;
+        d = H;
+        gap = H * 0.036;
+        U = W < 768 ? H * 1.15 : H * 1.48;
+        shelfCY = VH * 0.42;
+
+        stage.style.setProperty('--ws', ws + 'px');
+        stage.style.setProperty('--d', d + 'px');
+
+        const steps = Math.ceil((3.8 * U) / 2) + 4;
+        XS = new Float64Array(steps);
+        let acc = 0;
+        for (let i = 1; i < steps; i++) {
+          const uMid = (i - 0.5) * 2;
+          acc += 2 / (1 + Math.pow(uMid / U, 1.6));
+          XS[i] = acc;
+        }
+
+        /* Tuck the compact quick-play button neatly inside the bottom-right corner of the center magnet */
+        const insetPad = W < 768 ? 22 : 26;
+        playRing.style.left = (W / 2 + d / 2 - insetPad) + 'px';
+        playRing.style.top = (shelfCY + H / 2 - insetPad) + 'px';
+      }
+
+      measure();
+      window.addEventListener('resize', measure);
+
+      /* ── Arc Math ── */
+      function smoothstep(t) {
+        if (t <= 0) return 0;
+        if (t >= 1) return 1;
+        return t * t * (3 - 2 * t);
+      }
+
+      function rel(v, curS) {
+        let r = ((v - curS) % TOTAL + TOTAL) % TOTAL;
+        if (r >= TOTAL / 2) r -= TOTAL;
+        return r;
+      }
+
+      function B(r) {
+        if (r <= -1) return -0.5;
+        if (r >= 1) return 0.5;
+        return (r + Math.sin(Math.PI * r) / Math.PI) * 0.5;
+      }
+
+      function F(r) {
+        return r * (ws + gap) + (d - ws + 1.4 * gap) * B(r);
+      }
+
+      function scl(u) {
+        return 1 / (1 + Math.pow(Math.abs(u) / U, 1.6));
+      }
+
+      function xsc(u) {
+        const a = Math.abs(u);
+        const idx = a * 0.5;
+        const i0 = Math.min(XS.length - 2, Math.floor(idx));
+        const frac = idx - i0;
+        const val = XS[i0] + (XS[i0 + 1] - XS[i0]) * frac;
+        return u < 0 ? -val : val;
+      }
+
+      function getActiveTape() {
+        const v = ((Math.round(s) % TOTAL) + TOTAL) % TOTAL;
+        return tapes[v];
+      }
+
+      /* ── Real Audio Engine ── */
+      function ensureAnalyser() {
+        if (audioSourceReady) {
+          if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
+          return;
+        }
+        try {
+          const AC = window.AudioContext || window.webkitAudioContext;
+          if (!AC) return;
+          audioCtx = new AC();
+          analyser = audioCtx.createAnalyser();
+          analyser.fftSize = 128;
+          analyser.smoothingTimeConstant = 0.82;
+          const src = audioCtx.createMediaElementSource(audioEl);
+          src.connect(analyser);
+          analyser.connect(audioCtx.destination);
+          freqData = new Uint8Array(analyser.frequencyBinCount);
+          audioSourceReady = true;
+        } catch (_) {
+          analyser = null;
+        }
+      }
+
+      function formatTime(sec) {
+        if (!isFinite(sec) || sec < 0) return '00:00';
+        const m = Math.floor(sec / 60);
+        const sVal = Math.floor(sec % 60);
+        return `${String(m).padStart(2, '0')}:${String(sVal).padStart(2, '0')}`;
+      }
+
+      function playMagnetAudio(mIdx, rIdx = selectedReciter[mIdx], tIdx = selectedTrack[mIdx]) {
+        const m = MAGNETS[mIdx];
+        const rec = m.reciters[rIdx] || m.reciters[0];
+        const trk = rec.tracks[tIdx] || rec.tracks[0];
+        const sameTrack =
+          playingMagnetIdx === mIdx &&
+          playingReciterIdx === rIdx &&
+          playingTrackIdx === tIdx &&
+          audioEl.src === trk.audio;
+
+        ensureAnalyser();
+
+        if (sameTrack) {
+          if (audioEl.paused) audioEl.play().catch(() => {});
+          else audioEl.pause();
+          return;
+        }
+
+        playingMagnetIdx = mIdx;
+        playingReciterIdx = rIdx;
+        playingTrackIdx = tIdx;
+        audioEl.src = trk.audio;
+        audioEl.currentTime = 0;
+        audioEl.play().catch(() => { showToast('TAP PLAY TO START AUDIO'); });
+        syncAudioUI();
+      }
+
+      function stopAudio() {
+        audioEl.pause();
+        audioEl.currentTime = 0;
+        isAudioPlaying = false;
+        syncAudioUI();
+      }
+
+      function setPlayIcon(svgEl, playing) {
+        svgEl.innerHTML = playing
+          ? '<rect x="2" y="1.5" width="3" height="9" rx=".6"/><rect x="7" y="1.5" width="3" height="9" rx=".6"/>'
+          : '<polygon points="2.5,1 11,6 2.5,11" />';
+      }
+
+      function syncAudioUI() {
+        const activeMatchesPlaying = isAudioPlaying && playingMagnetIdx === activeIdx;
+        playRing.classList.toggle('is-playing', activeMatchesPlaying);
+        setPlayIcon(playRingIcon, activeMatchesPlaying);
+
+        const detailMatchesPlaying =
+          isAudioPlaying &&
+          playingMagnetIdx === detailIdx &&
+          playingReciterIdx === selectedReciter[detailIdx] &&
+          playingTrackIdx === selectedTrack[detailIdx];
+
+        setPlayIcon(detailPlayIcon, detailMatchesPlaying);
+        detailPlayText.textContent = detailMatchesPlaying ? 'PAUSE' : 'PLAY';
+
+        if (isAudioPlaying && playingMagnetIdx >= 0 && !detailOpen && !panelOpen) {
+          const pm = MAGNETS[playingMagnetIdx];
+          miniLabel.textContent = `${pm.title.toUpperCase()} · ${pm.reciters[playingReciterIdx].name.toUpperCase()}`;
+          miniBar.classList.add('active');
+        } else {
+          miniBar.classList.remove('active');
+        }
+      }
+
+      audioEl.addEventListener('play', () => { isAudioPlaying = true; syncAudioUI(); });
+      audioEl.addEventListener('pause', () => { isAudioPlaying = false; syncAudioUI(); });
+      audioEl.addEventListener('ended', () => {
+        if (playingMagnetIdx >= 0) {
+          const rec = MAGNETS[playingMagnetIdx].reciters[playingReciterIdx];
+          if (rec.tracks.length > 1) {
+            const nextT = (playingTrackIdx + 1) % rec.tracks.length;
+            selectedTrack[playingMagnetIdx] = nextT;
+            if (detailOpen && detailIdx === playingMagnetIdx) renderDetailSelectors();
+            playMagnetAudio(playingMagnetIdx, playingReciterIdx, nextT);
+            return;
+          }
+        }
+        isAudioPlaying = false;
+        syncAudioUI();
+      });
+
+      /* ── Bulletproof Caption Mask Slide ── */
+      function swapLine(container, html, className, dir, instant) {
+        const fastScrub = Math.abs(T - s) > 0.85;
+        const children = Array.from(container.children);
+
+        if (instant || reducedMotion || fastScrub) {
+          children.forEach((el) => {
+            el.getAnimations().forEach((a) => a.cancel());
+            el.remove();
+          });
+          const next = document.createElement('span');
+          next.className = className;
+          next.innerHTML = html;
+          container.appendChild(next);
+          return;
+        }
+
+        let keeper = null;
+        for (let i = children.length - 1; i >= 0; i--) {
+          const el = children[i];
+          if (!keeper && el.dataset.exiting !== '1') {
+            keeper = el;
+          } else {
+            el.getAnimations().forEach((a) => a.cancel());
+            el.remove();
+          }
+        }
+
+        const next = document.createElement('span');
+        next.className = className;
+        next.innerHTML = html;
+        container.appendChild(next);
+
+        const sign = dir >= 0 ? 1 : -1;
+        next.animate(
+          [{ transform: `translateY(${sign * 105}%)` }, { transform: 'translateY(0%)' }],
+          { duration: 480, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'both' }
+        );
+
+        if (keeper) {
+          keeper.dataset.exiting = '1';
+          const curT = getComputedStyle(keeper).transform;
+          keeper.getAnimations().forEach((a) => a.cancel());
+          const outAnim = keeper.animate(
+            [
+              { transform: curT === 'none' ? 'translateY(0%)' : curT },
+              { transform: `translateY(${-sign * 105}%)` }
+            ],
+            { duration: 480, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'both' }
+          );
+          outAnim.onfinish = () => keeper.remove();
+          outAnim.oncancel = () => keeper.remove();
+        }
+      }
+
+      function updateCaption(m, dir, instant = false) {
+        const mIdx = MAGNETS.indexOf(m);
+        const rec = m.reciters[selectedReciter[mIdx]] || m.reciters[0];
+        swapLine(capTitle, m.title, 'cap-title', dir, instant);
+        swapLine(capSub, `<span>${m.category.toUpperCase()}</span><span aria-hidden="true">·</span><span class="ar">${m.arabic}</span>`, 'lbl cap-sub', dir, instant);
+        swapLine(capMeta, `${rec.name.toUpperCase()} — ${m.price} MAD`, 'cap-meta', dir, instant);
+        timeline.setAttribute('aria-valuenow', String(mIdx + 1));
+        syncAudioUI();
+      }
+
+      updateCaption(MAGNETS[activeIdx], 1, true);
+
+      /* ── Detail Sheet & Selectors ── */
+      function renderDetailSelectors() {
+        const m = MAGNETS[detailIdx];
+        const rIdx = selectedReciter[detailIdx];
+        const rec = m.reciters[rIdx];
+        const tIdx = Math.min(selectedTrack[detailIdx], rec.tracks.length - 1);
+        selectedTrack[detailIdx] = tIdx;
+        const trk = rec.tracks[tIdx];
+
+        reciterRow.innerHTML = '';
+        m.reciters.forEach((r, idx) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'seg-btn' + (idx === rIdx ? ' active' : '');
+          btn.textContent = r.name;
+          btn.addEventListener('click', () => {
+            selectedReciter[detailIdx] = idx;
+            selectedTrack[detailIdx] = 0;
+            posterImg.setAttribute('href', r.img);
+            syncMagnetCover(detailIdx);
+            updateCaption(m, 1, true);
+            renderDetailSelectors();
+            if (isAudioPlaying && playingMagnetIdx === detailIdx) {
+              playMagnetAudio(detailIdx, idx, 0);
+            }
+          });
+          reciterRow.appendChild(btn);
+        });
+
+        if (rec.tracks.length > 1) {
+          trackWrap.style.display = '';
+          trackRow.innerHTML = '';
+          rec.tracks.forEach((t, idx) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'seg-btn' + (idx === tIdx ? ' active' : '');
+            btn.textContent = t.label;
+            btn.addEventListener('click', () => {
+              selectedTrack[detailIdx] = idx;
+              renderDetailSelectors();
+              playMagnetAudio(detailIdx, rIdx, idx);
+            });
+            trackRow.appendChild(btn);
+          });
+        } else {
+          trackWrap.style.display = 'none';
+        }
+
+        playerTrackName.textContent = trk.label;
+        playerReciterName.textContent = `${rec.name} · ${m.duration}`;
+        addToBagBtn.textContent = `ADD TO BAG — ${m.price} MAD`;
+        syncAudioUI();
+      }
+
+      function getCoverInset() {
+        const tape = getActiveTape();
+        const rect = tape.cv.getBoundingClientRect();
+        if (!rect.width || !rect.height) {
+          const left = W / 2 - d / 2;
+          const top = shelfCY - H / 2;
+          return `inset(${top}px ${W - left - d}px ${VH - top - H}px ${left}px round 14px)`;
+        }
+        const top = Math.max(0, rect.top);
+        const right = Math.max(0, W - rect.right);
+        const bottom = Math.max(0, VH - rect.bottom);
+        const left = Math.max(0, rect.left);
+        return `inset(${top.toFixed(1)}px ${right.toFixed(1)}px ${bottom.toFixed(1)}px ${left.toFixed(1)}px round 14px)`;
+      }
+
+      function cancelDetailAnims() {
+        detailAnims.forEach((a) => { try { a.cancel(); } catch (_) {} });
+        detailAnims = [];
+      }
+
+      function resetScrollTop(el) {
+        if (!el) return;
+        el.scrollTop = 0;
+        if (typeof el.scrollTo === 'function') {
+          try { el.scrollTo({ top: 0, left: 0, behavior: 'instant' }); } catch (_) { el.scrollTo(0, 0); }
+        }
+        window.scrollTo(0, 0);
+        requestAnimationFrame(() => {
+          el.scrollTop = 0;
+          window.scrollTo(0, 0);
+        });
+      }
+
+      function openDetail(forceIdx = null) {
+        if (detailOpen || detailAnimating) return;
+        if (forceIdx !== null) {
+          jumpToMagnet(forceIdx);
+          s = T;
+        } else {
+          T = Math.round(T);
+          s = T;
+        }
+        const newIdx = ((Math.round(s) % N) + N) % N;
+        if (newIdx !== activeIdx) {
+          activeIdx = newIdx;
+          updateCaption(MAGNETS[activeIdx], 1, true);
+        }
+        detailIdx = activeIdx;
+        const m = MAGNETS[detailIdx];
+        const rec = m.reciters[selectedReciter[detailIdx]];
+
+        tiltX = 0;
+        tiltY = 0;
+        renderShelf(0.016, performance.now());
+
+        dSub.innerHTML = `<span class="ar">${m.arabic}</span><span aria-hidden="true">·</span><span>${m.category.toUpperCase()}</span>`;
+        dTitle.textContent = m.title;
+        dMeta.innerHTML = `
+          <span class="d-price">${m.price} ${CURRENCY}</span>
+          <span class="d-compare">${m.compare} ${CURRENCY}</span>
+          <span aria-hidden="true">·</span>
+          <span class="lbl">★ 4.91 (${m.reviews} REVIEWS)</span>
+          <span aria-hidden="true">·</span>
+          <span class="lbl">FREE SHIPPING</span>
+        `;
+        dSyn.textContent = m.synopsis;
+        posterImg.setAttribute('href', rec.img);
+        renderDetailSelectors();
+
+        inkCircleEls.forEach((c) => c.setAttribute('r', '0'));
+        const fromClip = getCoverInset();
+
+        cancelDetailAnims();
+        detail.style.display = 'block';
+        resetScrollTop(detail);
+        detailOpen = true;
+        detailAnimating = true;
+        inkStart = reducedMotion ? performance.now() - 5000 : performance.now();
+        syncAudioUI();
+
+        const sheetAnim = detail.animate(
+          [{ clipPath: fromClip }, { clipPath: 'inset(0px 0px 0px 0px round 0px)' }],
+          { duration: reducedMotion ? 1 : 900, easing: 'cubic-bezier(.76,0,.18,1)', fill: 'both' }
+        );
+        detailAnims.push(sheetAnim);
+        sheetAnim.onfinish = () => {
+          detailAnimating = false;
+        };
+
+        dLineEls.forEach((el, i) => {
+          const anim = el.animate(
+            [{ transform: 'translateY(110%)' }, { transform: 'translateY(0%)' }],
+            {
+              duration: reducedMotion ? 1 : 780,
+              delay: reducedMotion ? 0 : 440 + i * 50,
+              easing: 'cubic-bezier(.2,.8,.2,1)',
+              fill: 'both'
+            }
+          );
+          detailAnims.push(anim);
+        });
+
+        detailClose.focus({ preventScroll: true });
+        resetScrollTop(detail);
+      }
+
+      function closeDetail(afterFn = null) {
+        if (!detailOpen || detailAnimating) {
+          if (afterFn) afterFn();
+          return;
+        }
+        detailAnimating = true;
+        cancelDetailAnims();
+        const toClip = getCoverInset();
+
+        const anim = detail.animate(
+          [{ clipPath: 'inset(0px 0px 0px 0px round 0px)' }, { clipPath: toClip }],
+          { duration: reducedMotion ? 1 : 700, easing: 'cubic-bezier(.76,0,.18,1)', fill: 'both' }
+        );
+        detailAnims.push(anim);
+        anim.onfinish = () => {
+          detail.scrollTop = 0;
+          detail.style.display = 'none';
+          cancelDetailAnims();
+          detailOpen = false;
+          detailAnimating = false;
+          syncAudioUI();
+          if (afterFn) afterFn();
+        };
+      }
+
+      detailClose.addEventListener('click', () => closeDetail());
+
+      playRing.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playMagnetAudio(activeIdx, selectedReciter[activeIdx], selectedTrack[activeIdx]);
+      });
+
+      miniOpen.addEventListener('click', () => {
+        if (playingMagnetIdx >= 0) openDetail(playingMagnetIdx);
+      });
+      miniStop.addEventListener('click', stopAudio);
+
+      detailPlayBtn.addEventListener('click', () => {
+        playMagnetAudio(detailIdx, selectedReciter[detailIdx], selectedTrack[detailIdx]);
+      });
+
+      scrubBar.addEventListener('click', (e) => {
+        if (playingMagnetIdx !== detailIdx || !isFinite(audioEl.duration) || audioEl.duration <= 0) {
+          playMagnetAudio(detailIdx, selectedReciter[detailIdx], selectedTrack[detailIdx]);
+          return;
+        }
+        const rect = scrubBar.getBoundingClientRect();
+        const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+        audioEl.currentTime = pct * audioEl.duration;
+      });
+
+      /* ── Shopping Bag & Barakah Friday Discounts (30% at 3 / 50% at 6) ── */
+      function getBundleRate(qty) {
+        if (qty >= 6) return 0.50;
+        if (qty >= 3) return 0.30;
+        return 0;
+      }
+
+      function updateBagBadge() {
+        const count = bag.reduce((acc, item) => acc + item.qty, 0);
+        navBagCount.textContent = `(${count})`;
+      }
+
+      /* ── Native Shopify Cart API Bridge (Active automatically inside Shopify Theme when variantId is linked) ── */
+      function getShopifyVariantId(mIdx, rIdx) {
+        const m = MAGNETS[mIdx];
+        const rec = m && m.reciters && m.reciters[rIdx];
+        return (rec && rec.shopifyVariantId) || (m && m.shopifyVariantId) || (EXTERNAL_CFG.variantMap && EXTERNAL_CFG.variantMap[m.id]) || null;
+      }
+
+      async function shopifyCartAdd(items, goToCheckout = false) {
+        try {
+          const res = await fetch('/cart/add.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ items })
+          });
+          if (!res.ok) return false;
+          if (goToCheckout) {
+            window.location.href = '/checkout';
+          }
+          return true;
+        } catch (_) {
+          return false;
+        }
+      }
+
+      function addToBag(mIdx, rIdx) {
+        const m = MAGNETS[mIdx];
+        const rec = m.reciters[rIdx];
+        const key = `${m.id}::${rec.name}`;
+        const existing = bag.find((item) => item.key === key);
+        if (existing) existing.qty += 1;
+        else bag.push({ key, mIdx, rIdx, title: m.title, arabic: m.arabic, reciter: rec.name, img: rec.img, price: m.price, qty: 1 });
+        updateBagBadge();
+        showToast(`ADDED TO BAG · ${m.title.toUpperCase()}`);
+
+        const variantId = getShopifyVariantId(mIdx, rIdx);
+        if (window.Shopify && variantId) {
+          shopifyCartAdd([{ id: Number(variantId), quantity: 1 }], false);
+        }
+      }
+
+      addToBagBtn.addEventListener('click', () => addToBag(detailIdx, selectedReciter[detailIdx]));
+
+      buyNowBtn.addEventListener('click', async () => {
+        const m = MAGNETS[detailIdx];
+        const lfCfg = window.HAMS_LIGHTFUNNELS_CONFIG || EXTERNAL_CFG;
+        const lfUrl = (lfCfg.productUrls && lfCfg.productUrls[m.id]) || lfCfg.defaultCheckoutUrl || lfCfg.lightfunnelsCheckoutUrl;
+        if (lfUrl) {
+          const sep = lfUrl.includes('?') ? '&' : '?';
+          const targetUrl = `${lfUrl}${sep}magnet=${encodeURIComponent(m.id)}&reciter=${encodeURIComponent(m.reciters[selectedReciter[detailIdx]].name)}`;
+          showToast('OPENING CHECKOUT...');
+          try { window.top.location.href = targetUrl; } catch (_) { window.location.href = targetUrl; }
+          return;
+        }
+        const variantId = getShopifyVariantId(detailIdx, selectedReciter[detailIdx]);
+        if (window.Shopify && variantId && EXTERNAL_CFG.useShopifyCheckout !== false) {
+          showToast('OPENING SHOPIFY CHECKOUT...');
+          const ok = await shopifyCartAdd([{ id: Number(variantId), quantity: 1 }], true);
+          if (ok) return;
+        }
+        checkoutMode = 'single';
+        checkoutMagnetIdx = detailIdx;
+        checkoutBundleQty = 1;
+        closeDetail(() => openPanel('checkout'));
+      });
+
+      /* ── Helper: Build Accordion HTML ── */
+      function buildAccordionHtml(items, openFirst = false) {
+        return `<div class="acc-list">` + items.map((it, i) => `
+          <div class="acc-item ${openFirst && i === 0 ? 'open' : ''}">
+            <button type="button" class="acc-btn" aria-expanded="${openFirst && i === 0 ? 'true' : 'false'}">
+              <span>${it.q}</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="acc-body">${it.a}</div>
+          </div>
+        `).join('') + `</div>`;
+      }
+
+      function wireAccordions(root) {
+        root.querySelectorAll('.acc-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const item = btn.closest('.acc-item');
+            const isOpen = item.classList.toggle('open');
+            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          });
+        });
+      }
+
+      /* ── Custom HAMS Hardware Blueprint SVG (Zero Clipping + Real Catalog Card on Front + Official HAMS Logo on Back) ── */
+      function buildHamsBlueprintSvg(featuredIdx) {
+        const fm = MAGNETS[featuredIdx] || MAGNETS[5];
+        const fImg = fm.reciters[selectedReciter[featuredIdx] || 0].img;
+        return `
+          <svg class="blueprint-svg" viewBox="0 0 1120 440" role="img" aria-label="HAMS Built-In Hardware Features Diagram">
+            <defs>
+              <linearGradient id="chassisDark" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#282B2E"/>
+                <stop offset="50%" stop-color="#141618"/>
+                <stop offset="100%" stop-color="#202326"/>
+              </linearGradient>
+              <linearGradient id="chassisGreen" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#1D5941"/>
+                <stop offset="55%" stop-color="#143D2C"/>
+                <stop offset="100%" stop-color="#0E291E"/>
+              </linearGradient>
+              <linearGradient id="goldEdge" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#E5C16C"/>
+                <stop offset="100%" stop-color="#A68239"/>
+              </linearGradient>
+              <linearGradient id="acrylicGlare" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity=".22"/>
+                <stop offset="40%" stop-color="#ffffff" stop-opacity=".02"/>
+                <stop offset="100%" stop-color="#000000" stop-opacity=".10"/>
+              </linearGradient>
+              <clipPath id="bpFrontClip">
+                <rect x="606" y="148" width="212" height="212" rx="18"/>
+              </clipPath>
+              <filter id="softDrop" x="-15%" y="-15%" width="130%" height="130%">
+                <feDropShadow dx="0" dy="14" stdDeviation="13" flood-color="#102B20" flood-opacity=".24"/>
+              </filter>
+            </defs>
+
+            <!-- Left Profile: Controls Side -->
+            <g filter="url(#softDrop)">
+              <rect x="276" y="68" width="38" height="286" rx="10" fill="url(#chassisDark)" stroke="rgba(229,193,108,.35)" stroke-width="1"/>
+              <rect x="283" y="100" width="24" height="34" rx="4" fill="#1E2124" stroke="#B08D44" stroke-width=".9"/>
+              <path d="M291 117h8M295 113v8" stroke="#E5C16C" stroke-width="1.4" stroke-linecap="round"/>
+              <rect x="283" y="142" width="24" height="34" rx="4" fill="#1E2124" stroke="#B08D44" stroke-width=".9"/>
+              <path d="M291 159h8" stroke="#E5C16C" stroke-width="1.4" stroke-linecap="round"/>
+              <circle cx="295" cy="196" r="2.5" fill="#E5C16C"/>
+              <circle cx="295" cy="230" r="11" fill="#184D38" stroke="#E5C16C" stroke-width="1.1"/>
+              <polygon points="292,225 300,230 292,235" fill="#F4F1EB"/>
+            </g>
+
+            <!-- Right Profile: Speaker, USB-C & ON/OFF Side -->
+            <g filter="url(#softDrop)">
+              <rect x="348" y="68" width="38" height="286" rx="10" fill="url(#chassisGreen)" stroke="rgba(229,193,108,.4)" stroke-width="1"/>
+              <circle cx="367" cy="100" r="3.4" fill="#091B13"/>
+              <circle cx="367" cy="116" r="3.4" fill="#091B13"/>
+              <circle cx="367" cy="132" r="3.4" fill="#091B13"/>
+              <circle cx="367" cy="148" r="3.4" fill="#091B13"/>
+              <circle cx="367" cy="164" r="3.4" fill="#091B13"/>
+              <circle cx="367" cy="180" r="3.4" fill="#091B13"/>
+              <circle cx="367" cy="196" r="3.4" fill="#091B13"/>
+              <rect x="361" y="236" width="12" height="28" rx="6" fill="#081610" stroke="#E5C16C" stroke-width="1.2"/>
+              <rect x="365.5" y="242" width="3" height="16" rx="1.5" fill="#B08D44"/>
+              <rect x="360" y="290" width="14" height="32" rx="4" fill="#0B1E16" stroke="rgba(229,193,108,.45)" stroke-width="1"/>
+              <rect x="362" y="306" width="10" height="14" rx="2.5" fill="#E5C16C"/>
+            </g>
+
+            <!-- Back Magnetic Chassis with Official Vector HAMS Logo -->
+            <g filter="url(#softDrop)">
+              <rect x="730" y="56" width="218" height="218" rx="20" fill="url(#chassisGreen)" stroke="rgba(229,193,108,.48)" stroke-width="1.2"/>
+              <circle cx="784" cy="110" r="24" fill="none" stroke="rgba(229,193,108,.35)" stroke-width="1" stroke-dasharray="3 4"/>
+              <circle cx="784" cy="110" r="14" fill="none" stroke="rgba(229,193,108,.5)" stroke-width="1" stroke-dasharray="2 3"/>
+              <circle cx="784" cy="110" r="4" fill="#081610"/>
+              <!-- Official HAMS همس Vector Logo in Gold -->
+              <svg x="836" y="88" width="90" height="42" viewBox="0 0 668 311" style="color:#E5C16C">
+                <use href="#hams-logo-sym" />
+              </svg>
+              <!-- Strong Neodymium Magnetic Disc -->
+              <circle cx="839" cy="206" r="46" fill="#0D261C" stroke="url(#goldEdge)" stroke-width="1.5"/>
+              <circle cx="839" cy="206" r="35" fill="none" stroke="rgba(229,193,108,.25)" stroke-width="1"/>
+              <text x="839" y="210" fill="rgba(244,241,235,.76)" font-family="Inter Tight, sans-serif" font-weight="600" font-size="9" letter-spacing="2" text-anchor="middle">MAGNETIC</text>
+            </g>
+
+            <!-- Front Glossy Acrylic Tile showing REAL Catalog Magnet Artwork -->
+            <g filter="url(#softDrop)">
+              <rect x="606" y="148" width="212" height="212" rx="18" fill="#FFFFFF" stroke="#E5C16C" stroke-width="1.4"/>
+              <g clip-path="url(#bpFrontClip)">
+                <image id="bpFrontImg" href="${fImg}" x="573.7" y="116" width="276.6" height="276.6" preserveAspectRatio="xMidYMid slice"/>
+                <rect x="606" y="148" width="212" height="212" rx="18" fill="url(#acrylicGlare)"/>
+              </g>
+            </g>
+
+            <!-- Callout Lines -->
+            <g stroke="#184D38" stroke-width="1.2" fill="none">
+              <path d="M270 138H220"/>
+              <circle cx="270" cy="138" r="3" fill="#184D38"/>
+              <path d="M270 230H220"/>
+              <circle cx="270" cy="230" r="3" fill="#184D38"/>
+
+              <path d="M392 148H434"/>
+              <circle cx="392" cy="148" r="3" fill="#184D38"/>
+              <path d="M392 250H434"/>
+              <circle cx="392" cy="250" r="3" fill="#184D38"/>
+              <path d="M392 306H434"/>
+              <circle cx="392" cy="306" r="3" fill="#184D38"/>
+
+              <path d="M712 364V396"/>
+              <circle cx="712" cy="364" r="3" fill="#184D38"/>
+              <path d="M888 242H922V304H948"/>
+              <circle cx="888" cy="242" r="3" fill="#184D38"/>
+            </g>
+
+            <!-- Left Labels (Safe inner margin x>=20) -->
+            <g fill="#141414" font-family="Inter Tight, sans-serif" text-anchor="end">
+              <text x="210" y="132" font-size="13.5" font-weight="600">Volume Control (Press)</text>
+              <text x="210" y="150" font-size="12" fill="#6C6962">Track Change (Hold)</text>
+              <text x="210" y="234" font-size="13.5" font-weight="600">One-Press Playback</text>
+            </g>
+
+            <!-- Middle Labels -->
+            <g fill="#141414" font-family="Inter Tight, sans-serif" text-anchor="start">
+              <text x="444" y="144" font-size="13.5" font-weight="600">Acoustic Speaker</text>
+              <text x="444" y="161" font-size="11.5" fill="#6C6962">Clear Room-Filling Audio</text>
+              <text x="444" y="246" font-size="13.5" font-weight="600">USB Type-C Port</text>
+              <text x="444" y="263" font-size="11.5" fill="#6C6962">4–5 Hours per Charge</text>
+              <text x="444" y="310" font-size="13.5" font-weight="600">ON / OFF Switch</text>
+            </g>
+
+            <!-- Bottom & Right Labels (Safe inner margin x<=1095) -->
+            <text x="712" y="418" fill="#184D38" font-family="Inter Tight, sans-serif" font-size="12.5" font-weight="600" letter-spacing="1.4" text-anchor="middle">PLAY / PAUSE TOUCH SURFACE</text>
+            <g fill="#141414" font-family="Inter Tight, sans-serif" text-anchor="start">
+              <text x="958" y="300" font-size="13.5" font-weight="600">Magnetic Back</text>
+              <text x="958" y="317" font-size="11.5" fill="#6C6962">Fridge &amp; Metal</text>
+            </g>
+          </svg>
+        `;
+      }
+
+      /* ── Render Panels: COLLECTION / FEATURES / FAQ / BAG / CHECKOUT ── */
+      function renderPanel(kind) {
+        if (kind === 'collection') {
+          panelSubLabel.textContent = 'COMPLETE COLLECTION';
+          const cards = MAGNETS.map((m, idx) => {
+            const rec = m.reciters[selectedReciter[idx]];
+            return `
+              <button type="button" class="col-card" data-select="${idx}">
+                <div class="col-thumb">
+                  <img src="${rec.img}" alt="${m.title} Quran Speaker Magnet" loading="lazy" />
+                </div>
+                <div class="col-row">
+                  <span class="col-name">${m.title}</span>
+                  <span class="col-price">${m.price} ${CURRENCY}</span>
+                </div>
+                <div class="col-sub">
+                  <span>${rec.name}</span>
+                  <span class="ar" style="color:var(--accent);font-weight:700">${m.arabic}</span>
+                </div>
+              </button>
+            `;
+          }).join('');
+          panelBody.innerHTML = `
+            <span class="lbl" style="color:var(--muted);display:block;margin-bottom:10px">BARAKAH FRIDAY · BUY 3 GET 30% OFF · BUY 6 GET 50% OFF</span>
+            <h2 class="panel-h1" id="panelHeading">HAMS Collection (${MAGNETS.length} Editions)</h2>
+            <div class="col-grid">${cards}</div>
+          `;
+          panelBody.querySelectorAll('[data-select]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+              const idx = Number(btn.dataset.select);
+              closePanel(() => openDetail(idx));
+            });
+          });
+        } else if (kind === 'features') {
+          panelSubLabel.textContent = 'BUILT-IN HARDWARE';
+          featuresOpenCount += 1;
+          bpFeaturedIdx = activeIdx;
+
+          /* Rotate real catalog cards across the 4 home spaces every time Features opens */
+          const offset = (featuresOpenCount - 1) * 3;
+          const spaceItems = [
+            {
+              mIdx: (0 + offset) % N,
+              img: ASSETS.fridge,
+              title: 'Kitchen Refrigerator',
+              ar: 'في المطبخ والثلاجة',
+              desc: 'Press play while preparing breakfast or cooking dinner — fill the kitchen with daily Quran recitation effortlessly.'
+            },
+            {
+              mIdx: (5 + offset) % N,
+              img: ASSETS.bedroom,
+              title: 'Bedroom Nightstand',
+              ar: 'في غرفة النوم',
+              desc: 'Keep your favorite evening recitation right beside your bed for calm, screen-free listening before sleep.'
+            },
+            {
+              mIdx: (10 + offset) % N,
+              img: ASSETS.desk,
+              title: 'Magnetic Study Board',
+              ar: 'على لوح حديدي بالمكتب',
+              desc: 'Mounts firmly onto any iron surface, filing cabinet, or magnetic workspace panel for peaceful study focus.'
+            },
+            {
+              mIdx: (1 + offset) % N,
+              img: ASSETS.garden,
+              title: 'Courtyard & Garden',
+              ar: 'في الجردة والشرفة',
+              desc: 'Cordless and USB-C rechargeable for 4–5 hours per charge — bring serene recitation outdoors with your afternoon tea.'
+            }
+          ];
+
+          const bpPickerIds = [activeIdx, (activeIdx + 1) % N, (activeIdx + 3) % N, (activeIdx + 5) % N, (activeIdx + 7) % N];
+          const pickerHtml = bpPickerIds.map((idx) => {
+            const pm = MAGNETS[idx];
+            const pImg = pm.reciters[selectedReciter[idx] || 0].img;
+            return `
+              <button type="button" class="bp-chip ${idx === bpFeaturedIdx ? 'active' : ''}" data-bp-idx="${idx}">
+                <span class="bp-chip-img"><img src="${pImg}" alt="${pm.title}" loading="lazy" /></span>
+                <span>${pm.title}</span>
+              </button>
+            `;
+          }).join('');
+
+          const spacesHtml = spaceItems.map((sp) => {
+            const cm = MAGNETS[sp.mIdx];
+            const cRec = cm.reciters[selectedReciter[sp.mIdx] || 0];
+            return `
+              <button type="button" class="life-card" data-feature-open="${sp.mIdx}">
+                <div class="life-img">
+                  <img src="${sp.img}" alt="${sp.title} with HAMS ${cm.title} magnet" loading="lazy" />
+                  <span class="life-tag">${cm.title} · TAP TO LISTEN</span>
+                  <div class="life-magnet-inset">
+                    <img src="${cRec.img}" alt="${cm.title} HAMS Magnet" loading="lazy" />
+                  </div>
+                </div>
+                <div class="life-title"><span>${sp.title}</span><span class="ar" style="color:var(--accent)">${sp.ar}</span></div>
+                <p class="life-desc">${sp.desc}</p>
+              </button>
+            `;
+          }).join('');
+
+          panelBody.innerHTML = `
+            <span class="lbl" style="color:var(--muted);display:block;margin-bottom:10px">BUILT-IN FEATURES · SIMPLE BUT FUNCTIONAL</span>
+            <h2 class="panel-h1" id="panelHeading">Crafted for Daily Quran Presence</h2>
+
+            <div class="blueprint-card">
+              <div class="blueprint-head">
+                <h3 class="blueprint-title">HAMS Hardware Architecture</h3>
+                <span class="lbl" style="color:var(--muted)">NO PHONE · NO APP · NO BLUETOOTH</span>
+              </div>
+              ${buildHamsBlueprintSvg(bpFeaturedIdx)}
+              <div class="bp-picker">
+                <span class="lbl" style="color:var(--muted);margin-right:4px">PREVIEW CARD:</span>
+                ${pickerHtml}
+              </div>
+            </div>
+
+            <span class="lbl" style="color:var(--muted);display:block;margin-bottom:10px">EVERYWHERE IN YOUR HOME · في كل ركن من بيتك</span>
+            <h3 style="margin:0 0 8px;font-size:26px;font-weight:600;color:var(--accent);letter-spacing:-.02em">Designed for Any Space</h3>
+            <p style="margin:0 0 22px;font-family:var(--serif);font-size:16.5px;color:var(--muted);max-width:58ch">Snap any HAMS magnet onto your kitchen refrigerator, steel study board, bedroom nightstand, or garden table. Tap any showcase below to listen.</p>
+
+            <div class="lifestyle-grid">${spacesHtml}</div>
+          `;
+
+          panelBody.querySelectorAll('[data-bp-idx]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+              const idx = Number(btn.dataset.bpIdx);
+              bpFeaturedIdx = idx;
+              const imgEl = document.getElementById('bpFrontImg');
+              if (imgEl) imgEl.setAttribute('href', MAGNETS[idx].reciters[selectedReciter[idx] || 0].img);
+              panelBody.querySelectorAll('[data-bp-idx]').forEach((b) => b.classList.toggle('active', Number(b.dataset.bpIdx) === idx));
+            });
+          });
+
+          panelBody.querySelectorAll('[data-feature-open]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+              const idx = Number(btn.dataset.featureOpen);
+              closePanel(() => openDetail(idx));
+            });
+          });
+        } else if (kind === 'faq') {
+          panelSubLabel.textContent = 'HELP CENTER & FAQ';
+          panelBody.innerHTML = `
+            <span class="lbl" style="color:var(--muted);display:block;margin-bottom:10px">FREQUENTLY ASKED QUESTIONS · الأسئلة الشائعة</span>
+            <h2 class="panel-h1" id="panelHeading">Everything About HAMS <span class="ar" style="font-family:var(--callig);color:var(--gold)">همس</span></h2>
+
+            <div class="co-grid">
+              <div>
+                <h3 class="rtl-block" style="margin:0 0 14px;color:var(--accent);font-size:21px">أسئلة وأجوبة</h3>
+                ${buildAccordionHtml(HAMS_FAQS, true)}
+              </div>
+              <div>
+                <h3 class="rtl-block" style="margin:0 0 14px;color:var(--accent);font-size:21px">الشحن، الدفع والاسترجاع</h3>
+                ${buildAccordionHtml(HAMS_POLICIES, true)}
+                <div class="ma-pillars">
+                  <div class="ma-pillar"><strong>متوفر بالمغرب</strong><span>هذا المنتج متوفر حصرياً وبجودة عالية في جميع مدن المغرب.</span></div>
+                  <div class="ma-pillar"><strong>7 أيام ضمانة</strong><span>عند استلام المنتج يمكنك إعادته أو استبداله خلال 7 أيام.</span></div>
+                  <div class="ma-pillar"><strong>الدفع عند الاستلام</strong><span>اطلب طلبك الآن وادفع فقط عند وصول المنتج إلى باب منزلك.</span></div>
+                  <div class="ma-pillar"><strong>خدمة العملاء</strong><span>فريق همس متوفر من الاثنين إلى الجمعة للإجابة على جميع أسئلتكم.</span></div>
+                </div>
+              </div>
+            </div>
+          `;
+          wireAccordions(panelBody);
+        } else if (kind === 'bag') {
+          panelSubLabel.textContent = 'SHOPPING BAG';
+          const totalQty = bag.reduce((a, b) => a + b.qty, 0);
+          const subtotal = bag.reduce((a, b) => a + b.price * b.qty, 0);
+          const discountRate = getBundleRate(totalQty);
+          const discount = Math.round(subtotal * discountRate);
+          const finalTotal = subtotal - discount;
+
+          const tierMsg = totalQty >= 6
+            ? 'Barakah Friday Unlocked: 50% OFF on 6+ magnets + Free Shipping across Morocco.'
+            : totalQty >= 3
+              ? `Barakah Friday Unlocked: 30% OFF! Add ${6 - totalQty} more magnet(s) to unlock 50% OFF.`
+              : `Add ${Math.max(1, 3 - totalQty)} magnet(s) to unlock 30% OFF (3 magnets) or 50% OFF (6 magnets).`;
+
+          const listHtml = bag.length === 0
+            ? `<p style="font-family:var(--serif);font-size:17px;color:var(--muted);margin:0 0 20px">Your bag is currently empty. Tap any HAMS magnet on the 3D shelf to listen and add it to your order.</p>
+               <button type="button" class="lbl d-buy" id="bagBrowseBtn">EXPLORE 12 MAGNETS</button>`
+            : bag.map((item, idx) => `
+                <div class="bag-item">
+                  <div class="bag-thumb"><img src="${item.img}" alt="${item.title}" /></div>
+                  <div>
+                    <div style="font-weight:600;font-size:15.5px;margin-bottom:4px">${item.title} <span class="ar" style="color:var(--accent);font-size:14px;margin-left:6px">${item.arabic}</span></div>
+                    <div class="lbl" style="color:var(--muted);margin-bottom:8px;white-space:normal">${item.reciter}</div>
+                    <div class="qty-ctrl">
+                      <button type="button" data-dec="${idx}" aria-label="Decrease quantity">−</button>
+                      <span>${item.qty}</span>
+                      <button type="button" data-inc="${idx}" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                  <div style="text-align:right">
+                    <div style="font-weight:600;font-variant-numeric:tabular-nums">${item.price * item.qty} MAD</div>
+                    <button type="button" class="lbl" style="color:var(--muted);margin-top:10px" data-rem="${idx}">REMOVE</button>
+                  </div>
+                </div>
+              `).join('');
+
+          panelBody.innerHTML = `
+            <span class="lbl" style="color:var(--muted);display:block;margin-bottom:10px">BARAKAH FRIDAY BUNDLES · 30% OFF (3) · 50% OFF (6)</span>
+            <h2 class="panel-h1" id="panelHeading">Shopping Bag (${totalQty})</h2>
+            <div class="bag-layout">
+              <div>${listHtml}</div>
+              <div class="bag-summary">
+                <div class="tier-note">${tierMsg}</div>
+                <div class="co-row"><span class="lbl" style="color:var(--muted)">SUBTOTAL</span><span class="lbl">${subtotal} MAD</span></div>
+                ${discount > 0 ? `<div class="co-row" style="color:var(--accent)"><span class="lbl">BARAKAH FRIDAY (−${Math.round(discountRate * 100)}%)</span><span class="lbl">−${discount} MAD</span></div>` : ''}
+                <div class="co-row"><span class="lbl" style="color:var(--muted)">SHIPPING</span><span class="lbl" style="color:var(--accent)">FREE / مجاني</span></div>
+                <div class="co-row" style="border-top:1px solid rgba(20,20,20,.14);padding-top:12px"><span class="lbl">TOTAL</span><span class="co-total">${finalTotal} MAD</span></div>
+                <button type="button" class="co-submit" id="bagCheckoutBtn" ${bag.length === 0 ? 'disabled style="opacity:.45;cursor:not-allowed"' : ''}>
+                  BUY NOW · الدفع عند الاستلام
+                </button>
+              </div>
+            </div>
+          `;
+
+          const browseBtn = document.getElementById('bagBrowseBtn');
+          if (browseBtn) browseBtn.addEventListener('click', () => {
+            renderPanel('collection');
+            resetScrollTop(panel);
+          });
+
+          const coBtn = document.getElementById('bagCheckoutBtn');
+          if (coBtn && bag.length > 0) {
+            coBtn.addEventListener('click', () => {
+              checkoutMode = 'bag';
+              renderPanel('checkout');
+              resetScrollTop(panel);
+            });
+          }
+
+          panelBody.querySelectorAll('[data-inc]').forEach((b) => {
+            b.addEventListener('click', () => { bag[Number(b.dataset.inc)].qty += 1; updateBagBadge(); renderPanel('bag'); });
+          });
+          panelBody.querySelectorAll('[data-dec]').forEach((b) => {
+            b.addEventListener('click', () => {
+              const i = Number(b.dataset.dec);
+              if (bag[i].qty > 1) bag[i].qty -= 1; else bag.splice(i, 1);
+              updateBagBadge(); renderPanel('bag');
+            });
+          });
+          panelBody.querySelectorAll('[data-rem]').forEach((b) => {
+            b.addEventListener('click', () => { bag.splice(Number(b.dataset.rem), 1); updateBagBadge(); renderPanel('bag'); });
+          });
+        } else if (kind === 'checkout') {
+          panelSubLabel.textContent = 'CASH ON DELIVERY CHECKOUT';
+          renderCheckoutPanel();
+        }
+      }
+
+      /* ── Dedicated HAMS COD Checkout Page (with Policies + FAQs from hamss.ma) ── */
+      function renderCheckoutPanel() {
+        const isSingle = checkoutMode === 'single';
+        const m = MAGNETS[checkoutMagnetIdx];
+        const rec = m.reciters[selectedReciter[checkoutMagnetIdx]];
+
+        let qty, subtotal, rate, discount, total, orderItemHtml;
+
+        if (isSingle) {
+          qty = checkoutBundleQty;
+          subtotal = m.price * qty;
+          rate = getBundleRate(qty);
+          discount = Math.round(subtotal * rate);
+          total = subtotal - discount;
+
+          const p1 = m.price;
+          const p3 = Math.round(m.price * 3 * 0.70);
+          const p6 = Math.round(m.price * 6 * 0.50);
+
+          orderItemHtml = `
+            <div style="display:flex;align-items:center;gap:14px;padding-bottom:14px;border-bottom:1px solid rgba(20,20,20,.12)">
+              <div class="bag-thumb"><img src="${rec.img}" alt="${m.title}" /></div>
+              <div style="min-width:0">
+                <div style="font-weight:600;font-size:16px">${m.title} <span class="ar" style="color:var(--accent);margin-left:6px">${m.arabic}</span></div>
+                <div class="lbl" style="color:var(--muted);margin-top:4px;white-space:normal">${rec.name}</div>
+              </div>
+            </div>
+            <div>
+              <span class="lbl" style="color:var(--muted);display:block;margin-bottom:10px">BARAKAH FRIDAY BUNDLES · اختر حزم التوفير</span>
+              <div class="bundle-list">
+                <button type="button" class="bundle-opt ${qty === 1 ? 'active' : ''}" data-bqty="1">
+                  <div>
+                    <div style="font-weight:600;font-size:14.5px">1× HAMS Magnet</div>
+                    <div style="font-size:12px;color:var(--muted)">Free Shipping · الدفع عند الاستلام</div>
+                  </div>
+                  <div style="text-align:right;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums">${p1} MAD</div>
+                </button>
+                <button type="button" class="bundle-opt ${qty === 3 ? 'active' : ''}" data-bqty="3">
+                  <div>
+                    <div style="font-weight:600;font-size:14.5px">3× HAMS Magnets <span class="bundle-tag">· SAVE 30%</span></div>
+                    <div style="font-size:12px;color:var(--muted)">Barakah Friday Offer · Most Popular</div>
+                  </div>
+                  <div style="text-align:right">
+                    <div style="font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums">${p3} MAD</div>
+                    <div style="font-size:11px;text-decoration:line-through;color:var(--muted)">${m.price * 3} MAD</div>
+                  </div>
+                </button>
+                <button type="button" class="bundle-opt ${qty === 6 ? 'active' : ''}" data-bqty="6">
+                  <div>
+                    <div style="font-weight:600;font-size:14.5px">6× HAMS Magnets <span class="bundle-tag">· SAVE 50%</span></div>
+                    <div style="font-size:12px;color:var(--muted)">Family &amp; Gift Set · Best Value</div>
+                  </div>
+                  <div style="text-align:right">
+                    <div style="font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums">${p6} MAD</div>
+                    <div style="font-size:11px;text-decoration:line-through;color:var(--muted)">${m.price * 6} MAD</div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          `;
+        } else {
+          qty = bag.reduce((a, b) => a + b.qty, 0);
+          subtotal = bag.reduce((a, b) => a + b.price * b.qty, 0);
+          rate = getBundleRate(qty);
+          discount = Math.round(subtotal * rate);
+          total = subtotal - discount;
+
+          orderItemHtml = `
+            <div style="display:grid;gap:10px;padding-bottom:14px;border-bottom:1px solid rgba(20,20,20,.12)">
+              ${bag.map((it) => `
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+                  <div style="display:flex;align-items:center;gap:10px;min-width:0">
+                    <div class="bag-thumb" style="width:48px;height:48px"><img src="${it.img}" alt="${it.title}" /></div>
+                    <div style="min-width:0">
+                      <div style="font-weight:600;font-size:13.5px">${it.qty}× ${it.title}</div>
+                      <div style="font-size:11px;color:var(--muted)">${it.reciter}</div>
+                    </div>
+                  </div>
+                  <span style="font-weight:600;font-size:13px;font-variant-numeric:tabular-nums">${it.price * it.qty} MAD</span>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        }
+
+        panelBody.innerHTML = `
+          <span class="lbl" style="color:var(--muted);display:block;margin-bottom:10px">FAST ORDER · الدفع عند الاستلام · FREE SHIPPING</span>
+          <h2 class="panel-h1" id="panelHeading">Complete Your Order</h2>
+
+          <div class="co-grid">
+            <!-- Left: Order Form -->
+            <div class="co-card" id="coFormCard">
+              ${orderItemHtml}
+
+              <form class="form-grid" id="codForm">
+                <div class="rtl-block" style="font-weight:700;font-size:16px;color:var(--accent)">للطلب، يرجى إدخال معلوماتك في الأسفل:</div>
+                <div class="field">
+                  <label for="fName"><span>Full Name *</span><span class="ar">الاسم الكامل</span></label>
+                  <input id="fName" name="name" type="text" required placeholder="e.g. Youssef El Amrani" autocomplete="name" />
+                </div>
+                <div class="field">
+                  <label for="fPhone"><span>Phone Number *</span><span class="ar">رقم الهاتف</span></label>
+                  <input id="fPhone" name="phone" type="tel" required placeholder="06 XX XX XX XX" autocomplete="tel" />
+                </div>
+                <div class="field">
+                  <label for="fCity"><span>City *</span><span class="ar">المدينة</span></label>
+                  <select id="fCity" name="city" required>
+                    <option value="">Select your city / اختر المدينة</option>
+                    <option value="Casablanca">Casablanca — الدار البيضاء</option>
+                    <option value="Rabat">Rabat — الرباط</option>
+                    <option value="Marrakech">Marrakech — مراكش</option>
+                    <option value="Tangier">Tangier — طنجة</option>
+                    <option value="Fes">Fes — فاس</option>
+                    <option value="Agadir">Agadir — أكادير</option>
+                    <option value="Meknes">Meknes — مكناس</option>
+                    <option value="Oujda">Oujda — وجدة</option>
+                    <option value="Kenitra">Kenitra — القنيطرة</option>
+                    <option value="Tetouan">Tetouan — تطوان</option>
+                    <option value="Other City">Other Moroccan City — مدينة أخرى</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="fAddr"><span>Delivery Address *</span><span class="ar">العنوان الكامل</span></label>
+                  <input id="fAddr" name="address" type="text" required placeholder="Street, neighbourhood, apartment" autocomplete="street-address" />
+                </div>
+                <div class="field">
+                  <label for="fNote"><span>Order Note (Optional)</span><span class="ar">ملاحظة إضافية</span></label>
+                  <textarea id="fNote" name="note" placeholder="Preferred extra surahs for bundle, delivery time..."></textarea>
+                </div>
+
+                <div class="co-summary-box">
+                  <div class="co-row"><span class="lbl" style="color:var(--muted)">SUBTOTAL (${qty} MAGNET${qty > 1 ? 'S' : ''})</span><span class="lbl">${subtotal} MAD</span></div>
+                  ${discount > 0 ? `<div class="co-row" style="color:var(--accent)"><span class="lbl">BARAKAH FRIDAY (−${Math.round(rate * 100)}%)</span><span class="lbl">−${discount} MAD</span></div>` : ''}
+                  <div class="co-row"><span class="lbl" style="color:var(--muted)">SHIPPING · الشحن</span><span class="lbl" style="color:var(--accent)">FREE / مجاني</span></div>
+                  <div class="co-row" style="padding-top:8px;border-top:1px solid rgba(20,20,20,.12)">
+                    <span class="lbl">إجمالي المبلغ · TOTAL (COD)</span>
+                    <span class="co-total">${total} MAD</span>
+                  </div>
+                </div>
+
+                <button type="submit" class="co-submit">
+                  <span>اشتري الآن — الدفع عند الاستلام (${total} MAD)</span>
+                </button>
+              </form>
+            </div>
+
+            <!-- Right: Authentic hamss.ma Policies + FAQs -->
+            <div>
+              <div class="bf-box" style="margin-bottom:20px">
+                <strong>Barakah Friday</strong> · 30% off any 3 magnets · 50% off any 6 · Free shipping on every order
+              </div>
+
+              <h3 class="rtl-block" style="margin:0 0 12px;color:var(--accent);font-size:19px">سياسات الشحن والدفع والضمان</h3>
+              ${buildAccordionHtml(HAMS_POLICIES, true)}
+
+              <div class="ma-pillars" style="margin-bottom:28px">
+                <div class="ma-pillar"><strong>متوفر بالمغرب</strong><span>توصيل سريع خلال 1 إلى 3 أيام عمل</span></div>
+                <div class="ma-pillar"><strong>7 أيام ضمانة</strong><span>إرجاع أو استبدال سهل عند الاستلام</span></div>
+                <div class="ma-pillar"><strong>الدفع عند الاستلام</strong><span>ادفع فقط عند وصول الطلب إليك</span></div>
+                <div class="ma-pillar"><strong>خدمة العملاء</strong><span>متوفرون من الاثنين إلى الجمعة</span></div>
+              </div>
+
+              <h3 class="rtl-block" style="margin:0 0 12px;color:var(--accent);font-size:19px">الأسئلة الشائعة</h3>
+              ${buildAccordionHtml(HAMS_FAQS, false)}
+            </div>
+          </div>
+        `;
+
+        wireAccordions(panelBody);
+
+        panelBody.querySelectorAll('[data-bqty]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            checkoutBundleQty = Number(btn.dataset.bqty);
+            renderCheckoutPanel();
+          });
+        });
+
+        const form = document.getElementById('codForm');
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const fd = new FormData(form);
+          const custName = String(fd.get('name') || '').trim();
+          const custPhone = String(fd.get('phone') || '').trim();
+          const custCity = String(fd.get('city') || '').trim();
+          const custAddr = String(fd.get('address') || '').trim();
+          const orderNo = 'HAMS-' + Math.floor(1000 + Math.random() * 9000);
+
+          if (!isSingle) {
+            bag.length = 0;
+            updateBagBadge();
+          }
+
+          const card = document.getElementById('coFormCard');
+          card.innerHTML = `
+            <div class="co-confirm">
+              <span class="lbl" style="color:var(--accent)">ORDER CONFIRMED · تم تسجيل طلبك بنجاح</span>
+              <h3 style="margin:0;font-size:26px;color:var(--ink)">Order #${orderNo}</h3>
+              <p class="rtl-block" style="margin:0;font-size:15.5px;line-height:1.7;color:var(--ink)">
+                شكراً لك <strong>${custName}</strong>! تم استلام طلبك بنجاح. سيتصل بك فريق <strong>همس HAMS</strong> قريباً على الرقم <strong>${custPhone}</strong> لتأكيد الطلب، وسيتم الشحن مجاناً خلال 1 إلى 3 أيام عمل.
+              </p>
+              <div class="co-summary-box">
+                <div class="co-row"><span class="lbl" style="color:var(--muted)">CITY / ADDRESS</span><span>${custCity} · ${custAddr}</span></div>
+                <div class="co-row"><span class="lbl" style="color:var(--muted)">PAYMENT METHOD</span><span>Cash on Delivery · الدفع عند الاستلام</span></div>
+                <div class="co-row"><span class="lbl" style="color:var(--muted)">TOTAL DUE ON DELIVERY</span><span class="co-total">${total} MAD</span></div>
+              </div>
+              <button type="button" class="lbl d-buy" id="doneOrderBtn" style="margin-top:6px">RETURN TO HAMS ARCHIVE</button>
+            </div>
+          `;
+          document.getElementById('doneOrderBtn').addEventListener('click', () => closePanel());
+          resetScrollTop(panel);
+          showToast(`ORDER #${orderNo} CONFIRMED`);
+        });
+      }
+
+      function openPanel(kind) {
+        renderPanel(kind);
+        panel.style.display = 'block';
+        resetScrollTop(panel);
+        panelOpen = true;
+        syncAudioUI();
+        if (panelAnim) panelAnim.cancel();
+        panelAnim = panel.animate(
+          [{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0 0)' }],
+          { duration: reducedMotion ? 1 : 580, easing: 'cubic-bezier(.76,0,.18,1)', fill: 'both' }
+        );
+        panelClose.focus({ preventScroll: true });
+        resetScrollTop(panel);
+      }
+
+      function closePanel(afterFn = null) {
+        if (!panelOpen) {
+          if (afterFn) afterFn();
+          return;
+        }
+        if (panelAnim) panelAnim.cancel();
+        panelAnim = panel.animate(
+          [{ clipPath: 'inset(0 0 0 0)' }, { clipPath: 'inset(0 0 100% 0)' }],
+          { duration: reducedMotion ? 1 : 440, easing: 'cubic-bezier(.76,0,.18,1)', fill: 'both' }
+        );
+        panelAnim.onfinish = () => {
+          panel.scrollTop = 0;
+          panel.style.display = 'none';
+          panelOpen = false;
+          syncAudioUI();
+          if (afterFn) afterFn();
+        };
+      }
+
+      document.querySelectorAll('[data-panel]').forEach((el) => {
+        el.addEventListener('click', () => {
+          const targetPanel = el.dataset.panel;
+          if (detailOpen) closeDetail(() => openPanel(targetPanel));
+          else openPanel(targetPanel);
+        });
+      });
+
+      panelClose.addEventListener('click', () => closePanel());
+
+      brandHome.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (panelOpen) closePanel();
+        if (detailOpen) closeDetail();
+        jumpToMagnet(5);
+      });
+
+      /* ── Toast (mask slide) ── */
+      let toastTimer = null;
+      let toastAnim = null;
+      function showToast(msg) {
+        toast.textContent = msg;
+        if (toastAnim) toastAnim.cancel();
+        toastAnim = toast.animate(
+          [{ transform: 'translateY(115%)' }, { transform: 'translateY(0%)' }],
+          { duration: reducedMotion ? 1 : 380, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'both' }
+        );
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          if (toastAnim) toastAnim.cancel();
+          toastAnim = toast.animate(
+            [{ transform: 'translateY(0%)' }, { transform: 'translateY(115%)' }],
+            { duration: reducedMotion ? 1 : 320, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'both' }
+          );
+        }, 2100);
+      }
+
+      /* ── Navigation Helpers ── */
+      function jumpToMagnet(targetIdx) {
+        const curIdx = ((Math.round(T) % N) + N) % N;
+        let diff = targetIdx - curIdx;
+        if (diff > N / 2) diff -= N;
+        if (diff < -N / 2) diff += N;
+        T = Math.round(T) + diff;
+      }
+
+      prevBtn.addEventListener('click', () => { if (!detailOpen && !panelOpen) T = Math.round(T) - 1; });
+      nextBtn.addEventListener('click', () => { if (!detailOpen && !panelOpen) T = Math.round(T) + 1; });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (panelOpen) { closePanel(); return; }
+          if (detailOpen) { closeDetail(); return; }
+        }
+        if (e.key === ' ' && detailOpen) {
+          const tag = document.activeElement && document.activeElement.tagName;
+          if (!['BUTTON', 'A', 'INPUT', 'TEXTAREA', 'SELECT'].includes(tag)) {
+            e.preventDefault();
+            playMagnetAudio(detailIdx, selectedReciter[detailIdx], selectedTrack[detailIdx]);
+          }
+          return;
+        }
+        if (detailOpen || panelOpen) return;
+        if (e.key === 'ArrowLeft') { e.preventDefault(); T = Math.round(T) - 1; }
+        else if (e.key === 'ArrowRight') { e.preventDefault(); T = Math.round(T) + 1; }
+        else if (e.key === 'Enter') {
+          const tag = document.activeElement && document.activeElement.tagName;
+          if (tag !== 'BUTTON' && tag !== 'A') { e.preventDefault(); openDetail(); }
+        }
+      });
+
+      /* ── Click Caption Below Active Magnet to Open Directly ── */
+      capSection.addEventListener('click', () => {
+        if (detailOpen || panelOpen || dragging) return;
+        openDetail(activeIdx);
+      });
+
+      /* ── Bulletproof Tap-to-Open Center Card + Smooth Drag on Shelf (Mobile & Desktop) ── */
+      shelf.addEventListener('pointerdown', (e) => {
+        if (detailOpen || panelOpen) return;
+        if (e.button !== 0 && e.pointerType === 'mouse') return;
+        dragPointerId = e.pointerId;
+        dragStartX = e.clientX;
+        dragStartY = e.clientY;
+        dragIsTouch = e.pointerType === 'touch';
+        const tapeEl = e.target && e.target.closest ? e.target.closest('.tape') : null;
+        dragStartTapeV = tapeEl ? Number(tapeEl.dataset.v) : -1;
+        dragT0 = T;
+        dragMoved = false;
+        dragging = false;
+      });
+
+      window.addEventListener('pointermove', (e) => {
+        mx = e.clientX;
+        my = e.clientY;
+        pointerSeen = true;
+        if (dragPointerId !== null && e.pointerId === dragPointerId) {
+          const dx = e.clientX - dragStartX;
+          const dy = e.clientY - dragStartY;
+          const threshold = dragIsTouch ? 12 : 6;
+          if (!dragMoved && Math.abs(dx) > threshold && Math.abs(dx) >= Math.abs(dy) * 0.65) {
+            dragMoved = true;
+            dragging = true;
+            shelf.classList.add('is-dragging');
+          }
+          if (dragMoved) {
+            T = dragT0 - dx / (ws + gap);
+          }
+        }
+      });
+
+      function endDrag(e) {
+        if (dragPointerId === null || e.pointerId !== dragPointerId) return;
+        const wasMoved = dragMoved;
+        const startV = dragStartTapeV;
+        const upX = e.clientX;
+        const upY = e.clientY;
+        dragPointerId = null;
+        dragStartTapeV = -1;
+
+        if (dragging) {
+          dragging = false;
+          shelf.classList.remove('is-dragging');
+          T = Math.round(T);
+          suppressClickUntil = performance.now() + 260;
+          return;
+        }
+
+        /* Genuine single click / tap without dragging */
+        if (!wasMoved && !detailOpen && !panelOpen && performance.now() >= suppressClickUntil) {
+          const activeTape = getActiveTape();
+          const rect = activeTape.cv.getBoundingClientRect();
+          const inRect = rect.width > 40
+            ? (upX >= rect.left - 8 && upX <= rect.right + 8 && upY >= rect.top - 8 && upY <= rect.bottom + 8)
+            : (Math.abs(upX - W / 2) <= d * 0.54 && Math.abs(upY - shelfCY) <= H * 0.54);
+
+          if (inRect) {
+            suppressClickUntil = performance.now() + 340;
+            openDetail(activeIdx);
+            return;
+          }
+
+          if (startV >= 0) {
+            const rNow = rel(startV, s);
+            if (Math.abs(rNow) < 0.55) {
+              suppressClickUntil = performance.now() + 340;
+              openDetail(tapes[startV].mIdx);
+            } else {
+              suppressClickUntil = performance.now() + 340;
+              T = Math.round(T + rel(startV, T));
+            }
+          }
+        }
+      }
+      window.addEventListener('pointerup', endDrag);
+      window.addEventListener('pointercancel', endDrag);
+
+      /* ── Wheel ── */
+      window.addEventListener('wheel', (e) => {
+        if (detailOpen || panelOpen) return;
+        e.preventDefault();
+        const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+        T += (delta / (ws + gap)) * 0.42;
+        clearTimeout(wheelTimer);
+        wheelTimer = setTimeout(() => { T = Math.round(T); }, 160);
+      }, { passive: false });
+
+      /* ── Edition Ruler Click ── */
+      tlHit.addEventListener('click', (e) => {
+        if (detailOpen || panelOpen) return;
+        const rect = timeline.getBoundingClientRect();
+        const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+        jumpToMagnet(Math.round(ratio * (N - 1)));
+      });
+
+      /* ── Live Acoustic Waveform Visualizer ── */
+      function drawAudioVisualizer(now) {
+        const isCurrentDetail =
+          detailOpen &&
+          playingMagnetIdx === detailIdx &&
+          playingReciterIdx === selectedReciter[detailIdx] &&
+          playingTrackIdx === selectedTrack[detailIdx];
+
+        if (isCurrentDetail && isFinite(audioEl.duration) && audioEl.duration > 0) {
+          const pct = Math.max(0, Math.min(1, audioEl.currentTime / audioEl.duration));
+          scrubFill.style.width = (pct * 100).toFixed(2) + '%';
+          scrubThumb.style.left = (pct * 100).toFixed(2) + '%';
+          playerTc.textContent = `${formatTime(audioEl.currentTime)} / ${formatTime(audioEl.duration)}`;
+        } else if (!isCurrentDetail) {
+          scrubFill.style.width = '0%';
+          scrubThumb.style.left = '0%';
+          playerTc.textContent = '00:00 / READY';
+        }
+
+        if (isAudioPlaying && !detailOpen && !panelOpen) {
+          const bars = miniEq.children;
+          for (let i = 0; i < bars.length; i++) {
+            const h = 0.35 + 0.65 * Math.abs(Math.sin(now * 0.008 + i * 1.4));
+            bars[i].style.transform = `scaleY(${(h * 2.4).toFixed(2)})`;
+          }
+        }
+
+        if (!detailOpen || !vizCtx) return;
+
+        const cw = vizCanvas.width;
+        const ch = vizCanvas.height;
+        vizCtx.clearRect(0, 0, cw, ch);
+
+        const barCount = 48;
+        const barW = 3;
+        const step = cw / barCount;
+        const activeNow = isCurrentDetail && isAudioPlaying;
+
+        if (activeNow && analyser && freqData) {
+          analyser.getByteFrequencyData(freqData);
+        }
+
+        const pctPlayed = (isCurrentDetail && isFinite(audioEl.duration) && audioEl.duration > 0)
+          ? audioEl.currentTime / audioEl.duration
+          : 0;
+
+        for (let i = 0; i < barCount; i++) {
+          let amp = 0.14 + 0.12 * Math.abs(Math.sin(i * 0.42 + detailIdx));
+          if (activeNow) {
+            if (analyser && freqData) {
+              const bin = Math.floor((i / barCount) * (freqData.length * 0.7));
+              const raw = freqData[bin] / 255;
+              amp = Math.max(0.12, raw * 0.92 + 0.08 * Math.sin(now * 0.006 + i));
+            } else {
+              amp = 0.22 + 0.62 * Math.abs(Math.sin(now * 0.007 + i * 0.55) * Math.cos(now * 0.004 + i * 0.23));
+            }
+          }
+          const bh = Math.max(4, amp * (ch - 6));
+          const x = i * step + (step - barW) * 0.5;
+          const y = (ch - bh) * 0.5;
+          const past = i / barCount <= pctPlayed;
+          vizCtx.fillStyle = past ? '#184D38' : (activeNow ? 'rgba(24, 77, 56, 0.38)' : 'rgba(20, 20, 20, 0.18)');
+          vizCtx.fillRect(x, y, barW, bh);
+        }
+      }
+
+      /* ── Render 3D Curved Shelf ── */
+      function renderShelf(dt, now) {
+        const settled = Math.abs(T - s) < 0.3;
+        const onCover =
+          !detailOpen &&
+          !panelOpen &&
+          !dragging &&
+          settled &&
+          pointerSeen &&
+          Math.abs(mx - W / 2) <= 0.52 * d &&
+          Math.abs(my - shelfCY) <= 0.52 * H;
+
+        let targetTiltY = 0;
+        let targetTiltX = 0;
+        if (onCover) {
+          targetTiltY = ((mx - W / 2) / (0.52 * d)) * 8;
+          targetTiltX = -((my - shelfCY) / (H / 2)) * 5;
+        } else if (pointerSeen && !detailOpen && !panelOpen) {
+          targetTiltY = ((mx - W / 2) / W) * 3.5;
+          targetTiltX = 0;
+        }
+
+        const tiltLerp = reducedMotion ? 1 : 1 - Math.exp(-7 * dt);
+        tiltY += (targetTiltY - tiltY) * tiltLerp;
+        tiltX += (targetTiltX - tiltX) * tiltLerp;
+
+        const liftLerp = reducedMotion ? 1 : 1 - Math.exp(-12 * dt);
+
+        for (let i = 0; i < TOTAL; i++) {
+          const tape = tapes[i];
+          const r = rel(tape.v, s);
+          const u = F(r);
+
+          if (Math.abs(u) > U * 2.05) {
+            if (tape.el.style.display !== 'none') tape.el.style.display = 'none';
+            continue;
+          }
+          if (tape.el.style.display === 'none') tape.el.style.display = '';
+
+          const o = smoothstep(Math.max(0, 1 - Math.abs(r)));
+          const sc = scl(u);
+          const k = 1 / sc;
+
+          const wantLift =
+            hoveredV === tape.v &&
+            Math.abs(r) > 0.5 &&
+            !dragging &&
+            !detailOpen &&
+            !panelOpen
+              ? 1
+              : 0;
+          tape.lift += (wantLift - tape.lift) * liftLerp;
+
+          const z = P * (1 - k) + o * H * 0.1;
+          const x = xsc(u) * k;
+          const y = (H * 0.5 * (1 - sc) * 0.42 + o * H * 0.012 - tape.lift * H * 0.05) * k;
+          const signU = u < 0 ? -1 : u > 0 ? 1 : 0;
+          const rotY = signU * Math.min(1, Math.abs(u) / U) * 26 * (1 - o) - 90 * o + tiltY * o;
+          const rotX = tiltX * o;
+
+          tape.el.style.transform =
+            `translate3d(${x.toFixed(2)}px,${y.toFixed(2)}px,${z.toFixed(2)}px) rotateX(${rotX.toFixed(3)}deg) rotateY(${rotY.toFixed(3)}deg)`;
+          tape.el.style.zIndex = String(Math.round(3000 + z));
+
+          const showCover = o > 0.015;
+          if (tape.cv.style.visibility !== (showCover ? 'visible' : 'hidden')) {
+            tape.cv.style.visibility = showCover ? 'visible' : 'hidden';
+          }
+
+          tape.sp.style.setProperty('--shade', Math.min(0.6, o * 0.55 + (1 - sc) * 0.34).toFixed(3));
+          tape.cv.style.setProperty('--shade', ((1 - o) * 0.82).toFixed(3));
+        }
+
+        const ringScale = (detailOpen || panelOpen)
+          ? 0
+          : smoothstep(Math.max(0, 1 - Math.abs(T - s) * 3));
+        playRing.style.transform = `scale(${ringScale.toFixed(4)})`;
+        playRing.style.pointerEvents = ringScale > 0.5 ? 'auto' : 'none';
+
+        if (detailOpen) {
+          const elapsedBase = now - inkStart;
+          for (let i = 0; i < INK_CIRCLES.length; i++) {
+            const c = INK_CIRCLES[i];
+            const t = (elapsedBase - (420 + c.delay)) / 1120;
+            const p = t <= 0 ? 0 : t >= 1 ? 1 : t;
+            const easeOutCubic = 1 - Math.pow(1 - p, 3);
+            inkCircleEls[i].setAttribute('r', (easeOutCubic * 760).toFixed(1));
+          }
+        }
+      }
+
+      /* ── Single requestAnimationFrame Loop ── */
+      let lastTime = performance.now();
+
+      function tick(now) {
+        const dt = Math.min(0.05, Math.max(0.001, (now - lastTime) / 1000));
+        lastTime = now;
+
+        if (reducedMotion) {
+          s = T;
+        } else {
+          const kSpring = dragging ? 18 : 5.2;
+          s += (T - s) * (1 - Math.exp(-kSpring * dt));
+        }
+
+        if (Math.abs(s) > 4 * TOTAL) {
+          const shift = Math.trunc(s / TOTAL) * TOTAL;
+          s -= shift;
+          T -= shift;
+        }
+
+        const idx = ((Math.round(s) % N) + N) % N;
+        if (idx !== activeIdx) {
+          const dir = Math.sign(T - s) || (idx > activeIdx ? 1 : -1);
+          activeIdx = idx;
+          updateCaption(MAGNETS[idx], dir);
+        }
+
+        const f0 = Math.floor(s);
+        const frac = s - f0;
+        const i0 = ((f0 % N) + N) % N;
+        const i1 = (((f0 + 1) % N) + N) % N;
+        const targetPos = i1 < i0 ? (frac < 0.5 ? i0 : i1) : (i0 + (i1 - i0) * frac);
+
+        if (reducedMotion || Math.abs(targetPos - dotPos) > 3.5) {
+          dotPos = targetPos;
+        } else {
+          dotPos += (targetPos - dotPos) * (1 - Math.exp(-14 * dt));
+        }
+        tlDot.style.left = ((dotPos / (N - 1)) * 100).toFixed(4) + '%';
+
+        renderShelf(dt, now);
+        drawAudioVisualizer(now);
+
+        requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    })();
+  </script>
+</body>
+</html>
