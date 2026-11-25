@@ -1973,6 +1973,7 @@
     window.HAMS_LIGHTFUNNELS_CONFIG = {
       currency: 'MAD',
       defaultCheckoutUrl: 'https://growai.myecomsite.net/hams-magnets',
+      storeHomeUrl: 'https://hams-static-site.vercel.app/',
       productUrls: {},
       assets: {
         fridge: 'https://cdn.shopify.com/s/files/1/0688/0080/6965/files/surah-al-baqarah-quran-speaker-fridge-magnet-alafasy.png?v=1787244370',
@@ -2742,7 +2743,18 @@
 
       const selectedReciter = MAGNETS.map(() => 0);
       const selectedTrack = MAGNETS.map(() => 0);
+      const BAG_STORAGE_KEY = 'hams-bag-v1';
       const bag = [];
+      try {
+        const savedBag = JSON.parse(window.localStorage.getItem(BAG_STORAGE_KEY) || '[]');
+        if (Array.isArray(savedBag)) {
+          savedBag.forEach((item) => {
+            if (item && item.key && item.title && Number(item.qty) > 0) {
+              bag.push({ ...item, qty: Math.max(1, Number(item.qty)) });
+            }
+          });
+        }
+      } catch (_) {}
 
       /* Checkout state */
       let checkoutMode = 'single'; // 'single' | 'bag'
@@ -3343,6 +3355,37 @@
         navBagCount.textContent = `(${count})`;
       }
 
+      function persistBag() {
+        try { window.localStorage.setItem(BAG_STORAGE_KEY, JSON.stringify(bag)); } catch (_) {}
+      }
+
+      updateBagBadge();
+
+      function buildLightfunnelsCheckoutUrl(items, fallbackItem = null) {
+        const lfCfg = window.HAMS_LIGHTFUNNELS_CONFIG || EXTERNAL_CFG;
+        const baseUrl = lfCfg.defaultCheckoutUrl || lfCfg.lightfunnelsCheckoutUrl;
+        if (!baseUrl || !items.length) return null;
+        const params = new URLSearchParams();
+        const payload = items.map((item) => ({
+          key: item.key,
+          magnet: item.magnet || MAGNETS[item.mIdx]?.id || '',
+          reciter: item.reciter,
+          title: item.title,
+          arabic: item.arabic,
+          img: item.img,
+          price: Number(item.price) || 0,
+          qty: Math.max(1, Number(item.qty) || 1)
+        }));
+        params.set('cart', JSON.stringify(payload));
+        params.set('cart_v', '1');
+        if (fallbackItem) {
+          params.set('magnet', fallbackItem.magnet || MAGNETS[fallbackItem.mIdx]?.id || '');
+          params.set('reciter', fallbackItem.reciter || '');
+          params.set('qty', String(fallbackItem.qty || 1));
+        }
+        return `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}${params.toString()}`;
+      }
+
       /* ── Native Shopify Cart API Bridge (Active automatically inside Shopify Theme when variantId is linked) ── */
       function getShopifyVariantId(mIdx, rIdx) {
         const m = MAGNETS[mIdx];
@@ -3373,8 +3416,9 @@
         const key = `${m.id}::${rec.name}`;
         const existing = bag.find((item) => item.key === key);
         if (existing) existing.qty += 1;
-        else bag.push({ key, mIdx, rIdx, title: m.title, arabic: m.arabic, reciter: rec.name, img: rec.img, price: m.price, qty: 1 });
+        else bag.push({ key, mIdx, rIdx, magnet: m.id, title: m.title, arabic: m.arabic, reciter: rec.name, img: rec.img, price: m.price, qty: 1 });
         updateBagBadge();
+        persistBag();
         showToast(`ADDED TO BAG · ${m.title.toUpperCase()}`);
 
         const variantId = getShopifyVariantId(mIdx, rIdx);
@@ -3388,10 +3432,10 @@
       buyNowBtn.addEventListener('click', async () => {
         const m = MAGNETS[detailIdx];
         const lfCfg = window.HAMS_LIGHTFUNNELS_CONFIG || EXTERNAL_CFG;
+        const currentItem = { key: `${m.id}::${m.reciters[selectedReciter[detailIdx]].name}`, mIdx: detailIdx, magnet: m.id, title: m.title, arabic: m.arabic, reciter: m.reciters[selectedReciter[detailIdx]].name, img: m.reciters[selectedReciter[detailIdx]].img, price: m.price, qty: 1 };
         const lfUrl = (lfCfg.productUrls && lfCfg.productUrls[m.id]) || lfCfg.defaultCheckoutUrl || lfCfg.lightfunnelsCheckoutUrl;
         if (lfUrl) {
-          const sep = lfUrl.includes('?') ? '&' : '?';
-          const targetUrl = `${lfUrl}${sep}magnet=${encodeURIComponent(m.id)}&reciter=${encodeURIComponent(m.reciters[selectedReciter[detailIdx]].name)}`;
+          const targetUrl = buildLightfunnelsCheckoutUrl([currentItem], currentItem);
           showToast('OPENING CHECKOUT...');
           try { window.top.location.href = targetUrl; } catch (_) { window.location.href = targetUrl; }
           return;
@@ -3791,6 +3835,12 @@
           const coBtn = document.getElementById('bagCheckoutBtn');
           if (coBtn && bag.length > 0) {
             coBtn.addEventListener('click', () => {
+              const targetUrl = buildLightfunnelsCheckoutUrl(bag);
+              if (targetUrl) {
+                showToast('OPENING CHECKOUT...');
+                try { window.top.location.href = targetUrl; } catch (_) { window.location.href = targetUrl; }
+                return;
+              }
               checkoutMode = 'bag';
               renderPanel('checkout');
               resetScrollTop(panel);
@@ -3798,17 +3848,17 @@
           }
 
           panelBody.querySelectorAll('[data-inc]').forEach((b) => {
-            b.addEventListener('click', () => { bag[Number(b.dataset.inc)].qty += 1; updateBagBadge(); renderPanel('bag'); });
+            b.addEventListener('click', () => { bag[Number(b.dataset.inc)].qty += 1; persistBag(); updateBagBadge(); renderPanel('bag'); });
           });
           panelBody.querySelectorAll('[data-dec]').forEach((b) => {
             b.addEventListener('click', () => {
               const i = Number(b.dataset.dec);
               if (bag[i].qty > 1) bag[i].qty -= 1; else bag.splice(i, 1);
-              updateBagBadge(); renderPanel('bag');
+              persistBag(); updateBagBadge(); renderPanel('bag');
             });
           });
           panelBody.querySelectorAll('[data-rem]').forEach((b) => {
-            b.addEventListener('click', () => { bag.splice(Number(b.dataset.rem), 1); updateBagBadge(); renderPanel('bag'); });
+            b.addEventListener('click', () => { bag.splice(Number(b.dataset.rem), 1); persistBag(); updateBagBadge(); renderPanel('bag'); });
           });
         } else if (kind === 'checkout') {
           panelSubLabel.textContent = 'CASH ON DELIVERY CHECKOUT';
@@ -4005,6 +4055,7 @@
 
           if (!isSingle) {
             bag.length = 0;
+            persistBag();
             updateBagBadge();
           }
 
