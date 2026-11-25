@@ -3435,7 +3435,16 @@
         const currentItem = { key: `${m.id}::${m.reciters[selectedReciter[detailIdx]].name}`, mIdx: detailIdx, magnet: m.id, title: m.title, arabic: m.arabic, reciter: m.reciters[selectedReciter[detailIdx]].name, img: m.reciters[selectedReciter[detailIdx]].img, price: m.price, qty: 1 };
         const lfUrl = (lfCfg.productUrls && lfCfg.productUrls[m.id]) || lfCfg.defaultCheckoutUrl || lfCfg.lightfunnelsCheckoutUrl;
         if (lfUrl) {
-          const targetUrl = buildLightfunnelsCheckoutUrl([currentItem], currentItem);
+          // Buy Now keeps anything already in the bag and adds the current product.
+          // This prevents a third product from replacing the first two at checkout.
+          const checkoutItems = bag.map((item) => ({ ...item }));
+          const existing = checkoutItems.find((item) => item.key === currentItem.key);
+          if (existing) existing.qty += 1;
+          else checkoutItems.push(currentItem);
+          bag.splice(0, bag.length, ...checkoutItems);
+          persistBag();
+          updateBagBadge();
+          const targetUrl = buildLightfunnelsCheckoutUrl(checkoutItems, currentItem);
           showToast('OPENING CHECKOUT...');
           try { window.top.location.href = targetUrl; } catch (_) { window.location.href = targetUrl; }
           return;
@@ -4122,6 +4131,12 @@
           else openPanel(targetPanel);
         });
       });
+
+      // Checkout navigation links can open a specific HAMS panel on return.
+      const requestedPanel = new URLSearchParams(window.location.search).get('panel');
+      if (['collection', 'features', 'faq', 'bag'].includes(requestedPanel)) {
+        requestAnimationFrame(() => openPanel(requestedPanel));
+      }
 
       panelClose.addEventListener('click', () => closePanel());
 
