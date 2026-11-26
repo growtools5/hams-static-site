@@ -201,11 +201,13 @@
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      background-image: url("/assets/aistudio/Screenshot_2026-11-22_at_22.14.03_dcc3715c.png");
+      background-image:
+        radial-gradient(circle at 2px 2px, rgba(24, 77, 56, .075) 1.2px, transparent 1.7px),
+        linear-gradient(45deg, transparent 46%, rgba(176, 141, 68, .035) 47%, rgba(176, 141, 68, .035) 53%, transparent 54%);
       background-repeat: repeat;
-      background-size: 320px auto;
+      background-size: 22px 22px, 72px 72px;
       mix-blend-mode: multiply;
-      opacity: .72;
+      opacity: .48;
     }
 
     /* Subtle paper grain overlay */
@@ -1204,9 +1206,11 @@
       content: "";
       position: fixed;
       inset: 0;
-      background-image: url("/assets/aistudio/Screenshot_2026-11-22_at_22.14.03_dcc3715c.png");
+      background-image:
+        radial-gradient(circle at 2px 2px, rgba(24, 77, 56, .075) 1.2px, transparent 1.7px),
+        linear-gradient(45deg, transparent 46%, rgba(176, 141, 68, .035) 47%, rgba(176, 141, 68, .035) 53%, transparent 54%);
       background-repeat: repeat;
-      background-size: 320px auto;
+      background-size: 22px 22px, 72px 72px;
       mix-blend-mode: multiply;
       opacity: .55;
       pointer-events: none;
