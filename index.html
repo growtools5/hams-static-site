@@ -17,8 +17,8 @@
     // LightFunnels funnel. The funnel reads the cart payload from the URL.
     window.HAMS_LIGHTFUNNELS_CONFIG = {
       currency: 'MAD',
-      defaultCheckoutUrl: 'https://growai.myecomsite.net/hams-magnets',
-      storeHomeUrl: 'https://hams-static-site.vercel.app/',
+      defaultCheckoutUrl: 'https://checkout.hamss.ma/hams-magnets',
+      storeHomeUrl: 'https://hamss.ma/',
       productUrls: {},
       assets: {
         fridge: '/src/assets/images/hams_fridge_kitchen_1795387530777.jpg',
@@ -613,7 +613,7 @@
     .cap {
       position: absolute;
       left: 50%;
-      top: calc(var(--cy) + var(--H) / 2 + 2.2vh);
+      top: calc(var(--cy) + var(--H) / 2 + 5.8vh);
       transform: translateX(-50%);
       display: grid;
       justify-items: center;
@@ -1533,6 +1533,60 @@
       color: #fff;
     }
 
+    .detail-bundle-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid rgba(176, 141, 68, .42);
+      border-radius: 8px;
+      background: rgba(229, 193, 108, .11);
+    }
+
+    .detail-bundle-card > div {
+      display: grid;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .detail-bundle-kicker {
+      color: var(--gold);
+    }
+
+    .detail-bundle-card strong {
+      color: var(--accent-dark);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .detail-bundle-card span:not(.lbl) {
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+
+    .detail-bundle-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      min-height: 38px;
+      padding: 0 15px;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      color: var(--accent);
+      background: rgba(255, 255, 255, .72);
+      transition: background-color .25s var(--ease), color .25s var(--ease), transform .25s var(--ease);
+    }
+
+    .detail-bundle-btn:hover {
+      color: #fff;
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+
     /* Barakah Friday Offer Card + Trust Grid inside Detail */
     .bf-box {
       width: 100%;
@@ -1633,6 +1687,14 @@
       color: var(--accent);
     }
 
+    .feature-lead {
+      max-width: 64ch;
+      margin: -8px 0 30px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
     /* 1-Product-Per-Line Editorial Collection Rows */
     .col-grid {
       display: grid;
@@ -1656,6 +1718,79 @@
       transform: translateY(-2px);
       border-color: rgba(24, 77, 56, .42);
       box-shadow: 0 22px 42px -24px rgba(16, 43, 32, .26);
+    }
+
+    .bundle-panel-lead {
+      max-width: 62ch;
+      margin: -8px 0 28px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .bundle-panel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .bundle-panel-card {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+      background: rgba(255, 255, 255, .72);
+      border: 1px solid rgba(24, 77, 56, .16);
+      border-radius: 10px;
+    }
+
+    .bundle-panel-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 7px;
+      background: #fff;
+    }
+
+    .bundle-panel-card h3 {
+      margin: 4px 0 2px;
+      color: var(--accent-dark);
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .bundle-panel-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+
+    .bundle-panel-offer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 26px;
+      padding: 18px 20px;
+      border-radius: 10px;
+      background: var(--accent-dark);
+      color: var(--paper);
+    }
+
+    .bundle-panel-offer > div {
+      display: grid;
+      gap: 4px;
+    }
+
+    .bundle-panel-offer strong {
+      color: var(--gold-bright);
+      font-size: 18px;
+    }
+
+    .bundle-panel-offer span {
+      color: rgba(244, 241, 235, .82);
+      font-size: 13px;
+      line-height: 1.5;
     }
 
     .col-thumb {
@@ -2331,7 +2466,7 @@
 
       .cap {
         width: calc(100vw - 28px);
-        top: calc(var(--cy) + var(--H) / 2 + 1.8vh);
+        top: calc(var(--cy) + var(--H) / 2 + 4.8vh);
         gap: 5px;
       }
 
@@ -2441,12 +2576,17 @@
       .player-tc { width: 100%; text-align: end; margin-top: -2px; }
 
       .d-actions { grid-template-columns: 1fr; }
+      .detail-bundle-card { align-items: stretch; flex-direction: column; gap: 10px; }
+      .detail-bundle-btn { width: 100%; }
       .trust-grid { grid-template-columns: 1fr; gap: 8px; }
 
       .panel-body { padding: 18px 16px 60px; }
 
       /* 1 Product Per Line on Mobile Too — Clean Stacked Full-Width Cards */
       .col-grid { grid-template-columns: 1fr; gap: 18px; }
+      .bundle-panel-grid { grid-template-columns: 1fr; }
+      .bundle-panel-offer { align-items: stretch; flex-direction: column; }
+      .bundle-panel-offer .gift-cta-primary { width: 100%; }
       .col-card {
         grid-template-columns: 1fr;
         gap: 14px;
@@ -2608,12 +2748,12 @@
           <span class="lbl gift-kicker" data-i18n="giftKicker">علبة الإهداء الفاخرة من همس</span>
           <h2 class="gift-heading" id="giftHeading" data-i18n="giftHeading">هدية قرآنية راقية تبقى في القلوب وفي كل بيت</h2>
           <p class="gift-lead" data-i18n="giftLead">
-            يأتيك مغناطيس همس في علبة فاخرة باللون الأخضر الزمردي مزخرفة بالزليج المغربي وشعار همس البارز — جاهزة لتقديمها كهدية مميزة للوالدين، العروسين، العيد، أو بمناسبة بيت جديد.
+            يأتيك مغناطيس همس في علبة فاخرة باللون الأخضر الزمردي بلمسة مغربية بسيطة وشعار همس البارز — جاهزة لتقديمها كهدية مميزة للوالدين، العروسين، العيد، أو بمناسبة بيت جديد.
           </p>
           <div class="gift-pillars">
             <div class="gift-pillar">
               <strong data-i18n="giftP1Title">تغليف مغربي فاخر</strong>
-              <span data-i18n="giftP1Desc">علبة صلبة بزخرفة الزليج المغربي جاهزة للإهداء مباشرة دون حاجة لتغليف إضافي.</span>
+              <span data-i18n="giftP1Desc">علبة صلبة بتفاصيل مغربية هادئة، جاهزة للإهداء مباشرة دون حاجة لتغليف إضافي.</span>
             </div>
             <div class="gift-pillar">
               <strong data-i18n="giftP2Title">هدية بمناسبة وبدون مناسبة</strong>
@@ -2628,7 +2768,7 @@
             <button type="button" class="gift-cta-primary" id="giftOrderBoxBtn" data-i18n="giftCtaPrimary">
               اطلب علبة الهدايا الكاملة (3 مغناطيسات — خصم 30%)
             </button>
-            <button type="button" class="gift-cta-secondary" data-panel="collection" data-i18n="giftCtaSecondary">
+      <button type="button" class="gift-cta-secondary" data-panel="bundle" data-i18n="giftCtaSecondary">
               تصفح الإصدارات الثلاثة
             </button>
           </div>
@@ -2642,10 +2782,10 @@
       <div class="gift-gallery-strip">
         <div class="gift-shot">
           <div class="gift-shot-media">
-            <img id="giftShot1" src="/assets/hams-pkg-logo.jpg" alt="شعار همس البارز وزخرفة الزليج المغربي" loading="lazy" />
+            <img id="giftShot1" src="/assets/hams-pkg-logo.jpg" alt="شعار همس البارز وتفاصيل مغربية هادئة" loading="lazy" />
           </div>
           <div class="gift-shot-cap">
-            <strong data-i18n="giftS1Title">بصمة همس وزخرفة الزليج</strong>
+            <strong data-i18n="giftS1Title">بصمة همس بلمسة مغربية</strong>
             <span data-i18n="giftS1Desc">غطاء أخضر زمردي أنيق بطباعة فضية بارزة وتفاصيل مغربية أصيلة.</span>
           </div>
         </div>
@@ -2777,6 +2917,17 @@
           <div class="d-line d-actions">
             <button type="button" class="lbl d-buy" id="buyNowBtn" data-i18n="buyNow">اشتري الآن · الدفع عند الاستلام</button>
             <button type="button" class="lbl d-cta" id="addToBagBtn">أضف إلى السلة</button>
+          </div>
+        </div>
+
+        <div class="d-mask">
+          <div class="d-line detail-bundle-card">
+            <div>
+              <span class="lbl detail-bundle-kicker" data-i18n="bundleKicker">عرض المجموعة الكاملة</span>
+              <strong data-i18n="bundleTitle">3 مغناطيسات في علبة واحدة · خصم 30%</strong>
+              <span data-i18n="bundleDesc">البقرة + الكهف + الأذكار، بتوصيل مجاني.</span>
+            </div>
+            <button type="button" class="lbl detail-bundle-btn" id="detailBundleBtn" data-i18n="bundleCta">شاهد الباك</button>
           </div>
         </div>
 
@@ -2915,17 +3066,17 @@
           scrollCue: 'اكتشف علبة الإهداء الفاخرة',
           giftKicker: 'علبة الإهداء الفاخرة من همس',
           giftHeading: 'هدية قرآنية راقية تبقى في القلوب وفي كل بيت',
-          giftLead: 'يأتيك مغناطيس همس في علبة فاخرة باللون الأخضر الزمردي مزخرفة بالزليج المغربي وشعار همس البارز — جاهزة لتقديمها كهدية مميزة للوالدين، العروسين، العيد، أو بمناسبة بيت جديد.',
+          giftLead: 'يأتيك مغناطيس همس في علبة فاخرة باللون الأخضر الزمردي بلمسة مغربية بسيطة وشعار همس البارز — جاهزة لتقديمها كهدية مميزة للوالدين، العروسين، العيد، أو بمناسبة بيت جديد.',
           giftP1Title: 'تغليف مغربي فاخر',
-          giftP1Desc: 'علبة صلبة بزخرفة الزليج المغربي جاهزة للإهداء مباشرة دون حاجة لتغليف إضافي.',
+          giftP1Desc: 'علبة صلبة بتفاصيل مغربية هادئة، جاهزة للإهداء مباشرة دون حاجة لتغليف إضافي.',
           giftP2Title: 'هدية بمناسبة وبدون مناسبة',
           giftP2Desc: 'مثالية لبر الوالدين، الأعياد، الزفاف، رمضان، ومباركة البيت الجديد.',
           giftP3Title: 'المجموعة الكاملة بخصم 30%',
           giftP3Desc: 'سورة البقرة + سورة الكهف + أذكار الصباح والمساء في علبة واحدة وتوصيل مجاني.',
           giftCtaPrimary: 'اطلب علبة الهدايا الكاملة (3 مغناطيسات — خصم 30%)',
           giftCtaSecondary: 'تصفح الإصدارات الثلاثة',
-          giftS1Title: 'بصمة همس وزخرفة الزليج',
-          giftS1Desc: 'غطاء أخضر زمردي أنيق بطباعة فضية بارزة وتفاصيل مغربية أصيلة.',
+          giftS1Title: 'بصمة همس بلمسة مغربية',
+          giftS1Desc: 'غطاء أخضر زمردي أنيق بطباعة فضية بارزة وتفاصيل مغربية هادئة.',
           giftS2Title: 'ترتيب داخلي محكم وآمن',
           giftS2Desc: 'تحتضن العلبة الإصدارات الثلاثة بدقة لحمايتها وإبراز جماليتها عند الفتح.',
           giftS3Title: 'ثلاثة إصدارات أصلية متكاملة',
@@ -2943,6 +3094,17 @@
           buffering: 'جاري التحميل...',
           buyNow: 'اشتري الآن · الدفع عند الاستلام',
           addToBag: 'أضف إلى السلة',
+          bundleKicker: 'عرض المجموعة الكاملة',
+          bundleTitle: '3 مغناطيسات في علبة واحدة · خصم 30%',
+          bundleDesc: 'البقرة + الكهف + الأذكار، بتوصيل مجاني.',
+          bundleCta: 'شاهد الباك',
+          bundlePanelSub: 'الباك الكامل',
+          bundlePanelKicker: 'عرض همس الكامل · واضح وبسيط',
+          bundlePanelHeading: 'ثلاثة مغناطيسات، علبة هدية واحدة',
+          bundlePanelLead: 'اجمع الإصدارات الثلاثة الأصلية في علبة واحدة أنيقة، واستفد من خصم جمعة البركة والتوصيل المجاني.',
+          bundlePanelOffer: 'الباك الكامل: خصم 30%',
+          bundlePanelOfferDesc: 'سورة البقرة + سورة الكهف + أذكار الصباح والمساء',
+          bundlePanelCta: 'اطلب الباك الآن',
           addedToast: 'تمت الإضافة إلى السلة',
           reviewsText: 'تقييم',
           freeShipping: 'توصيل مجاني',
@@ -2963,12 +3125,13 @@
           featSubLabel: 'التصميم والتغليف الفاخر',
           featKicker: 'مميزات همس · تصميم عملي وهدية فاخرة',
           featHeading: 'صُمم ليملأ بيتك ببركة القرآن ويُهدى بكل فخر',
+          featuresLead: 'مغناطيس صوتي عملي يعمل بدون هاتف أو إنترنت، مع علبة هدية أنيقة ولمسة مغربية بسيطة. اختر الإصدار الذي يناسبك أو اطلب المجموعة الكاملة بخصم 30%.',
           bpTitle: 'هندسة مغناطيس همس الصوتي',
           bpSub: 'بدون هاتف · بدون تطبيق · بدون بلوتوث',
           bpPreview: 'معاينة الإصدار:',
           spacesKicker: 'التغليف الفاخر والإهداء · تصميم مغربي أصيل',
           spacesHeading: 'العلبة والمنتج على أرض الواقع',
-          spacesLead: 'كل تفصيلة في مغناطيس همس وعلبته المزخرفة بالزليج المغربي صُممت بعناية لتكون أجمل هدية قرآنية لعائلتك وأحبابك.',
+          spacesLead: 'كل تفصيلة في مغناطيس همس وعلبته الأنيقة صُممت بعناية لتكون هدية قرآنية جميلة لعائلتك وأحبابك.',
           tapToListen: 'اضغط للاستماع والطلب',
           faqSubLabel: 'مركز المساعدة والأسئلة الشائعة',
           faqKicker: 'الأسئلة الشائعة · كل ما تريد معرفته عن همس',
@@ -3027,7 +3190,7 @@
           scrollCue: 'DÉCOUVRIR LE COFFRET CADEAU',
           giftKicker: 'COFFRET CADEAU DE LUXE HAMS',
           giftHeading: 'Le cadeau spirituel idéal, prêt à offrir',
-          giftLead: 'Présenté dans un écrin vert émeraude gaufré aux motifs zellige marocains et calligraphie HAMS — un cadeau inoubliable pour vos parents, l’Aïd, un mariage ou une nouvelle maison.',
+          giftLead: 'Présenté dans un écrin vert émeraude aux détails marocains sobres et à la calligraphie HAMS — un cadeau inoubliable pour vos parents, l’Aïd, un mariage ou une nouvelle maison.',
           giftP1Title: 'Écrin Zellige Marocain',
           giftP1Desc: 'Boîte rigide finition luxe prête à offrir directement, sans emballage supplémentaire.',
           giftP2Title: 'Pour chaque occasion',
@@ -3036,7 +3199,7 @@
           giftP3Desc: 'Al-Baqarah + Al-Kahf + Adhkar réunis dans le coffret 3 magnets avec livraison offerte.',
           giftCtaPrimary: 'COMMANDER LE COFFRET CADEAU (3 MAGNETS · −30%)',
           giftCtaSecondary: 'VOIR LES 3 ÉDITIONS',
-          giftS1Title: 'Signature HAMS & Zellige',
+          giftS1Title: 'Signature HAMS, touche marocaine',
           giftS1Desc: 'Couvercle vert émeraude à marquage argenté et frise géométrique marocaine.',
           giftS2Title: 'Présentation Intérieure Soignée',
           giftS2Desc: 'Chaque magnet repose dans son compartiment moulé pour un déballage raffiné.',
@@ -3055,6 +3218,17 @@
           buffering: 'CHARGEMENT...',
           buyNow: 'COMMANDER · PAIEMENT À LA LIVRAISON',
           addToBag: 'AJOUTER AU PANIER',
+          bundleKicker: 'OFFRE COFFRET COMPLET',
+          bundleTitle: '3 magnets dans un coffret · −30%',
+          bundleDesc: 'Al-Baqarah + Al-Kahf + Adhkar, livraison offerte.',
+          bundleCta: 'VOIR LE PACK',
+          bundlePanelSub: 'COFFRET COMPLET',
+          bundlePanelKicker: 'OFFRE HAMS · SIMPLE & CLAIRE',
+          bundlePanelHeading: '3 magnets, un seul coffret cadeau',
+          bundlePanelLead: 'Réunissez les trois éditions HAMS dans un coffret élégant, avec la remise Barakah Friday et la livraison offerte.',
+          bundlePanelOffer: 'Coffret complet : −30%',
+          bundlePanelOfferDesc: 'Al-Baqarah + Al-Kahf + Adhkar du matin et du soir',
+          bundlePanelCta: 'COMMANDER LE COFFRET',
           addedToast: 'AJOUTÉ AU PANIER',
           reviewsText: 'AVIS',
           freeShipping: 'LIVRAISON GRATUITE',
@@ -3075,6 +3249,7 @@
           featSubLabel: 'DESIGN & COFFRET CADEAU',
           featKicker: 'CONCEPTION HAMS · SIMPLE & RAFFINÉ',
           featHeading: 'Pensé pour votre foyer et prêt à offrir',
+          featuresLead: 'Un magnet audio simple, autonome et prêt à offrir. Choisissez une édition ou composez le coffret complet avec −30% et livraison offerte.',
           bpTitle: 'Architecture Audio HAMS',
           bpSub: 'SANS TÉLÉPHONE · SANS APPLICATION · SANS BLUETOOTH',
           bpPreview: 'APERÇU :',
@@ -3139,7 +3314,7 @@
           scrollCue: 'DISCOVER THE LUXURY GIFT BOX',
           giftKicker: 'SIGNATURE HAMS GIFT PACKAGING',
           giftHeading: 'A Timeless Quranic Gift Made to Be Cherished',
-          giftLead: 'Arrives in our embossed emerald gift box adorned with Moroccan zellige geometry and the HAMS calligraphy emblem — ready to gift to parents, newlyweds, Eid, or a new home.',
+          giftLead: 'Arrives in our emerald gift box with refined Moroccan details and the HAMS calligraphy emblem — ready to gift to parents, newlyweds, Eid, or a new home.',
           giftP1Title: 'Moroccan Zellige Box',
           giftP1Desc: 'Rigid luxury presentation box ready to hand over immediately — no extra wrapping needed.',
           giftP2Title: 'Meaningful Gift for Any Occasion',
@@ -3148,7 +3323,7 @@
           giftP3Desc: 'Al-Baqarah + Al-Kahf + Morning & Evening Adhkar in one gift box with free delivery.',
           giftCtaPrimary: 'ORDER COMPLETE GIFT BOX (3 MAGNETS · 30% OFF)',
           giftCtaSecondary: 'EXPLORE ALL 3 EDITIONS',
-          giftS1Title: 'Embossed HAMS Emblem & Zellige',
+          giftS1Title: 'HAMS emblem, Moroccan touch',
           giftS1Desc: 'Matte emerald lid finished with crisp silver calligraphy and Moroccan geometric band.',
           giftS2Title: 'Tailored Protective Tray',
           giftS2Desc: 'Each magnet rests securely inside its precision tray for an unforgettable unboxing.',
@@ -3167,6 +3342,17 @@
           buffering: 'BUFFERING...',
           buyNow: 'BUY NOW · CASH ON DELIVERY',
           addToBag: 'ADD TO BAG',
+          bundleKicker: 'COMPLETE SET OFFER',
+          bundleTitle: '3 magnets in one gift box · 30% off',
+          bundleDesc: 'Al-Baqarah + Al-Kahf + Adhkar, free delivery.',
+          bundleCta: 'VIEW THE BUNDLE',
+          bundlePanelSub: 'COMPLETE GIFT SET',
+          bundlePanelKicker: 'HAMS OFFER · SIMPLE & CLEAR',
+          bundlePanelHeading: '3 magnets, one thoughtful gift box',
+          bundlePanelLead: 'Bring all three HAMS editions together in one refined box with Barakah Friday savings and free delivery.',
+          bundlePanelOffer: 'Complete set: 30% off',
+          bundlePanelOfferDesc: 'Al-Baqarah + Al-Kahf + Morning & Evening Adhkar',
+          bundlePanelCta: 'ORDER THE BUNDLE',
           addedToast: 'ADDED TO BAG',
           reviewsText: 'REVIEWS',
           freeShipping: 'FREE SHIPPING',
@@ -3187,6 +3373,7 @@
           featSubLabel: 'DESIGN & GIFT PACKAGING',
           featKicker: 'BUILT-IN FEATURES · LUXURY GIFT EDITION',
           featHeading: 'Crafted for Daily Quran Presence & Gifting',
+          featuresLead: 'A simple audio magnet that works offline and arrives ready to gift. Choose one edition or order the complete three-magnet set with 30% off and free delivery.',
           bpTitle: 'HAMS Hardware Architecture',
           bpSub: 'NO PHONE · NO APP · NO BLUETOOTH',
           bpPreview: 'PREVIEW CARD:',
@@ -3278,21 +3465,21 @@
       const HAMS_FAQS_BY_LANG = {
         ar: [
           { q: 'كيف يعمل مغناطيس همس HAMS؟', a: 'ثبّته على الثلاجة أو أي سطح معدني واضغط على الزر للاستماع مباشرة إلى القرآن أو الأذكار دون الحاجة لهاتف أو تطبيق.' },
-          { q: 'هل يصلح كهدية؟', a: 'بالتأكيد! يأتي في علبة فاخرة باللون الأخضر الزمردي مزخرفة بالزليج المغربي، مثالية للوالدين، العيد، الزفاف، أو البيت الجديد.' },
+          { q: 'هل يصلح كهدية؟', a: 'بالتأكيد! يأتي في علبة فاخرة باللون الأخضر الزمردي بلمسة مغربية بسيطة، مثالية للوالدين، العيد، الزفاف، أو البيت الجديد.' },
           { q: 'هل يحتاج إلى الإنترنت أو البلوتوث؟', a: 'لا، المحتوى الصوتي محفوظ داخل الجهاز ويعمل بشكل مستقل تماماً بدون إنترنت أو بلوتوث.' },
           { q: 'هل يمكن إعادة شحنه؟', a: 'نعم، مزود ببطارية قابلة للشحن عبر منفذ USB Type-C تدوم من 4 إلى 5 ساعات لكل شحنة.' },
           { q: 'ما هي الإصدارات الثلاثة المتوفرة؟', a: 'سورة البقرة (عمر القزابري برواية ورش وعبد الرحمن السديس برواية حفص)، سورة الكهف (نبيل المرنيسي برواية ورش وبندر بليلة برواية حفص)، وأذكار الصباح والمساء (الصيغة المغربية والشرقية).' }
         ],
         fr: [
           { q: 'Comment fonctionne le magnet HAMS ?', a: 'Fixez-le sur le réfrigérateur ou toute surface métallique et appuyez sur le bouton pour écouter immédiatement, sans téléphone ni application.' },
-          { q: 'Est-ce une bonne idée cadeau ?', a: 'Absolument. Présenté dans son coffret émeraude aux motifs zellige marocains, il est prêt à offrir aux parents, pour l’Aïd, un mariage ou un nouveau foyer.' },
+          { q: 'Est-ce une bonne idée cadeau ?', a: 'Absolument. Présenté dans son coffret émeraude aux détails marocains sobres, il est prêt à offrir aux parents, pour l’Aïd, un mariage ou un nouveau foyer.' },
           { q: 'Faut-il Internet ou Bluetooth ?', a: 'Non, les récitations sont pré-enregistrées à l’intérieur et fonctionnent en totale autonomie.' },
           { q: 'Est-il rechargeable ?', a: 'Oui, via câble USB Type-C pour 4 à 5 heures d’écoute continue par charge.' },
           { q: 'Quelles sont les 3 éditions disponibles ?', a: 'Sourate Al-Baqarah (Al-Kazabri Warsh & Al-Sudais Hafs), Sourate Al-Kahf (El Mernissi Warsh & Baleela Hafs) et Adhkar du matin et du soir.' }
         ],
         en: [
           { q: 'How does the HAMS magnet work?', a: 'Snap it onto your fridge or any metallic surface and press play — instant recitation with no phone or app.' },
-          { q: 'Is it suitable as a gift?', a: 'Yes! Presented in our luxury embossed emerald Moroccan zellige gift box, ready for parents, Eid, weddings, or a new home.' },
+          { q: 'Is it suitable as a gift?', a: 'Yes! Presented in our refined emerald gift box with a subtle Moroccan touch, ready for parents, Eid, weddings, or a new home.' },
           { q: 'Does it need Wi-Fi or Bluetooth?', a: 'No — all recitations are built directly inside the speaker for distraction-free offline listening.' },
           { q: 'Is it rechargeable?', a: 'Yes, USB Type-C rechargeable with 4–5 hours of listening per charge.' },
           { q: 'What are the 3 official editions?', a: 'Surah Al-Baqarah (Omar Al-Kazabri Warsh & Al-Sudais Hafs), Surah Al-Kahf (Nabil El Mernissi Warsh & Bandar Baleela Hafs), and Morning & Evening Adhkar.' }
@@ -3503,6 +3690,7 @@
       const heroStage = document.getElementById('heroStage');
       const langSwitch = document.getElementById('langSwitch');
       const giftOrderBoxBtn = document.getElementById('giftOrderBoxBtn');
+      const detailBundleBtn = document.getElementById('detailBundleBtn');
       const probe = document.getElementById('probe');
       const shelf = document.getElementById('shelf');
       const stage = document.getElementById('stage');
@@ -3582,15 +3770,12 @@
       const selectedTrack = MAGNETS.map(() => 0);
       const BAG_STORAGE_KEY = 'hams-bag-v1';
       const bag = [];
+      // The bag is intentionally session-only. A fresh visit must never inherit
+      // products from an earlier customer/session; checkout receives its own
+      // signed-in-URL cart payload instead.
       try {
-        const savedBag = JSON.parse(window.localStorage.getItem(BAG_STORAGE_KEY) || '[]');
-        if (Array.isArray(savedBag)) {
-          savedBag.forEach((item) => {
-            if (item && item.key && item.title && Number(item.qty) > 0) {
-              bag.push({ ...item, qty: Math.max(1, Number(item.qty)) });
-            }
-          });
-        }
+        window.localStorage.removeItem(BAG_STORAGE_KEY);
+        window.sessionStorage.removeItem(BAG_STORAGE_KEY);
       } catch (_) {}
 
       /* Checkout state */
@@ -4372,7 +4557,12 @@
       }
 
       function persistBag() {
-        try { window.localStorage.setItem(BAG_STORAGE_KEY, JSON.stringify(bag)); } catch (_) {}
+        // Do not persist the bag across page visits. Keeping this helper makes
+        // all quantity/remove actions explicit and backwards-compatible.
+        try {
+          window.localStorage.removeItem(BAG_STORAGE_KEY);
+          window.sessionStorage.removeItem(BAG_STORAGE_KEY);
+        } catch (_) {}
       }
 
       function buildLightfunnelsCheckoutUrl(items, fallbackItem = null) {
@@ -4398,6 +4588,25 @@
           params.set('qty', String(fallbackItem.qty || 1));
         }
         return `${baseUrl}${baseUrl.includes('?') ? '&' : '?'}${params.toString()}`;
+      }
+
+      function buildCompleteBundleItems() {
+        return MAGNETS.map((m, mIdx) => {
+          const rIdx = selectedReciter[mIdx] || 0;
+          const rec = m.reciters[rIdx];
+          return {
+            key: `${m.id}::${rec.name}`,
+            mIdx,
+            rIdx,
+            magnet: m.id,
+            title: m.title,
+            arabic: m.arabic,
+            reciter: rec.name,
+            img: rec.img,
+            price: m.price,
+            qty: 1
+          };
+        });
       }
 
       updateBagBadge();
@@ -4444,6 +4653,25 @@
       }
 
       addToBagBtn.addEventListener('click', () => addToBag(detailIdx, selectedReciter[detailIdx]));
+
+      if (detailBundleBtn) {
+        detailBundleBtn.addEventListener('click', () => {
+          const lfCfg = window.HAMS_LIGHTFUNNELS_CONFIG || EXTERNAL_CFG;
+          const lfUrl = lfCfg.defaultCheckoutUrl || lfCfg.lightfunnelsCheckoutUrl;
+          const bundleItems = buildCompleteBundleItems();
+          if (lfUrl) {
+            const targetUrl = buildLightfunnelsCheckoutUrl(bundleItems);
+            showToast(t('openingCheckout'));
+            try { window.top.location.href = targetUrl; } catch (_) { window.location.href = targetUrl; }
+            return;
+          }
+          bag.splice(0, bag.length, ...bundleItems);
+          persistBag();
+          updateBagBadge();
+          checkoutMode = 'bag';
+          closeDetail(() => openPanel('bag'));
+        });
+      }
 
       buyNowBtn.addEventListener('click', async () => {
         const m = MAGNETS[detailIdx];
@@ -4698,6 +4926,48 @@
               renderPanel('collection');
             });
           });
+        } else if (kind === 'bundle') {
+          panelSubLabel.textContent = t('bundlePanelSub');
+          const bundleCards = MAGNETS.map((m, idx) => {
+            const rec = m.reciters[selectedReciter[idx] || 0];
+            return `
+              <article class="bundle-panel-card">
+                <img src="${rec.img}" alt="${mTitle(m)}" loading="lazy" />
+                <div>
+                  <span class="lbl" style="color:var(--muted)">${t('colEditionPrefix')} ${m.num}</span>
+                  <h3>${mTitle(m)}</h3>
+                  <p>${mCat(m)}</p>
+                </div>
+              </article>
+            `;
+          }).join('');
+
+          panelBody.innerHTML = `
+            <span class="lbl" style="color:var(--gold);display:block;margin-bottom:10px">${t('bundlePanelKicker')}</span>
+            <h2 class="panel-h1" id="panelHeading">${t('bundlePanelHeading')}</h2>
+            <p class="bundle-panel-lead">${t('bundlePanelLead')}</p>
+            <div class="bundle-panel-grid">${bundleCards}</div>
+            <div class="bundle-panel-offer">
+              <div>
+                <strong>${t('bundlePanelOffer')}</strong>
+                <span>${t('bundlePanelOfferDesc')}</span>
+              </div>
+              <button type="button" class="gift-cta-primary" id="bundlePanelBuy">${t('bundlePanelCta')}</button>
+            </div>
+          `;
+
+          const bundlePanelBuy = document.getElementById('bundlePanelBuy');
+          if (bundlePanelBuy) {
+            bundlePanelBuy.addEventListener('click', () => {
+              const lfCfg = window.HAMS_LIGHTFUNNELS_CONFIG || EXTERNAL_CFG;
+              const lfUrl = lfCfg.defaultCheckoutUrl || lfCfg.lightfunnelsCheckoutUrl;
+              const targetUrl = buildLightfunnelsCheckoutUrl(buildCompleteBundleItems());
+              if (lfUrl && targetUrl) {
+                showToast(t('openingCheckout'));
+                try { window.top.location.href = targetUrl; } catch (_) { window.location.href = targetUrl; }
+              }
+            });
+          }
         } else if (kind === 'features') {
           panelSubLabel.textContent = t('featSubLabel');
           featuresOpenCount += 1;
@@ -4715,7 +4985,7 @@
               mIdx: 1,
               img: ASSETS.pkgLogo,
               title: t('giftS1Title'),
-              ar: 'شعار همس والزليج',
+              ar: 'شعار همس بلمسة مغربية',
               desc: t('giftS1Desc')
             },
             {
@@ -4770,18 +5040,7 @@
           panelBody.innerHTML = `
             <span class="lbl" style="color:var(--muted);display:block;margin-bottom:10px">${t('featKicker')}</span>
             <h2 class="panel-h1" id="panelHeading">${t('featHeading')}</h2>
-
-            <div class="blueprint-card">
-              <div class="blueprint-head">
-                <h3 class="blueprint-title">${t('bpTitle')}</h3>
-                <span class="lbl" style="color:var(--muted)">${t('bpSub')}</span>
-              </div>
-              ${buildHamsBlueprintSvg(bpFeaturedIdx)}
-              <div class="bp-picker">
-                <span class="lbl" style="color:var(--muted);margin-inline-end:4px">${t('bpPreview')}</span>
-                ${pickerHtml}
-              </div>
-            </div>
+            <p class="feature-lead">${t('featuresLead')}</p>
 
             <span class="lbl" style="color:var(--muted);display:block;margin-bottom:10px">${t('spacesKicker')}</span>
             <h3 style="margin:0 0 8px;font-size:26px;font-weight:700;color:var(--accent);letter-spacing:-.01em">${t('spacesHeading')}</h3>
@@ -5295,8 +5554,7 @@
           const lfCfg = window.HAMS_LIGHTFUNNELS_CONFIG || EXTERNAL_CFG;
           const lfUrl = (lfCfg.productUrls && lfCfg.productUrls['gift-box']) || lfCfg.defaultCheckoutUrl || lfCfg.lightfunnelsCheckoutUrl;
           if (lfUrl) {
-            const sep = lfUrl.includes('?') ? '&' : '?';
-            const targetUrl = `${lfUrl}${sep}bundle=gift-box&qty=3`;
+            const targetUrl = buildLightfunnelsCheckoutUrl(buildCompleteBundleItems());
             showToast(t('openingCheckout'));
             try { window.top.location.href = targetUrl; } catch (_) { window.location.href = targetUrl; }
             return;
