@@ -1861,21 +1861,27 @@
       flex: 0 0 auto;
       min-height: 46px;
       padding: 0 20px;
-      border: 1px solid rgba(115, 77, 10, .22);
-      border-radius: 999px;
-      background: var(--gold);
-      color: #2b210d;
-      box-shadow: 0 10px 22px -14px rgba(108, 71, 10, .62);
+      border: 1px solid rgba(24, 77, 56, .42);
+      border-radius: 5px;
+      background: rgba(255, 255, 255, .48);
+      color: var(--accent);
+      box-shadow: none;
       font-size: 12px;
       font-weight: 800;
       letter-spacing: .04em;
-      transition: transform .25s var(--ease), background-color .25s var(--ease), box-shadow .25s var(--ease);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      direction: ltr;
+      transition: transform .25s var(--ease), background-color .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease);
     }
 
     .collection-pack-cta:hover {
       transform: translateY(-1px);
-      background: var(--gold-bright);
-      box-shadow: 0 16px 26px -14px rgba(108, 71, 10, .72);
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--paper);
     }
 
     .col-thumb {
@@ -3205,7 +3211,7 @@
           collectionPackDesc: 'البقرة + الكهف + الأذكار مع التوصيل المجاني — العرض الأكثر طلباً.',
           collectionPackExpires: 'ينتهي العرض خلال',
           collectionPackRepeats: 'ويتجدد تلقائياً كل 5 أيام',
-          collectionPackCta: 'اطلب Pack 1 الآن',
+          collectionPackCta: 'اطلب الباك الآن',
           addedToast: 'تمت الإضافة إلى السلة',
           reviewsText: 'تقييم',
           freeShipping: 'توصيل مجاني',
@@ -3335,7 +3341,7 @@
           collectionPackDesc: 'Al-Baqarah + Al-Kahf + Adhkar, livraison offerte — notre offre la plus choisie.',
           collectionPackExpires: 'L’offre expire dans',
           collectionPackRepeats: 'et se renouvelle automatiquement tous les 5 jours',
-          collectionPackCta: 'COMMANDER PACK 1',
+          collectionPackCta: 'COMMANDER LE PACK',
           addedToast: 'AJOUTÉ AU PANIER',
           reviewsText: 'AVIS',
           freeShipping: 'LIVRAISON GRATUITE',
@@ -3465,7 +3471,7 @@
           collectionPackDesc: 'Al-Baqarah + Al-Kahf + Adhkar, with free delivery — our most popular offer.',
           collectionPackExpires: 'This offer expires in',
           collectionPackRepeats: 'and automatically repeats every 5 days',
-          collectionPackCta: 'ORDER PACK 1',
+          collectionPackCta: 'ORDER THE PACK',
           addedToast: 'ADDED TO BAG',
           reviewsText: 'REVIEWS',
           freeShipping: 'FREE SHIPPING',
@@ -3968,9 +3974,7 @@
           const minutes = Math.floor((totalSeconds % 3600) / 60);
           const seconds = totalSeconds % 60;
           const values = [days, hours, minutes, seconds].map((value) => String(value).padStart(2, '0'));
-          countdown.textContent = currentLang === 'ar'
-            ? `${values[0]} يوم · ${values[1]}س ${values[2]}د ${values[3]}ث`
-            : `${values[0]}d · ${values[1]}h ${values[2]}m ${values[3]}s`;
+          countdown.textContent = `${values[0]}:${values[1]}:${values[2]}:${values[3]}`;
         };
         update();
         collectionOfferTimer = setInterval(update, 1000);
@@ -5064,10 +5068,9 @@
                 <div class="collection-pack-timer">
                   <span>${t('collectionPackExpires')}</span>
                   <strong id="collectionPackCountdown" aria-live="polite"></strong>
-                  <span>${t('collectionPackRepeats')}</span>
                 </div>
               </div>
-              <button type="button" class="collection-pack-cta" id="collectionPackCta">${t('collectionPackCta')}</button>
+              <button type="button" class="collection-pack-cta" id="collectionPackCta"><span>${t('collectionPackCta')}</span><span aria-hidden="true">▶</span></button>
             </div>
             <div class="col-grid">${cards}</div>
           `;
