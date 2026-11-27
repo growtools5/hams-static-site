@@ -1542,7 +1542,7 @@
     /* Action Buttons (BUY NOW + ADD TO BAG) */
     .d-actions {
       display: grid;
-      grid-template-columns: 1.25fr 1fr;
+      grid-template-columns: 1fr;
       gap: 10px;
       width: 100%;
     }
@@ -1580,6 +1580,8 @@
       background: var(--ink);
       color: #fff;
     }
+
+    .d-cta[hidden] { display: none !important; }
 
     .detail-bundle-card {
       display: flex;
@@ -2363,11 +2365,11 @@
 
     .co-submit {
       width: 100%;
-      height: 52px;
+      min-height: 64px;
       background: var(--accent);
       color: #fff;
       font-weight: 700;
-      font-size: 13px;
+      font-size: 17px;
       letter-spacing: .12em;
       text-transform: uppercase;
       border-radius: 4px;
@@ -3068,7 +3070,8 @@
         <div class="d-mask">
           <div class="d-line d-actions">
             <button type="button" class="lbl d-buy" id="buyNowBtn" data-i18n="buyNow">اشتري الآن · الدفع عند الاستلام</button>
-            <button type="button" class="lbl d-cta" id="addToBagBtn">أضف إلى السلة</button>
+            <!-- Direct checkout is the only purchase action; the bag action is intentionally hidden. -->
+            <button type="button" class="lbl d-cta" id="addToBagBtn" aria-hidden="true" tabindex="-1" hidden>أضف إلى السلة</button>
           </div>
         </div>
 
@@ -3079,7 +3082,7 @@
               <strong data-i18n="bundleTitle">3 مغناطيسات في علبة واحدة · خصم 30%</strong>
               <span data-i18n="bundleDesc">البقرة + الكهف + الأذكار، بتوصيل مجاني.</span>
             </div>
-            <button type="button" class="lbl detail-bundle-btn" id="detailBundleBtn" data-i18n="bundleCta">شاهد الباك</button>
+            <button type="button" class="lbl detail-bundle-btn" id="detailBundleBtn" data-i18n="bundleCta">تعرف على باك همس</button>
           </div>
         </div>
 
@@ -3223,9 +3226,9 @@
           giftP1Desc: 'علبة صلبة بتفاصيل مغربية هادئة، جاهزة للإهداء مباشرة دون حاجة لتغليف إضافي.',
           giftP2Title: 'هدية بمناسبة وبدون مناسبة',
           giftP2Desc: 'مثالية لبر الوالدين، الأعياد، الزفاف، رمضان، ومباركة البيت الجديد.',
-          giftP3Title: 'المجموعة الكاملة بخصم 30%',
-          giftP3Desc: 'سورة البقرة + سورة الكهف + أذكار الصباح والمساء في علبة واحدة وتوصيل مجاني.',
-          giftCtaPrimary: 'اطلب علبة الهدايا الكاملة (3 مغناطيسات — خصم 30%)',
+          giftP3Title: 'باك همس الكامل · 499 درهم',
+          giftP3Desc: 'البقرة + الكهف + الأذكار في علبة فاخرة واحدة مع التوصيل المجاني.',
+          giftCtaPrimary: 'تعرف على باك همس · 499 درهم',
           giftCtaSecondary: 'تصفح الإصدارات الثلاثة',
           giftS1Title: 'بصمة همس بلمسة مغربية',
           giftS1Desc: 'غطاء أخضر زمردي أنيق بطباعة فضية بارزة وتفاصيل مغربية هادئة.',
@@ -3247,16 +3250,16 @@
           buyNow: 'اشتري الآن · الدفع عند الاستلام',
           addToBag: 'أضف إلى السلة',
           bundleKicker: 'عرض المجموعة الكاملة',
-          bundleTitle: '3 مغناطيسات في علبة واحدة · خصم 30%',
-          bundleDesc: 'البقرة + الكهف + الأذكار، بتوصيل مجاني.',
-          bundleCta: 'شاهد الباك',
+          bundleTitle: 'باك همس الكامل · 3 منتجات في علبة واحدة',
+          bundleDesc: 'هدية قرآنية راقية بلمسة مغربية بسيطة · 499 درهم مع التوصيل المجاني.',
+          bundleCta: 'تعرف على باك همس',
           bundlePanelSub: 'الباك الكامل',
           bundlePanelKicker: 'عرض همس الكامل · واضح وبسيط',
-          bundlePanelHeading: 'ثلاثة مغناطيسات، علبة هدية واحدة',
-          bundlePanelLead: 'اجمع الإصدارات الثلاثة الأصلية في علبة واحدة أنيقة، واستفد من خصم جمعة البركة والتوصيل المجاني.',
-          bundlePanelOffer: 'الباك الكامل: خصم 30%',
-          bundlePanelOfferDesc: 'سورة البقرة + سورة الكهف + أذكار الصباح والمساء',
-          bundlePanelCta: 'اطلب الباك الآن',
+          bundlePanelHeading: 'تعرف على باك همس · هدية قرآنية راقية',
+          bundlePanelLead: 'باك همس في علبة فاخرة باللون الأخضر بلمسة مغربية بسيطة وشعار همس بارز — هدية جميلة للوالدين والعروسين والعيد والبيت الجديد.',
+          bundlePanelOffer: 'باك همس الكامل: 499 درهم',
+          bundlePanelOfferDesc: 'البقرة + الكهف + الأذكار · ثلاثة منتجات في علبة واحدة · توصيل مجاني',
+          bundlePanelCta: 'اطلب باك همس (3 منتجات)',
           collectionPackKicker: 'ثلاثة منتجات همس · عرض ذهبي',
           collectionPackTitle: 'ثلاثة منتجات همس بخصم 30%',
           collectionPackDesc: 'البقرة + الكهف + الأذكار مع التوصيل المجاني — العرض الأكثر طلباً.',
@@ -3312,15 +3315,15 @@
           coChooseBundle: 'اختر العرض المناسب (توفير جمعة البركة)',
           coOpt1Title: '1× مغناطيس همس',
           coOpt1Sub: 'توصيل مجاني · الدفع عند الاستلام',
-          coOpt3Title: '3× علبة الهدايا الكاملة',
-          coOpt3Tag: '· خصم 30%',
+          coOpt3Title: 'باك همس الكامل (3 منتجات)',
+          coOpt3Tag: '· 499 درهم',
           coOpt3Sub: 'سورة البقرة + الكهف + الأذكار في العلبة الفاخرة (الأكثر طلباً)',
           coOpt6Title: '6× باقة العائلة والإهداء',
           coOpt6Tag: '· خصم 50%',
           coOpt6Sub: 'علبتان فاخرتان كاملتان · أفضل قيمة توفير',
           fName: 'الاسم الكامل *',
           fNamePh: 'مثال: يوسف العمراني',
-          fPhone: 'رقم الهاتف *',
+          fPhone: 'رقم الهاتف (WhatsApp) *',
           fCity: 'المدينة *',
           fCityPh: 'اختر مدينتك',
           fAddr: 'العنوان الكامل *',
@@ -3376,16 +3379,16 @@
           buyNow: 'COMMANDER · PAIEMENT À LA LIVRAISON',
           addToBag: 'AJOUTER AU PANIER',
           bundleKicker: 'OFFRE COFFRET COMPLET',
-          bundleTitle: '3 magnets dans un coffret · −30%',
-          bundleDesc: 'Al-Baqarah + Al-Kahf + Adhkar, livraison offerte.',
-          bundleCta: 'VOIR LE PACK',
+          bundleTitle: 'Coffret HAMS complet · 3 produits',
+          bundleDesc: 'Un cadeau coranique raffiné · 499 MAD, livraison offerte.',
+          bundleCta: 'DÉCOUVRIR LE PACK HAMS',
           bundlePanelSub: 'COFFRET COMPLET',
           bundlePanelKicker: 'OFFRE HAMS · SIMPLE & CLAIRE',
-          bundlePanelHeading: '3 magnets, un seul coffret cadeau',
-          bundlePanelLead: 'Réunissez les trois éditions HAMS dans un coffret élégant, avec la remise Barakah Friday et la livraison offerte.',
-          bundlePanelOffer: 'Coffret complet : −30%',
-          bundlePanelOfferDesc: 'Al-Baqarah + Al-Kahf + Adhkar du matin et du soir',
-          bundlePanelCta: 'COMMANDER LE COFFRET',
+          bundlePanelHeading: 'Découvrez le coffret HAMS · un cadeau coranique raffiné',
+          bundlePanelLead: 'Trois produits dans un coffret vert élégant, avec une touche marocaine discrète et le logo HAMS en relief. Une belle idée pour les parents, les mariés, l’Aïd ou une nouvelle maison.',
+          bundlePanelOffer: 'Coffret HAMS complet : 499 MAD',
+          bundlePanelOfferDesc: 'Al-Baqarah + Al-Kahf + Adhkar · 3 produits · livraison offerte',
+          bundlePanelCta: 'COMMANDER LE PACK (3 PRODUITS)',
           collectionPackKicker: 'TROIS PRODUITS HAMS · OFFRE DORÉE',
           collectionPackTitle: 'Trois produits HAMS à −30%',
           collectionPackDesc: 'Al-Baqarah + Al-Kahf + Adhkar, livraison offerte — notre offre la plus choisie.',
@@ -3441,15 +3444,15 @@
           coChooseBundle: 'Choisissez votre pack Barakah Friday',
           coOpt1Title: '1× Magnet HAMS',
           coOpt1Sub: 'Livraison gratuite · Paiement à la livraison',
-          coOpt3Title: '3× Coffret Cadeau Complet',
-          coOpt3Tag: '· −30%',
+          coOpt3Title: 'Coffret HAMS complet (3 produits)',
+          coOpt3Tag: '· 499 MAD',
           coOpt3Sub: 'Al-Baqarah + Al-Kahf + Adhkar dans le coffret luxe (Populaire)',
           coOpt6Title: '6× Pack Famille & Cadeaux',
           coOpt6Tag: '· −50%',
           coOpt6Sub: '2 coffrets complets · Meilleure offre',
           fName: 'Nom complet *',
           fNamePh: 'ex. Youssef El Amrani',
-          fPhone: 'Numéro de téléphone *',
+          fPhone: 'Numéro de téléphone (WhatsApp) *',
           fCity: 'Ville *',
           fCityPh: 'Sélectionnez votre ville',
           fAddr: 'Adresse de livraison *',
@@ -3594,17 +3597,19 @@
       };
 
       let currentLang = 'ar';
+      let checkoutFrenchOnly = false;
       try {
         const savedLang = localStorage.getItem('hams_lang');
         if (savedLang && I18N[savedLang]) currentLang = savedLang;
       } catch (_) {}
 
       function t(key) {
-        return (I18N[currentLang] && I18N[currentLang][key]) || I18N.ar[key] || key;
+        const lang = checkoutFrenchOnly ? 'fr' : currentLang;
+        return (I18N[lang] && I18N[lang][key]) || I18N.ar[key] || key;
       }
 
       function curLabel() {
-        return currentLang === 'ar' ? I18N.ar.currency : CURRENCY;
+        return checkoutFrenchOnly ? CURRENCY : (currentLang === 'ar' ? I18N.ar.currency : CURRENCY);
       }
 
       /* ── HAMS (همس) Official Policies & FAQs (Multilingual) ── */
@@ -3667,7 +3672,7 @@
           categories: { ar: 'السورة كاملة · رواية ورش وحفص', fr: 'Sourate complète · Warsh & Hafs', en: 'Complete Surah · Warsh & Hafs' },
           duration: '2 Reciters Built-In',
           durations: { ar: 'قارئان مدمجان', fr: '2 Récitateurs intégrés', en: '2 Reciters Built-In' },
-          price: 249,
+          price: 250,
           compare: 349,
           reviews: 412,
           synopsis: 'Features the iconic Hassan II Mosque design with the complete Surah Al-Baqarah in both Moroccan Warsh (Omar Al-Kazabri) and Hafs (Abdul Rahman Al-Sudais) — ready at a single button press.',
@@ -3719,7 +3724,7 @@
           categories: { ar: 'نور يوم الجمعة · رواية ورش وحفص', fr: 'Sunnah du Vendredi · Warsh & Hafs', en: 'Friday Sunnah · Warsh & Hafs' },
           duration: '2 Reciters Built-In',
           durations: { ar: 'قارئان مدمجان', fr: '2 Récitateurs intégrés', en: '2 Reciters Built-In' },
-          price: 249,
+          price: 250,
           compare: 349,
           reviews: 289,
           synopsis: 'Traditional Moroccan archway artwork carrying the complete Surah Al-Kahf in Moroccan Warsh (Nabil El Mernissi) and Hafs (Bandar Baleela) — built for the weekly Jumu’ah habit.',
@@ -3771,7 +3776,7 @@
           categories: { ar: 'الصيغة المغربية والشرقية', fr: 'Matin & Soir · 2 Versions', en: 'Morning & Evening · 2 Versions' },
           duration: 'Moroccan & Eastern Ways',
           durations: { ar: 'أذكار الصباح والمساء', fr: 'Voie Marocaine & Orientale', en: 'Moroccan & Eastern Ways' },
-          price: 249,
+          price: 250,
           compare: 349,
           reviews: 337,
           synopsis: 'Carries both authentic Morning Adhkar in the traditional Moroccan recitation (Nabil El Mernissi) and soothing Evening Adhkar — start and close every day with serene remembrance.',
@@ -3813,13 +3818,14 @@
         }
       ];
 
-      function mTitle(m) { return (m.titles && m.titles[currentLang]) || m.title; }
-      function mShort(m) { return (m.shortLabels && m.shortLabels[currentLang]) || m.shortLabel; }
-      function mCat(m) { return (m.categories && m.categories[currentLang]) || m.category; }
-      function mDur(m) { return (m.durations && m.durations[currentLang]) || m.duration; }
-      function mSyn(m) { return (m.synopses && m.synopses[currentLang]) || m.synopsis; }
-      function rName(r) { return (r.names && r.names[currentLang]) || r.name; }
-      function trkLabel(trk) { return (trk.labels && trk.labels[currentLang]) || trk.label; }
+      function displayLang() { return checkoutFrenchOnly ? 'fr' : currentLang; }
+      function mTitle(m) { const lang = displayLang(); return (m.titles && m.titles[lang]) || m.title; }
+      function mShort(m) { const lang = displayLang(); return (m.shortLabels && m.shortLabels[lang]) || m.shortLabel; }
+      function mCat(m) { const lang = displayLang(); return (m.categories && m.categories[lang]) || m.category; }
+      function mDur(m) { const lang = displayLang(); return (m.durations && m.durations[lang]) || m.duration; }
+      function mSyn(m) { const lang = displayLang(); return (m.synopses && m.synopses[lang]) || m.synopsis; }
+      function rName(r) { const lang = displayLang(); return (r.names && r.names[lang]) || r.name; }
+      function trkLabel(trk) { const lang = displayLang(); return (trk.labels && trk.labels[lang]) || trk.label; }
 
       MAGNETS.forEach((m) => {
         const img = new Image();
@@ -4858,20 +4864,10 @@
 
       if (detailBundleBtn) {
         detailBundleBtn.addEventListener('click', () => {
-          const lfCfg = window.HAMS_LIGHTFUNNELS_CONFIG || EXTERNAL_CFG;
-          const lfUrl = lfCfg.defaultCheckoutUrl || lfCfg.lightfunnelsCheckoutUrl;
-          const bundleItems = buildCompleteBundleItems();
-          if (lfUrl) {
-            const targetUrl = buildLightfunnelsCheckoutUrl(bundleItems);
-            showToast(t('openingCheckout'));
-            try { window.top.location.href = targetUrl; } catch (_) { window.location.href = targetUrl; }
-            return;
-          }
-          bag.splice(0, bag.length, ...bundleItems);
-          persistBag();
-          updateBagBadge();
-          checkoutMode = 'bag';
-          closeDetail(() => openPanel('bag'));
+          // Let visitors discover the dedicated bundle page before checkout.
+          // The bundle page owns the single “commander” action and the three
+          // product photos, so the detail view never skips that context.
+          closeDetail(() => openPanel('bundle'));
         });
       }
 
@@ -5064,9 +5060,11 @@
       /* ── Render Panels: COLLECTION / FEATURES / FAQ / BAG / CHECKOUT ── */
       function renderPanel(kind) {
         stopCollectionOfferTimer();
+        checkoutFrenchOnly = kind === 'checkout';
         currentPanelKind = kind;
-        const faqsList = HAMS_FAQS_BY_LANG[currentLang] || HAMS_FAQS_BY_LANG.ar;
-        const polList = HAMS_POLICIES_BY_LANG[currentLang] || HAMS_POLICIES_BY_LANG.ar;
+        const checkoutLang = checkoutFrenchOnly ? 'fr' : currentLang;
+        const faqsList = HAMS_FAQS_BY_LANG[checkoutLang] || HAMS_FAQS_BY_LANG.fr;
+        const polList = HAMS_POLICIES_BY_LANG[checkoutLang] || HAMS_POLICIES_BY_LANG.fr;
 
         if (kind === 'collection') {
           panelSubLabel.textContent = t('colSubLabel');
@@ -5459,20 +5457,21 @@
         const isSingle = checkoutMode === 'single';
         const m = MAGNETS[checkoutMagnetIdx];
         const rec = m.reciters[selectedReciter[checkoutMagnetIdx]];
-        const faqsList = HAMS_FAQS_BY_LANG[currentLang] || HAMS_FAQS_BY_LANG.ar;
-        const polList = HAMS_POLICIES_BY_LANG[currentLang] || HAMS_POLICIES_BY_LANG.ar;
+        const checkoutLang = checkoutFrenchOnly ? 'fr' : currentLang;
+        const faqsList = HAMS_FAQS_BY_LANG[checkoutLang] || HAMS_FAQS_BY_LANG.fr;
+        const polList = HAMS_POLICIES_BY_LANG[checkoutLang] || HAMS_POLICIES_BY_LANG.fr;
 
         let qty, subtotal, rate, discount, total, orderItemHtml;
 
         if (isSingle) {
           qty = checkoutBundleQty;
           subtotal = m.price * qty;
-          rate = getBundleRate(qty);
-          discount = Math.round(subtotal * rate);
-          total = subtotal - discount;
+          rate = qty >= 6 ? 0.50 : qty >= 3 ? 0.335 : 0;
+          discount = qty === 3 ? subtotal - 499 : qty >= 6 ? subtotal - (m.price * 6 * 0.50) : 0;
+          total = qty === 3 ? 499 : subtotal - discount;
 
           const p1 = m.price;
-          const p3 = Math.round(m.price * 3 * 0.70);
+          const p3 = 499;
           const p6 = Math.round(m.price * 6 * 0.50);
 
           const thumbImg = qty >= 3 ? ASSETS.giftBox : rec.img;
@@ -5523,9 +5522,10 @@
         } else {
           qty = bag.reduce((a, b) => a + b.qty, 0);
           subtotal = bag.reduce((a, b) => a + b.price * b.qty, 0);
-          rate = getBundleRate(qty);
-          discount = Math.round(subtotal * rate);
-          total = subtotal - discount;
+          const isCompletePack = bag.length === 3 && bag.every((it) => Number(it.qty) === 1);
+          rate = isCompletePack ? 0.335 : getBundleRate(qty);
+          discount = isCompletePack ? subtotal - 499 : Math.round(subtotal * rate);
+          total = isCompletePack ? 499 : subtotal - discount;
 
           orderItemHtml = `
             <div style="display:grid;gap:10px;padding-bottom:14px;border-bottom:1px solid rgba(20,20,20,.12)">
@@ -5572,28 +5572,23 @@
                   <label for="fCity"><span>${t('fCity')}</span></label>
                   <select id="fCity" name="city" required>
                     <option value="">${t('fCityPh')}</option>
-                    <option value="Casablanca">الدار البيضاء — Casablanca</option>
-                    <option value="Rabat">الرباط — Rabat</option>
-                    <option value="Marrakech">مراكش — Marrakech</option>
-                    <option value="Tangier">طنجة — Tangier</option>
-                    <option value="Fes">فاس — Fes</option>
-                    <option value="Agadir">أكادير — Agadir</option>
-                    <option value="Meknes">مكناس — Meknes</option>
-                    <option value="Oujda">وجدة — Oujda</option>
-                    <option value="Kenitra">القنيطرة — Kenitra</option>
-                    <option value="Tetouan">تطوان — Tetouan</option>
-                    <option value="Other City">مدينة أخرى — Other City</option>
+                    <option value="Casablanca">Casablanca</option>
+                    <option value="Rabat">Rabat</option>
+                    <option value="Marrakech">Marrakech</option>
+                    <option value="Tangier">Tanger</option>
+                    <option value="Fes">Fès</option>
+                    <option value="Agadir">Agadir</option>
+                    <option value="Meknes">Meknès</option>
+                    <option value="Oujda">Oujda</option>
+                    <option value="Kenitra">Kénitra</option>
+                    <option value="Tetouan">Tétouan</option>
+                    <option value="Other City">Autre ville</option>
                   </select>
                 </div>
                 <div class="field">
                   <label for="fAddr"><span>${t('fAddr')}</span></label>
                   <input id="fAddr" name="address" type="text" required placeholder="${t('fAddrPh')}" autocomplete="street-address" />
                 </div>
-                <div class="field">
-                  <label for="fNote"><span>${t('fNote')}</span></label>
-                  <textarea id="fNote" name="note" placeholder="${t('fNotePh')}"></textarea>
-                </div>
-
                 <div class="co-summary-box">
                   <div class="co-row"><span class="lbl" style="color:var(--muted)">${t('bagSubtotal')} (${qty})</span><span class="lbl">${subtotal} ${curLabel()}</span></div>
                   ${discount > 0 ? `<div class="co-row" style="color:var(--accent)"><span class="lbl">−${Math.round(rate * 100)}%</span><span class="lbl">−${discount} ${curLabel()}</span></div>` : ''}
@@ -5794,18 +5789,7 @@
 
       if (giftOrderBoxBtn) {
         giftOrderBoxBtn.addEventListener('click', () => {
-          const lfCfg = window.HAMS_LIGHTFUNNELS_CONFIG || EXTERNAL_CFG;
-          const lfUrl = (lfCfg.productUrls && lfCfg.productUrls['gift-box']) || lfCfg.defaultCheckoutUrl || lfCfg.lightfunnelsCheckoutUrl;
-          if (lfUrl) {
-            const targetUrl = buildLightfunnelsCheckoutUrl(buildCompleteBundleItems());
-            showToast(t('openingCheckout'));
-            try { window.top.location.href = targetUrl; } catch (_) { window.location.href = targetUrl; }
-            return;
-          }
-          checkoutMode = 'single';
-          checkoutMagnetIdx = 0;
-          checkoutBundleQty = 3;
-          openPanel('checkout');
+          openPanel('bundle');
         });
       }
 
