@@ -5333,9 +5333,10 @@
           panelSubLabel.textContent = t('bagSubLabel');
           const totalQty = bag.reduce((a, b) => a + b.qty, 0);
           const subtotal = bag.reduce((a, b) => a + b.price * b.qty, 0);
-          const discountRate = getBundleRate(totalQty);
-          const discount = Math.round(subtotal * discountRate);
-          const finalTotal = subtotal - discount;
+          const isCompletePack = bag.length === 3 && bag.every((item) => Number(item.qty) === 1);
+          const discountRate = isCompletePack ? 0.3346666667 : getBundleRate(totalQty);
+          const discount = isCompletePack ? subtotal - 499 : Math.round(subtotal * discountRate);
+          const finalTotal = isCompletePack ? 499 : subtotal - discount;
 
           const tierMsg = currentLang === 'ar'
             ? (totalQty >= 6
