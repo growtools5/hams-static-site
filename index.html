@@ -412,6 +412,50 @@
     .burger:hover span:first-child { transform: translateY(-1px); }
     .burger:hover span:last-child { transform: translateY(1px); }
 
+    .mobile-nav-menu {
+      display: none;
+      position: fixed;
+      top: calc(var(--promo-h) + 58px);
+      right: 14px;
+      z-index: 85;
+      width: min(280px, calc(100vw - 28px));
+      padding: 10px;
+      border: 1px solid rgba(24, 77, 56, .18);
+      border-radius: 14px;
+      background: rgba(244, 241, 235, .98);
+      box-shadow: 0 18px 45px rgba(20, 20, 20, .16);
+      backdrop-filter: blur(12px);
+    }
+
+    .mobile-nav-menu.open {
+      display: grid;
+      gap: 4px;
+      animation: mobileMenuIn .2s ease both;
+    }
+
+    .mobile-nav-menu button {
+      width: 100%;
+      padding: 12px 14px;
+      border: 0;
+      border-radius: 9px;
+      background: transparent;
+      color: var(--accent);
+      text-align: start;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .mobile-nav-menu button:hover,
+    .mobile-nav-menu button:focus-visible {
+      background: rgba(24, 77, 56, .09);
+      outline: none;
+    }
+
+    @keyframes mobileMenuIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* Halftone Dotted Backdrop: Left = القرآن, Right = Official HAMS همس Vector Logo */
     .ht-bg {
       position: absolute;
@@ -2772,12 +2816,19 @@
         <button type="button" class="lang-btn" data-lang="fr">FR</button>
         <button type="button" class="lang-btn" data-lang="en">EN</button>
       </div>
-      <button type="button" class="burger" id="burgerBtn" aria-label="القائمة" data-panel="collection">
+      <button type="button" class="burger" id="burgerBtn" aria-label="القائمة" aria-expanded="false" aria-controls="mobileNavMenu">
         <span></span>
         <span></span>
       </button>
     </nav>
   </header>
+
+  <div class="mobile-nav-menu" id="mobileNavMenu" aria-label="التنقل في الموقع">
+    <button type="button" class="lbl" data-panel="collection" data-i18n="navCollection">المجموعة</button>
+    <button type="button" class="lbl" data-panel="features" data-i18n="navFeatures">المميزات</button>
+    <button type="button" class="lbl" data-panel="faq" data-i18n="navFaq">الأسئلة الشائعة</button>
+    <button type="button" class="lbl" data-panel="bag"><span data-i18n="navBag">السلة</span> <span class="bag-count" id="mobileNavBagCount">(0)</span></button>
+  </div>
 
   <!-- ═══ FULL-VIEWPORT 3D HERO STAGE ═══ -->
   <section class="hero-stage" id="heroStage">
@@ -3206,11 +3257,10 @@
           bundlePanelOffer: 'الباك الكامل: خصم 30%',
           bundlePanelOfferDesc: 'سورة البقرة + سورة الكهف + أذكار الصباح والمساء',
           bundlePanelCta: 'اطلب الباك الآن',
-          collectionPackKicker: 'الباك الأول · عرض ذهبي',
-          collectionPackTitle: 'الباك الأول: 3 مغناطيسات بخصم 30%',
+          collectionPackKicker: 'ثلاثة منتجات همس · عرض ذهبي',
+          collectionPackTitle: 'ثلاثة منتجات همس بخصم 30%',
           collectionPackDesc: 'البقرة + الكهف + الأذكار مع التوصيل المجاني — العرض الأكثر طلباً.',
           collectionPackExpires: 'ينتهي العرض خلال',
-          collectionPackRepeats: 'ويتجدد تلقائياً كل 5 أيام',
           collectionPackCta: 'اطلب الباك الآن',
           addedToast: 'تمت الإضافة إلى السلة',
           reviewsText: 'تقييم',
@@ -3336,11 +3386,10 @@
           bundlePanelOffer: 'Coffret complet : −30%',
           bundlePanelOfferDesc: 'Al-Baqarah + Al-Kahf + Adhkar du matin et du soir',
           bundlePanelCta: 'COMMANDER LE COFFRET',
-          collectionPackKicker: 'PACK 1 · OFFRE DORÉE',
-          collectionPackTitle: 'Pack 1 : 3 magnets à −30%',
+          collectionPackKicker: 'TROIS PRODUITS HAMS · OFFRE DORÉE',
+          collectionPackTitle: 'Trois produits HAMS à −30%',
           collectionPackDesc: 'Al-Baqarah + Al-Kahf + Adhkar, livraison offerte — notre offre la plus choisie.',
           collectionPackExpires: 'L’offre expire dans',
-          collectionPackRepeats: 'et se renouvelle automatiquement tous les 5 jours',
           collectionPackCta: 'COMMANDER LE PACK',
           addedToast: 'AJOUTÉ AU PANIER',
           reviewsText: 'AVIS',
@@ -3466,11 +3515,10 @@
           bundlePanelOffer: 'Complete set: 30% off',
           bundlePanelOfferDesc: 'Al-Baqarah + Al-Kahf + Morning & Evening Adhkar',
           bundlePanelCta: 'ORDER THE BUNDLE',
-          collectionPackKicker: 'PACK 1 · GOLD OFFER',
-          collectionPackTitle: 'Pack 1: 3 magnets with 30% off',
+          collectionPackKicker: 'THREE HAMS PRODUCTS · GOLD OFFER',
+          collectionPackTitle: 'Three HAMS products with 30% off',
           collectionPackDesc: 'Al-Baqarah + Al-Kahf + Adhkar, with free delivery — our most popular offer.',
           collectionPackExpires: 'This offer expires in',
-          collectionPackRepeats: 'and automatically repeats every 5 days',
           collectionPackCta: 'ORDER THE PACK',
           addedToast: 'ADDED TO BAG',
           reviewsText: 'REVIEWS',
@@ -3831,6 +3879,9 @@
       const tlHit = document.getElementById('tlHit');
       const brandHome = document.getElementById('brandHome');
       const navBagCount = document.getElementById('navBagCount');
+      const mobileNavBagCount = document.getElementById('mobileNavBagCount');
+      const burgerBtn = document.getElementById('burgerBtn');
+      const mobileNavMenu = document.getElementById('mobileNavMenu');
 
       const detail = document.getElementById('detail');
       const detailClose = document.getElementById('detailClose');
@@ -4704,6 +4755,7 @@
       function updateBagBadge() {
         const count = bag.reduce((acc, item) => acc + item.qty, 0);
         navBagCount.textContent = `(${count})`;
+        if (mobileNavBagCount) mobileNavBagCount.textContent = `(${count})`;
       }
 
       function persistBag() {
@@ -5325,7 +5377,7 @@
                     </div>
                     <div style="text-align:end">
                       <div style="font-weight:700;font-variant-numeric:tabular-nums">${item.price * item.qty} ${curLabel()}</div>
-                      <button type="button" class="lbl" style="color:var(--muted);margin-top:10px" data-rem="${idx}">${t('bagRemove')}</button>
+                      ${(totalQty > 1 || bag.length > 1) ? `<button type="button" class="lbl" style="color:var(--muted);margin-top:10px" data-rem="${idx}">${t('bagRemove')}</button>` : ''}
                     </div>
                   </div>
                 `;
@@ -5622,6 +5674,8 @@
       }
 
       function openPanel(kind) {
+        if (mobileNavMenu) mobileNavMenu.classList.remove('open');
+        if (burgerBtn) burgerBtn.setAttribute('aria-expanded', 'false');
         renderPanel(kind);
         panel.style.display = 'block';
         resetScrollTop(panel);
@@ -5656,8 +5710,20 @@
         };
       }
 
+      function toggleMobileNav() {
+        if (!mobileNavMenu || !burgerBtn) return;
+        const open = mobileNavMenu.classList.toggle('open');
+        burgerBtn.setAttribute('aria-expanded', String(open));
+      }
+
+      if (burgerBtn) {
+        burgerBtn.addEventListener('click', toggleMobileNav);
+      }
+
       document.querySelectorAll('[data-panel]').forEach((el) => {
         el.addEventListener('click', () => {
+          if (mobileNavMenu) mobileNavMenu.classList.remove('open');
+          if (burgerBtn) burgerBtn.setAttribute('aria-expanded', 'false');
           const targetPanel = el.dataset.panel;
           if (detailOpen) closeDetail(() => openPanel(targetPanel));
           else openPanel(targetPanel);
@@ -5668,6 +5734,8 @@
 
       brandHome.addEventListener('click', (e) => {
         e.preventDefault();
+        if (mobileNavMenu) mobileNavMenu.classList.remove('open');
+        if (burgerBtn) burgerBtn.setAttribute('aria-expanded', 'false');
         if (panelOpen) closePanel();
         if (detailOpen) closeDetail();
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -5775,6 +5843,11 @@
 
       window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
+          if (mobileNavMenu && mobileNavMenu.classList.contains('open')) {
+            mobileNavMenu.classList.remove('open');
+            if (burgerBtn) burgerBtn.setAttribute('aria-expanded', 'false');
+            return;
+          }
           if (panelOpen) { closePanel(); return; }
           if (detailOpen) { closeDetail(); return; }
         }
